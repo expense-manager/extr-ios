@@ -7,15 +7,31 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var realm: Realm!
+    
+    let realmConfig = Realm.Configuration(
+        // Set the new Schema version. This must be greater than the previously used version.
+        schemaVersion: 0,
+        migrationBlock: { migration, oldSchemaVersion in
+            migration.deleteData(forType: RExpense.className())
+        }
+    )
+    
+    static func getInstance() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        Realm.Configuration.defaultConfiguration = realmConfig
+        self.realm = try! Realm()
+        
         return true
     }
 
@@ -40,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 

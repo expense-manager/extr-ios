@@ -8,12 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9248C51DD7A6AD004BBA99 /* AppDelegate.swift */; };
-		3A9248C81DD7A6AD004BBA99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9248C71DD7A6AD004BBA99 /* ViewController.swift */; };
+		3A9248C81DD7A6AD004BBA99 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9248C71DD7A6AD004BBA99 /* ExpenseViewController.swift */; };
 		3A9248CB1DD7A6AD004BBA99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9248C91DD7A6AD004BBA99 /* Main.storyboard */; };
 		3A9248CD1DD7A6AD004BBA99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9248CC1DD7A6AD004BBA99 /* Assets.xcassets */; };
 		3A9248D01DD7A6AD004BBA99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9248CE1DD7A6AD004BBA99 /* LaunchScreen.storyboard */; };
 		3A9248DB1DD7A6AD004BBA99 /* ExtrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9248DA1DD7A6AD004BBA99 /* ExtrTests.swift */; };
 		3A9248E61DD7A6AD004BBA99 /* ExtrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9248E51DD7A6AD004BBA99 /* ExtrUITests.swift */; };
+		3A9248F91DD7AA89004BBA99 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9248F31DD7AA7B004BBA99 /* Alamofire.framework */; };
+		3A9248FA1DD7AA89004BBA99 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9248F31DD7AA7B004BBA99 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A9248FB1DD7AA89004BBA99 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9248F41DD7AA7B004BBA99 /* Realm.framework */; };
+		3A9248FC1DD7AA89004BBA99 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9248F41DD7AA7B004BBA99 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A9248FD1DD7AA89004BBA99 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9248F51DD7AA7B004BBA99 /* RealmSwift.framework */; };
+		3A9248FE1DD7AA89004BBA99 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9248F51DD7AA7B004BBA99 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A9249031DD7AAF8004BBA99 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9249021DD7AAF8004BBA99 /* Secrets.swift */; };
+		3A9249051DD7AB1A004BBA99 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9249041DD7AB1A004BBA99 /* Endpoint.swift */; };
+		3A9249071DD7AB3F004BBA99 /* EndpointBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9249061DD7AB3F004BBA99 /* EndpointBuilder.swift */; };
+		3A9249091DD7AB5A004BBA99 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9249081DD7AB5A004BBA99 /* NetworkRequest.swift */; };
+		3A92490B1DD7AB73004BBA99 /* SyncExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92490A1DD7AB73004BBA99 /* SyncExpense.swift */; };
+		3A92490D1DD7ABB3004BBA99 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92490C1DD7ABB3004BBA99 /* AppError.swift */; };
+		3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9249101DD7AC00004BBA99 /* RExpense.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +46,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3A9248FF1DD7AA8A004BBA99 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3A9248FC1DD7AA89004BBA99 /* Realm.framework in Embed Frameworks */,
+				3A9248FA1DD7AA89004BBA99 /* Alamofire.framework in Embed Frameworks */,
+				3A9248FE1DD7AA89004BBA99 /* RealmSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3A9248C21DD7A6AD004BBA99 /* Extr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9248C51DD7A6AD004BBA99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A9248C71DD7A6AD004BBA99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3A9248C71DD7A6AD004BBA99 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		3A9248CA1DD7A6AD004BBA99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A9248CC1DD7A6AD004BBA99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A9248CF1DD7A6AD004BBA99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +76,16 @@
 		3A9248E11DD7A6AD004BBA99 /* ExtrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExtrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9248E51DD7A6AD004BBA99 /* ExtrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrUITests.swift; sourceTree = "<group>"; };
 		3A9248E71DD7A6AD004BBA99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A9248F31DD7AA7B004BBA99 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		3A9248F41DD7AA7B004BBA99 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		3A9248F51DD7AA7B004BBA99 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		3A9249021DD7AAF8004BBA99 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3A9249041DD7AB1A004BBA99 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		3A9249061DD7AB3F004BBA99 /* EndpointBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointBuilder.swift; sourceTree = "<group>"; };
+		3A9249081DD7AB5A004BBA99 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		3A92490A1DD7AB73004BBA99 /* SyncExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncExpense.swift; sourceTree = "<group>"; };
+		3A92490C1DD7ABB3004BBA99 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		3A9249101DD7AC00004BBA99 /* RExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RExpense.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A9248FB1DD7AA89004BBA99 /* Realm.framework in Frameworks */,
+				3A9248F91DD7AA89004BBA99 /* Alamofire.framework in Frameworks */,
+				3A9248FD1DD7AA89004BBA99 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				3A9248C41DD7A6AD004BBA99 /* Extr */,
+				3A92490F1DD7ABE0004BBA99 /* Support Files */,
+				3A9249001DD7AACA004BBA99 /* Frameworks */,
 				3A9248D91DD7A6AD004BBA99 /* ExtrTests */,
 				3A9248E41DD7A6AD004BBA99 /* ExtrUITests */,
 				3A9248C31DD7A6AD004BBA99 /* Products */,
@@ -97,12 +141,13 @@
 		3A9248C41DD7A6AD004BBA99 /* Extr */ = {
 			isa = PBXGroup;
 			children = (
+				3A9249011DD7AADE004BBA99 /* Expense */,
+				3A9249121DD7ACF2004BBA99 /* Models */,
+				3A92490E1DD7ABCB004BBA99 /* Services */,
 				3A9248C51DD7A6AD004BBA99 /* AppDelegate.swift */,
-				3A9248C71DD7A6AD004BBA99 /* ViewController.swift */,
 				3A9248C91DD7A6AD004BBA99 /* Main.storyboard */,
 				3A9248CC1DD7A6AD004BBA99 /* Assets.xcassets */,
 				3A9248CE1DD7A6AD004BBA99 /* LaunchScreen.storyboard */,
-				3A9248D11DD7A6AD004BBA99 /* Info.plist */,
 			);
 			path = Extr;
 			sourceTree = "<group>";
@@ -125,6 +170,54 @@
 			path = ExtrUITests;
 			sourceTree = "<group>";
 		};
+		3A9249001DD7AACA004BBA99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A9248F31DD7AA7B004BBA99 /* Alamofire.framework */,
+				3A9248F41DD7AA7B004BBA99 /* Realm.framework */,
+				3A9248F51DD7AA7B004BBA99 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A9249011DD7AADE004BBA99 /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+				3A9248C71DD7A6AD004BBA99 /* ExpenseViewController.swift */,
+			);
+			name = Expense;
+			sourceTree = "<group>";
+		};
+		3A92490E1DD7ABCB004BBA99 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3A9249041DD7AB1A004BBA99 /* Endpoint.swift */,
+				3A9249061DD7AB3F004BBA99 /* EndpointBuilder.swift */,
+				3A9249081DD7AB5A004BBA99 /* NetworkRequest.swift */,
+				3A92490A1DD7AB73004BBA99 /* SyncExpense.swift */,
+				3A92490C1DD7ABB3004BBA99 /* AppError.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		3A92490F1DD7ABE0004BBA99 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A9248D11DD7A6AD004BBA99 /* Info.plist */,
+				3A9249021DD7AAF8004BBA99 /* Secrets.swift */,
+			);
+			name = "Support Files";
+			path = Extr;
+			sourceTree = "<group>";
+		};
+		3A9249121DD7ACF2004BBA99 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A9249101DD7AC00004BBA99 /* RExpense.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +228,7 @@
 				3A9248BE1DD7A6AD004BBA99 /* Sources */,
 				3A9248BF1DD7A6AD004BBA99 /* Frameworks */,
 				3A9248C01DD7A6AD004BBA99 /* Resources */,
+				3A9248FF1DD7AA8A004BBA99 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,8 +356,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A9248C81DD7A6AD004BBA99 /* ViewController.swift in Sources */,
+				3A9248C81DD7A6AD004BBA99 /* ExpenseViewController.swift in Sources */,
+				3A9249031DD7AAF8004BBA99 /* Secrets.swift in Sources */,
+				3A9249051DD7AB1A004BBA99 /* Endpoint.swift in Sources */,
 				3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */,
+				3A92490D1DD7ABB3004BBA99 /* AppError.swift in Sources */,
+				3A9249091DD7AB5A004BBA99 /* NetworkRequest.swift in Sources */,
+				3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */,
+				3A9249071DD7AB3F004BBA99 /* EndpointBuilder.swift in Sources */,
+				3A92490B1DD7AB73004BBA99 /* SyncExpense.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +517,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z6DQ796RKP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Extr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -430,6 +535,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z6DQ796RKP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Extr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
