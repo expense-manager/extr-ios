@@ -140,7 +140,7 @@ class RExpense: Object {
     }
     
     // MARK: - Realm queries
-    static func getAllExpense() -> Results<RExpense> {
+    static func getAllExpenses() -> Results<RExpense> {
         let realm = AppDelegate.getInstance().realm!
         return realm.objects(RExpense.self).sorted(byProperty: PropertyKey.spentAt, ascending: false)
     }

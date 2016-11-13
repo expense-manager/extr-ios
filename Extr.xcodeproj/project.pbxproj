@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		298D58441DD8E40000263258 /* RMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58431DD8E40000263258 /* RMember.swift */; };
+		298D58461DD8F4CC00263258 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58451DD8F4CC00263258 /* RUser.swift */; };
+		298D58481DD9049600263258 /* RCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58471DD9049600263258 /* RCategory.swift */; };
+		298D584A1DD910A600263258 /* RGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58491DD910A600263258 /* RGroup.swift */; };
 		3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */; };
 		3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */; };
 		3A4B90951DD7C77F00E23742 /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4B90931DD7C77F00E23742 /* ExpenseCell.xib */; };
@@ -65,6 +69,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		298D58431DD8E40000263258 /* RMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMember.swift; sourceTree = "<group>"; };
+		298D58451DD8F4CC00263258 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
+		298D58471DD9049600263258 /* RCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCategory.swift; sourceTree = "<group>"; };
+		298D58491DD910A600263258 /* RGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGroup.swift; sourceTree = "<group>"; };
 		3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		3A4B90931DD7C77F00E23742 /* ExpenseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
@@ -228,6 +236,10 @@
 			isa = PBXGroup;
 			children = (
 				3A9249101DD7AC00004BBA99 /* RExpense.swift */,
+				298D58431DD8E40000263258 /* RMember.swift */,
+				298D58451DD8F4CC00263258 /* RUser.swift */,
+				298D58471DD9049600263258 /* RCategory.swift */,
+				298D58491DD910A600263258 /* RGroup.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -371,10 +383,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				298D584A1DD910A600263258 /* RGroup.swift in Sources */,
+				298D58441DD8E40000263258 /* RMember.swift in Sources */,
 				3A9249031DD7AAF8004BBA99 /* Secrets.swift in Sources */,
 				3A9249051DD7AB1A004BBA99 /* Endpoint.swift in Sources */,
+				298D58461DD8F4CC00263258 /* RUser.swift in Sources */,
 				3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */,
 				3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */,
+				298D58481DD9049600263258 /* RCategory.swift in Sources */,
 				3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */,
 				3A92490D1DD7ABB3004BBA99 /* AppError.swift in Sources */,
 				3A9249091DD7AB5A004BBA99 /* NetworkRequest.swift in Sources */,
