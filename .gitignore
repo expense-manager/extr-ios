@@ -64,4 +64,8 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+# Mac
+.DS_Store
+
 Extr/Secrets.swift
+
