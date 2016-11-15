@@ -11,6 +11,7 @@
 		298D58461DD8F4CC00263258 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58451DD8F4CC00263258 /* RUser.swift */; };
 		298D58481DD9049600263258 /* RCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58471DD9049600263258 /* RCategory.swift */; };
 		298D584A1DD910A600263258 /* RGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58491DD910A600263258 /* RGroup.swift */; };
+		29EEB3471DDABEFC00503DA2 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EEB3461DDABEFC00503DA2 /* HamburgerViewController.swift */; };
 		3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */; };
 		3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */; };
 		3A4B90951DD7C77F00E23742 /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4B90931DD7C77F00E23742 /* ExpenseCell.xib */; };
@@ -79,6 +80,7 @@
 		298D58451DD8F4CC00263258 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		298D58471DD9049600263258 /* RCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCategory.swift; sourceTree = "<group>"; };
 		298D58491DD910A600263258 /* RGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGroup.swift; sourceTree = "<group>"; };
+		29EEB3461DDABEFC00503DA2 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		3A4B90931DD7C77F00E23742 /* ExpenseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				3A92490E1DD7ABCB004BBA99 /* Services */,
 				3A9248C51DD7A6AD004BBA99 /* AppDelegate.swift */,
 				3A9248C91DD7A6AD004BBA99 /* Main.storyboard */,
+				29EEB3461DDABEFC00503DA2 /* HamburgerViewController.swift */,
 				3A9248CC1DD7A6AD004BBA99 /* Assets.xcassets */,
 				3A9248CE1DD7A6AD004BBA99 /* LaunchScreen.storyboard */,
 			);
@@ -427,6 +430,7 @@
 				298D584A1DD910A600263258 /* RGroup.swift in Sources */,
 				298D58441DD8E40000263258 /* RMember.swift in Sources */,
 				3A9249031DD7AAF8004BBA99 /* Secrets.swift in Sources */,
+				29EEB3471DDABEFC00503DA2 /* HamburgerViewController.swift in Sources */,
 				3A9249051DD7AB1A004BBA99 /* Endpoint.swift in Sources */,
 				298D58461DD8F4CC00263258 /* RUser.swift in Sources */,
 				3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */,

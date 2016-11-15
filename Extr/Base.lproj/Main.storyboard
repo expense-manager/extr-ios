@@ -200,6 +200,71 @@
             </objects>
             <point key="canvasLocation" x="-778" y="786"/>
         </scene>
+        <!--Hamburger View Controller-->
+        <scene sceneID="F00-qm-ni0">
+            <objects>
+                <viewController id="BVh-Db-zA0" customClass="HamburgerViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SkM-Wa-feA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pzt-dz-vgp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hfO-MD-HiD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKV-vL-4UC" userLabel="Goup View">
+                                <rect key="frame" x="216" y="0.0" width="159" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.61568627450000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="tcO-vg-pbc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sr3-di-Fod" userLabel="Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.16723749337530092" green="0.92941176469999998" blue="0.14291687005604195" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BR1-4I-Pb2" userLabel="Menu View">
+                                <rect key="frame" x="-185" y="0.0" width="185" height="667"/>
+                                <color key="backgroundColor" red="1" green="0.10735198210000001" blue="0.096124513009999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="FWZ-mi-Rdf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="sr3-di-Fod" firstAttribute="leading" secondItem="hfO-MD-HiD" secondAttribute="leading" id="3fQ-Qc-VUV"/>
+                            <constraint firstItem="BR1-4I-Pb2" firstAttribute="top" secondItem="hfO-MD-HiD" secondAttribute="top" id="HGF-IN-jeO"/>
+                            <constraint firstItem="Pzt-dz-vgp" firstAttribute="top" secondItem="sr3-di-Fod" secondAttribute="bottom" id="LVA-1F-dVP"/>
+                            <constraint firstAttribute="trailing" secondItem="sr3-di-Fod" secondAttribute="trailing" id="Le5-dd-EAc"/>
+                            <constraint firstItem="sr3-di-Fod" firstAttribute="top" secondItem="hfO-MD-HiD" secondAttribute="top" id="Mfq-RI-CKX"/>
+                            <constraint firstItem="Pzt-dz-vgp" firstAttribute="top" secondItem="BR1-4I-Pb2" secondAttribute="bottom" id="Q3f-qy-SkO"/>
+                            <constraint firstItem="BR1-4I-Pb2" firstAttribute="leading" secondItem="hfO-MD-HiD" secondAttribute="leading" constant="-185" id="TWY-f7-5XX"/>
+                            <constraint firstItem="GKV-vL-4UC" firstAttribute="top" secondItem="hfO-MD-HiD" secondAttribute="top" id="abo-Zk-WwT"/>
+                            <constraint firstAttribute="trailing" secondItem="GKV-vL-4UC" secondAttribute="trailing" id="bqj-TU-pQI"/>
+                            <constraint firstItem="Pzt-dz-vgp" firstAttribute="top" secondItem="GKV-vL-4UC" secondAttribute="bottom" id="ovh-2k-Bek"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Tce-eN-xd7" appends="YES" id="faE-2y-yRE"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="sr3-di-Fod" id="a2Y-2e-nkJ"/>
+                        <outlet property="groupView" destination="GKV-vL-4UC" id="EUC-fl-ZXW"/>
+                        <outlet property="menuView" destination="BR1-4I-Pb2" id="ECw-aj-Edf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBf-a6-l4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Tce-eN-xd7">
+                    <connections>
+                        <action selector="onHamburgerPanGesture:" destination="BVh-Db-zA0" id="ipu-r1-M8B"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="735.38230884557731"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="fmM-DW-HDP"/>
