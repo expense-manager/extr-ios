@@ -33,6 +33,7 @@
 		3A92490B1DD7AB73004BBA99 /* SyncExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92490A1DD7AB73004BBA99 /* SyncExpense.swift */; };
 		3A92490D1DD7ABB3004BBA99 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92490C1DD7ABB3004BBA99 /* AppError.swift */; };
 		3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9249101DD7AC00004BBA99 /* RExpense.swift */; };
+		3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		3A92490A1DD7AB73004BBA99 /* SyncExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncExpense.swift; sourceTree = "<group>"; };
 		3A92490C1DD7ABB3004BBA99 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3A9249101DD7AC00004BBA99 /* RExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RExpense.swift; sourceTree = "<group>"; };
+		3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				3A9249121DD7ACF2004BBA99 /* Models */,
 				3A4B90911DD7C74900E23742 /* Views */,
 				3A9249011DD7AADE004BBA99 /* Expense */,
+				3AA8508C1DDAC1970035F3FE /* Welcome */,
 				3A92490E1DD7ABCB004BBA99 /* Services */,
 				3A9248C51DD7A6AD004BBA99 /* AppDelegate.swift */,
 				3A9248C91DD7A6AD004BBA99 /* Main.storyboard */,
@@ -242,6 +245,14 @@
 				298D58491DD910A600263258 /* RGroup.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		3AA8508C1DDAC1970035F3FE /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */,
+			);
+			name = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +400,7 @@
 				3A9249051DD7AB1A004BBA99 /* Endpoint.swift in Sources */,
 				298D58461DD8F4CC00263258 /* RUser.swift in Sources */,
 				3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */,
+				3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */,
 				3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */,
 				298D58481DD9049600263258 /* RCategory.swift in Sources */,
 				3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */,
