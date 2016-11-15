@@ -27,7 +27,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.register(UINib(nibName: expenseCell, bundle: nil), forCellReuseIdentifier: expenseCell)
 
-        expenses = Array(RExpense.getAllExpense())
+        expenses = Array(RExpense.getAllExpenses())
         loadData()
     }
     
