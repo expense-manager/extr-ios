@@ -32,6 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Realm.Configuration.defaultConfiguration = realmConfig
         self.realm = try! Realm()
         
+        let userDefault = UserDefaults.standard
+        
+        if let _ = userDefault.string(forKey: RUser.JsonKey.sessionToken) {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let welcomeViewController = storyboard.instantiateViewController(withIdentifier: "ExpenseViewController") as! ExpenseViewController
+
+            self.window?.rootViewController = welcomeViewController
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 

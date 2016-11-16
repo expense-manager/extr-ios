@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ExpenseCell: UITableViewCell {
 
     @IBOutlet var amountLabel: UILabel!
+    @IBOutlet var profileImageView: UIImageView!
+    @IBOutlet var noteLabel: UILabel!
     
     var expense: RExpense! {
         didSet {
-            amountLabel.text = "\(expense.amount)"
+            amountLabel.text = "$\(expense.amount)"
+            noteLabel.text = "\(expense.note)"
+            noteLabel.sizeToFit()
+            
+            let user = RUser.getUserById(id: expense.userId)
+            
+            if let imageURL = user?.photoUrl {
+                let url = URL(string: imageURL)!
+                let resource = ImageResource(downloadURL: url, cacheKey: "\(imageURL)")
+                self.profileImageView.kf.setImage(with: resource, placeholder: UIImage(named:"placeholder"), options: [.transition(.fade(0.2))])
+            }
         }
     }
     

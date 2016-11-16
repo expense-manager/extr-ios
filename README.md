@@ -24,6 +24,18 @@ Extr is an group based expense tracking and analysis android app that helps a pe
 - members can create and update expense in the group
 - admin or members can have difference permission to handle expense items or check out different expense report based on the role.
 
+## Libraries and tools used
+- [AFNetworking](https://github.com/AFNetworking/AFNetworking) - Alamofire is an HTTP networking library written in Swift.
+- [Kingfisher](https://github.com/onevcat/Kingfisher) - A lightweight, pure-Swift library for downloading and caching images from the web.
+- [Realm](http://realm.io) - Realm is a mobile database: a replacement for SQLite & ORMs.
+
+
+## Video Walkthrough 
+
+Here's a walkthrough of implemented user stories:
+
+![Video Walkthrough](extr.gif)
+
 
 ## License
 

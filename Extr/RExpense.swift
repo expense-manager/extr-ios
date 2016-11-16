@@ -62,6 +62,18 @@ class RExpense: Object {
         self.userId = userIdDict[JsonKey.objectId] as! String
         self.groupId = groupIdDict[JsonKey.objectId] as! String
         
+        do {
+            let realm = AppDelegate.getInstance().realm!
+            let user = RUser()
+            try user.map(dictionary: userIdDict)
+            realm.beginWrite()
+            realm.add(user, update: true)
+            try realm.commitWrite()
+        } catch let error {
+            realm?.cancelWrite()
+            print("\(type(of: self).TAG): Cannot parse userIdDict to RUser. \(error.localizedDescription)")
+        }
+        
         if let amountString = dictionary[JsonKey.amount] as? String {
             if let amount = Double(amountString) {
                 self.amount = amount
@@ -114,6 +126,7 @@ class RExpense: Object {
         let realm = AppDelegate.getInstance().realm!
         var expenses: [RExpense] = []
         
+        //Todo: Using a Realm Across Threads
         for dictionary in array {
             let expense = RExpense()
             

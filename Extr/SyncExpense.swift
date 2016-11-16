@@ -16,6 +16,7 @@ class SyncExpense {
         let expenseEndpoint = EndpointBuilder()
             .method(.get)
             .path(.expense)
+            .parameters(key: "include", value: RExpense.JsonKey.userId as AnyObject)
             .build()
         
         NetworkRequest(endpoint: expenseEndpoint)
