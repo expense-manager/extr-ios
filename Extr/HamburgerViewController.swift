@@ -9,7 +9,11 @@
 import UIKit
 
 class HamburgerViewController: UIViewController {
-
+    
+    let menuViewControllerString = "MenuViewController"
+    let menuGroupThreshold: CGFloat = 40
+    let viewAnimationDuration: Double = 0.3
+    
     @IBOutlet var groupView: UIView!
     @IBOutlet var containerView: UIView!
     @IBOutlet var menuView: UIView!
@@ -22,17 +26,37 @@ class HamburgerViewController: UIViewController {
     var closeGroupCenterPointX: CGFloat!
     var grayOutView: UIView = UIView()
     
+    var menuViewController: MenuViewController! {
+        didSet {
+            menuViewController.view.frame.size.width = menuView.frame.width
+            menuView.addSubview(menuViewController.view)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Menu group center points
         closeMenuCenterPointX = menuView.center.x
         openMenuCenterPointX = -closeMenuCenterPointX
         closeGroupCenterPointX = containerView.center.x
         openGroupCenterPointX = closeGroupCenterPointX - groupView.bounds.width
         
+        // Gray out view
         grayOutView.frame = containerView.frame
         grayOutView.alpha = 0
         grayOutView.backgroundColor = UIColor.black
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(grayOutViewOnTap))
+        grayOutView.addGestureRecognizer(tapGesture)
+        
+        // Menu view
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.menuViewController = storyboard.instantiateViewController(withIdentifier: self.menuViewControllerString) as! MenuViewController
+        self.menuViewController.hamburgerViewController = self
+    }
+    
+    func grayOutViewOnTap(sender : UITapGestureRecognizer) {
+        isMenu == true ? closeMenu() : closeGroup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,23 +96,33 @@ class HamburgerViewController: UIViewController {
                 grayOutView.alpha = (closeGroupCenterPointX - newCenterX) / groupView.bounds.width * 0.6
             }
         } else if sender.state == .ended {
+            let newCenterX = originalCenterPoint.x + transition.x
+            
             if isMenu == true {
-                velocity.x > 0 ? openMenu() : closeMenu()
+                if velocity.x > 0 {
+                    newCenterX - closeMenuCenterPointX >= menuGroupThreshold ? openMenu() : closeMenu()
+                } else {
+                    openMenuCenterPointX - newCenterX >= menuGroupThreshold ? closeMenu() : openMenu()
+                }
             } else {
-                velocity.x > 0 ? closeGroup() : openGroup()
+                if velocity.x > 0 {
+                    newCenterX - openGroupCenterPointX >= menuGroupThreshold ? closeGroup() : openGroup()
+                } else {
+                    closeGroupCenterPointX - newCenterX >= menuGroupThreshold ? openGroup() : closeGroup()
+                }
             }
         }
     }
     
     func openMenu() {
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: viewAnimationDuration) {
             self.menuView.center.x = self.openMenuCenterPointX
             self.grayOutView.alpha = 0.6
         }
     }
     
     func closeMenu() {
-        UIView.animate(withDuration: 0.4, animations: {
+        UIView.animate(withDuration: viewAnimationDuration, animations: {
             self.menuView.center.x = self.closeMenuCenterPointX
             self.grayOutView.alpha = 0
         }, completion: {finished in
@@ -98,14 +132,14 @@ class HamburgerViewController: UIViewController {
     }
     
     func openGroup() {
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: viewAnimationDuration) {
             self.containerView.center.x = self.openGroupCenterPointX
             self.grayOutView.alpha = 0.6
         }
     }
     
     func closeGroup() {
-        UIView.animate(withDuration: 0.4, animations: {
+        UIView.animate(withDuration: viewAnimationDuration, animations: {
             self.containerView.center.x = self.closeGroupCenterPointX
             self.grayOutView.alpha = 0
         }, completion: {finished in
