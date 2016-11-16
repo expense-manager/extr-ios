@@ -27,10 +27,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     var menuItems: [MenuItem] = [
-        MenuItem(icon: UIImage(named: "trending-up")!, label: "Overview"),
-        MenuItem(icon: UIImage(named: "trending-up")!, label: "Expense"),
-        MenuItem(icon: UIImage(named: "trending-up")!, label: "Report"),
-        MenuItem(icon: UIImage(named: "trending-up")!, label: "Group")
+        MenuItem(icon: UIImage(named: "home")!, label: "Overview"),
+        MenuItem(icon: UIImage(named: "credit-card")!, label: "Expense"),
+        MenuItem(icon: UIImage(named: "trending")!, label: "Report"),
+        MenuItem(icon: UIImage(named: "group")!, label: "Group"),
+        MenuItem(icon: UIImage(named: "notification")!, label: "Notifications"),
+        MenuItem(icon: UIImage(named: "setting")!, label: "Settings")
     ]
     
     override func viewDidLoad() {

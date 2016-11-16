@@ -12,10 +12,13 @@ class MenuCell: UITableViewCell {
 
     @IBOutlet var iconImageView: UIImageView!
     @IBOutlet var iconLabel: UILabel!
+    @IBOutlet var labelLeadingConstraint: NSLayoutConstraint!
     
     var menuItem: MenuItem! {
         didSet {
-            iconImageView.image = menuItem.icon.withRenderingMode(.alwaysTemplate)
+            if menuItem.icon != nil {
+                iconImageView.image = menuItem.icon.withRenderingMode(.alwaysTemplate)
+            }
             iconLabel.text = menuItem.label
         }
     }

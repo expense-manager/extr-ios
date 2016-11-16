@@ -10,10 +10,10 @@ import UIKit
 
 class MenuItem: NSObject {
     
-    var icon: UIImage
+    var icon: UIImage!
     var label: String
     
-    init(icon: UIImage, label: String) {
+    init(icon: UIImage!, label: String) {
         self.icon = icon
         self.label = label
     }
