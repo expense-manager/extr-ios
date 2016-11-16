@@ -36,6 +36,8 @@
 		3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */; };
 		3AA850901DDBE10F0035F3FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8508F1DDBE10F0035F3FE /* LoginViewController.swift */; };
 		3AA850921DDBE5E50035F3FE /* SyncUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA850911DDBE5E50035F3FE /* SyncUser.swift */; };
+		3AA8509A1DDBFA9C0035F3FE /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */; };
+		3AA8509B1DDBFA9C0035F3FE /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,7 @@
 			files = (
 				3A9248FC1DD7AA89004BBA99 /* Realm.framework in Embed Frameworks */,
 				3A9248FA1DD7AA89004BBA99 /* Alamofire.framework in Embed Frameworks */,
+				3AA8509B1DDBFA9C0035F3FE /* Kingfisher.framework in Embed Frameworks */,
 				3A9248FE1DD7AA89004BBA99 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -104,6 +107,7 @@
 		3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3AA8508F1DDBE10F0035F3FE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3AA850911DDBE5E50035F3FE /* SyncUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncUser.swift; sourceTree = "<group>"; };
+		3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 			files = (
 				3A9248FB1DD7AA89004BBA99 /* Realm.framework in Frameworks */,
 				3A9248F91DD7AA89004BBA99 /* Alamofire.framework in Frameworks */,
+				3AA8509A1DDBFA9C0035F3FE /* Kingfisher.framework in Frameworks */,
 				3A9248FD1DD7AA89004BBA99 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				3A9248F31DD7AA7B004BBA99 /* Alamofire.framework */,
+				3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */,
 				3A9248F41DD7AA7B004BBA99 /* Realm.framework */,
 				3A9248F51DD7AA7B004BBA99 /* RealmSwift.framework */,
 			);
@@ -272,6 +278,7 @@
 				3A9248BF1DD7A6AD004BBA99 /* Frameworks */,
 				3A9248C01DD7A6AD004BBA99 /* Resources */,
 				3A9248FF1DD7AA8A004BBA99 /* Embed Frameworks */,
+				3AA850931DDBF8930035F3FE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -394,6 +401,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3AA850931DDBF8930035F3FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A9248BE1DD7A6AD004BBA99 /* Sources */ = {
