@@ -23,6 +23,8 @@ class RUser: Object {
         static let url = "url"
         static let groupId = "groupId"
         static let createdAt = "createdAt"
+        static let password = "password"
+        static let sessionToken = "sessionToken"
     }
     
     struct PropertyKey {

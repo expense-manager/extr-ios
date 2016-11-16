@@ -23,15 +23,14 @@ class WelcomeViewController: UIViewController {
         
         signUpButton.addTarget(self, action: #selector(signUpButtonOnClick), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginButtonOnClick), for: .touchUpInside)
-        
     }
     
     func signUpButtonOnClick(sender: AnyObject) {
-        // todo:
+        // Todo: handle sign up
         print("sign up")
     }
     
     func loginButtonOnClick(sender: AnyObject) {
-        print("login")
+        performSegue(withIdentifier: "LoginViewControllerSegue", sender: self)
     }
 }

@@ -34,7 +34,7 @@ class EndpointBuilder {
         return self
     }
     
-    func method(_ method: HTTPMethod) -> EndpointBuilder{
+    func method(_ method: HTTPMethod) -> EndpointBuilder {
         self.method = method
         return self
     }

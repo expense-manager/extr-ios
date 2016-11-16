@@ -34,6 +34,8 @@
 		3A92490D1DD7ABB3004BBA99 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92490C1DD7ABB3004BBA99 /* AppError.swift */; };
 		3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9249101DD7AC00004BBA99 /* RExpense.swift */; };
 		3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */; };
+		3AA850901DDBE10F0035F3FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8508F1DDBE10F0035F3FE /* LoginViewController.swift */; };
+		3AA850921DDBE5E50035F3FE /* SyncUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA850911DDBE5E50035F3FE /* SyncUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		3A92490C1DD7ABB3004BBA99 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3A9249101DD7AC00004BBA99 /* RExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RExpense.swift; sourceTree = "<group>"; };
 		3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3AA8508F1DDBE10F0035F3FE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3AA850911DDBE5E50035F3FE /* SyncUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,7 @@
 				3A9249081DD7AB5A004BBA99 /* NetworkRequest.swift */,
 				3A92490A1DD7AB73004BBA99 /* SyncExpense.swift */,
 				3A92490C1DD7ABB3004BBA99 /* AppError.swift */,
+				3AA850911DDBE5E50035F3FE /* SyncUser.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */,
+				3AA8508F1DDBE10F0035F3FE /* LoginViewController.swift */,
 			);
 			name = Welcome;
 			sourceTree = "<group>";
@@ -404,8 +410,10 @@
 				3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */,
 				298D58481DD9049600263258 /* RCategory.swift in Sources */,
 				3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */,
+				3AA850921DDBE5E50035F3FE /* SyncUser.swift in Sources */,
 				3A92490D1DD7ABB3004BBA99 /* AppError.swift in Sources */,
 				3A9249091DD7AB5A004BBA99 /* NetworkRequest.swift in Sources */,
+				3AA850901DDBE10F0035F3FE /* LoginViewController.swift in Sources */,
 				3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */,
 				3A9249071DD7AB3F004BBA99 /* EndpointBuilder.swift in Sources */,
 				3A92490B1DD7AB73004BBA99 /* SyncExpense.swift in Sources */,
