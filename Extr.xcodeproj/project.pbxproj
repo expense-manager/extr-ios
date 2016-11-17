@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2974D90B1DDD57F6009AD3E3 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */; };
+		2974D90E1DDD5C1A009AD3E3 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974D90C1DDD5C1A009AD3E3 /* GroupCell.swift */; };
+		2974D90F1DDD5C1A009AD3E3 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */; };
 		298D58441DD8E40000263258 /* RMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58431DD8E40000263258 /* RMember.swift */; };
 		298D58461DD8F4CC00263258 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58451DD8F4CC00263258 /* RUser.swift */; };
 		298D58481DD9049600263258 /* RCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58471DD9049600263258 /* RCategory.swift */; };
@@ -39,7 +42,6 @@
 		3A92490D1DD7ABB3004BBA99 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92490C1DD7ABB3004BBA99 /* AppError.swift */; };
 		3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9249101DD7AC00004BBA99 /* RExpense.swift */; };
 		3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */; };
-		3AA850901DDBE10F0035F3FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8508F1DDBE10F0035F3FE /* LoginViewController.swift */; };
 		3AA850921DDBE5E50035F3FE /* SyncUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA850911DDBE5E50035F3FE /* SyncUser.swift */; };
 		3AA8509A1DDBFA9C0035F3FE /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */; };
 		3AA8509B1DDBFA9C0035F3FE /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -80,6 +82,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		2974D90C1DDD5C1A009AD3E3 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
 		298D58431DD8E40000263258 /* RMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMember.swift; sourceTree = "<group>"; };
 		298D58451DD8F4CC00263258 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		298D58471DD9049600263258 /* RCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCategory.swift; sourceTree = "<group>"; };
@@ -154,6 +159,8 @@
 			children = (
 				3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */,
 				3A4B90931DD7C77F00E23742 /* ExpenseCell.xib */,
+				2974D90C1DDD5C1A009AD3E3 /* GroupCell.swift */,
+				2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */,
 				29EE3DF81DDBFB6200EB695C /* MenuCell.swift */,
 				29EE3DF91DDBFB6200EB695C /* MenuCell.xib */,
 			);
@@ -196,6 +203,7 @@
 				3A9248CC1DD7A6AD004BBA99 /* Assets.xcassets */,
 				3A9248CE1DD7A6AD004BBA99 /* LaunchScreen.storyboard */,
 				29EE3DFE1DDC010100EB695C /* MenuViewController.swift */,
+				2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */,
 			);
 			path = Extr;
 			sourceTree = "<group>";
@@ -395,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A4B90951DD7C77F00E23742 /* ExpenseCell.xib in Resources */,
+				2974D90F1DDD5C1A009AD3E3 /* GroupCell.xib in Resources */,
 				3A9248D01DD7A6AD004BBA99 /* LaunchScreen.storyboard in Resources */,
 				29EE3DFB1DDBFB6200EB695C /* MenuCell.xib in Resources */,
 				3A9248CD1DD7A6AD004BBA99 /* Assets.xcassets in Resources */,
@@ -446,12 +455,14 @@
 				3A9249031DD7AAF8004BBA99 /* Secrets.swift in Sources */,
 				29EEB3471DDABEFC00503DA2 /* HamburgerViewController.swift in Sources */,
 				3A9249051DD7AB1A004BBA99 /* Endpoint.swift in Sources */,
+				2974D90B1DDD57F6009AD3E3 /* GroupViewController.swift in Sources */,
 				298D58461DD8F4CC00263258 /* RUser.swift in Sources */,
 				3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */,
 				3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */,
 				3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */,
 				298D58481DD9049600263258 /* RCategory.swift in Sources */,
 				3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */,
+				2974D90E1DDD5C1A009AD3E3 /* GroupCell.swift in Sources */,
 				3AA850921DDBE5E50035F3FE /* SyncUser.swift in Sources */,
 				3A92490D1DD7ABB3004BBA99 /* AppError.swift in Sources */,
 				3A9249091DD7AB5A004BBA99 /* NetworkRequest.swift in Sources */,

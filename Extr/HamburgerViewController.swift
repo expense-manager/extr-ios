@@ -11,6 +11,7 @@ import UIKit
 class HamburgerViewController: UIViewController {
     
     let menuViewControllerString = "MenuViewController"
+    let groupViewControllerString = "GroupViewController"
     let menuGroupThreshold: CGFloat = 40
     let viewAnimationDuration: Double = 0.3
     
@@ -30,6 +31,12 @@ class HamburgerViewController: UIViewController {
         didSet {
             menuViewController.view.frame.size.width = menuView.frame.width
             menuView.addSubview(menuViewController.view)
+        }
+    }
+    var groupViewController: GroupViewController! {
+        didSet {
+            groupViewController.view.frame.size.width = groupView.frame.width
+            groupView.addSubview(groupViewController.view)
         }
     }
     
@@ -52,7 +59,9 @@ class HamburgerViewController: UIViewController {
         // Menu view
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.menuViewController = storyboard.instantiateViewController(withIdentifier: self.menuViewControllerString) as! MenuViewController
+        self.groupViewController = storyboard.instantiateViewController(withIdentifier: self.groupViewControllerString) as! GroupViewController
         self.menuViewController.hamburgerViewController = self
+        self.groupViewController.hamburgerViewController = self
     }
     
     func grayOutViewOnTap(sender : UITapGestureRecognizer) {
