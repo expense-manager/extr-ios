@@ -36,4 +36,37 @@ class SyncUser {
                 success(results)
             })
     }
+    
+    static func signUp(email: String, password: String, firstname: String, lastname: String, phone: String, success: @escaping (NSDictionary) -> (), failure: @escaping (Error) -> ()) {
+        
+        var params: [String: AnyObject] = [:]
+        params[RUser.JsonKey.username] = email as AnyObject
+        params[RUser.JsonKey.password] = password as AnyObject
+        params[RUser.JsonKey.firstName] = firstname as AnyObject
+        params[RUser.JsonKey.lastName] = lastname as AnyObject
+        params[RUser.JsonKey.photo] = phone as AnyObject
+        
+        let signUpEndpoint = EndpointBuilder()
+            .method(.post)
+            .path(.users)
+            .parameters(parameters: params)
+            .build()
+        
+        NetworkRequest(endpoint: signUpEndpoint)
+            .run(completionHandler: { (response: AnyObject?, error: NSError?) in
+                
+                if error != nil {
+                    failure(error!)
+                    return
+                }
+                
+                guard let results = response as? NSDictionary else {
+                    print("\(TAG): response - \(response)")
+                    return
+                }
+                
+                success(results)
+            })
+
+    }
 }

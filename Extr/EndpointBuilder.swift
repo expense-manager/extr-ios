@@ -44,6 +44,11 @@ class EndpointBuilder {
         return self
     }
     
+    func parameters(parameters: [String: AnyObject]) -> EndpointBuilder {
+        self.parameters = parameters
+        return self
+    }
+    
     func build() -> Endpoint {
         return Endpoint(path: self.path, method: self.method, parameters: self.parameters)
     }
