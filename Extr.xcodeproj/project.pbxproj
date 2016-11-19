@@ -10,6 +10,7 @@
 		2974D90B1DDD57F6009AD3E3 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */; };
 		2974D90E1DDD5C1A009AD3E3 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974D90C1DDD5C1A009AD3E3 /* GroupCell.swift */; };
 		2974D90F1DDD5C1A009AD3E3 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */; };
+		2974D9151DDD7E57009AD3E3 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974D9141DDD7E57009AD3E3 /* GroupDetailViewController.swift */; };
 		298D58441DD8E40000263258 /* RMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58431DD8E40000263258 /* RMember.swift */; };
 		298D58461DD8F4CC00263258 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58451DD8F4CC00263258 /* RUser.swift */; };
 		298D58481DD9049600263258 /* RCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58471DD9049600263258 /* RCategory.swift */; };
@@ -85,6 +86,7 @@
 		2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		2974D90C1DDD5C1A009AD3E3 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
+		2974D9141DDD7E57009AD3E3 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
 		298D58431DD8E40000263258 /* RMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMember.swift; sourceTree = "<group>"; };
 		298D58451DD8F4CC00263258 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		298D58471DD9049600263258 /* RCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCategory.swift; sourceTree = "<group>"; };
@@ -154,6 +156,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2974D9131DDD7E48009AD3E3 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				2974D9141DDD7E57009AD3E3 /* GroupDetailViewController.swift */,
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
 		3A4B90911DD7C74900E23742 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +202,7 @@
 		3A9248C41DD7A6AD004BBA99 /* Extr */ = {
 			isa = PBXGroup;
 			children = (
+				2974D9131DDD7E48009AD3E3 /* Group */,
 				3A9249121DD7ACF2004BBA99 /* Models */,
 				3A4B90911DD7C74900E23742 /* Views */,
 				3A9249011DD7AADE004BBA99 /* Expense */,
@@ -360,7 +371,7 @@
 				TargetAttributes = {
 					3A9248C11DD7A6AD004BBA99 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = Z6DQ796RKP;
+						DevelopmentTeam = DERD3WAMLB;
 						ProvisioningStyle = Automatic;
 					};
 					3A9248D51DD7A6AD004BBA99 = {
@@ -469,6 +480,7 @@
 				29EE3DFF1DDC010100EB695C /* MenuViewController.swift in Sources */,
 				3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */,
 				3A9249071DD7AB3F004BBA99 /* EndpointBuilder.swift in Sources */,
+				2974D9151DDD7E57009AD3E3 /* GroupDetailViewController.swift in Sources */,
 				29EE3DFA1DDBFB6200EB695C /* MenuCell.swift in Sources */,
 				3A92490B1DD7AB73004BBA99 /* SyncExpense.swift in Sources */,
 			);
@@ -565,7 +577,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -609,7 +621,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -622,7 +634,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z6DQ796RKP;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DERD3WAMLB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -630,7 +643,7 @@
 				INFOPLIST_FILE = Extr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.expensemanager.Extr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.expensemanager.Extrx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -640,7 +653,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z6DQ796RKP;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DERD3WAMLB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -648,7 +662,7 @@
 				INFOPLIST_FILE = Extr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.expensemanager.Extr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.expensemanager.Extrx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

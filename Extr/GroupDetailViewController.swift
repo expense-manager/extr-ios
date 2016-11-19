@@ -13,7 +13,17 @@ class GroupDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //setupNavigationBar()
+    }
+    
+    func setupNavigationBar() {
+        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64))
+        let navigationItem = UINavigationItem(title: "Group")
+        navigationBar.backgroundColor = UIColor.white
+        navigationBar.isTranslucent = false
+        navigationBar.items = [navigationItem]
+        self.view.addSubview(navigationBar)
+        
     }
 
     override func didReceiveMemoryWarning() {
