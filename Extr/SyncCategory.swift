@@ -1,5 +1,5 @@
 //
-//  SyncMember.swift
+//  SyncCategory.swift
 //  Extr
 //
 //  Created by Zekun Wang on 11/19/16.
@@ -8,20 +8,20 @@
 
 import Foundation
 
-class SyncMember {
-    static let TAG = NSStringFromClass(SyncMember.self)
+class SyncCategory {
+    static let TAG = NSStringFromClass(SyncCategory.self)
     
-    static func getAllMembers(success: @escaping ([RMember]) -> (), failure: @escaping (Error) -> ()) {
+    static func getAllCategories(success: @escaping ([RCategory]) -> (), failure: @escaping (Error) -> ()) {
         
-        let includeKeys = RMember.JsonKey.userId + "," + RMember.JsonKey.createdBy + "," + RMember.JsonKey.groupId
+        let includeKeys = RCategory.JsonKey.userId
         
-        let memberEndpoint = EndpointBuilder()
+        let categoryEndpoint = EndpointBuilder()
             .method(.get)
-            .path(.member)
+            .path(.category)
             .parameters(key: "include", value: includeKeys as AnyObject)
             .build()
         
-        NetworkRequest(endpoint: memberEndpoint)
+        NetworkRequest(endpoint: categoryEndpoint)
             .run(completionHandler: { (response: AnyObject?, error: NSError?) in
                 
                 if error != nil {
@@ -35,28 +35,28 @@ class SyncMember {
                     return
                 }
                 
-                success(RMember.map(dictionaries: results))
+                success(RCategory.map(dictionaries: results))
             })
     }
     
-    static func getAllMembersByUserId(userId: String, success: @escaping ([RMember]) -> (), failure: @escaping (Error) -> ()) {
+    static func getAllCategoriesByUserId(userId: String, success: @escaping ([RCategory]) -> (), failure: @escaping (Error) -> ()) {
         
         var userIdDict: [String: String] = [:]
         userIdDict["__type"] = "Pointer"
         userIdDict["className"] = "_User"
         userIdDict["objectId"] = userId
-
-        let whereDict = ["where": [RMember.JsonKey.userId: userIdDict]]
-        let includeKeys = RMember.JsonKey.userId + "," + RMember.JsonKey.createdBy + "," + RMember.JsonKey.groupId
         
-        let memberEndpoint = EndpointBuilder()
+        let whereDict = ["where": [RCategory.JsonKey.userId: userIdDict]]
+        let includeKeys = RCategory.JsonKey.userId
+        
+        let categoryEndpoint = EndpointBuilder()
             .method(.get)
-            .path(.member)
+            .path(.category)
             .parameters(parameters: whereDict as [String : AnyObject])
             .parameters(key: "include", value: includeKeys as AnyObject)
             .build()
         
-        NetworkRequest(endpoint: memberEndpoint)
+        NetworkRequest(endpoint: categoryEndpoint)
             .run(completionHandler: { (response: AnyObject?, error: NSError?) in
                 
                 if error != nil {
@@ -70,11 +70,11 @@ class SyncMember {
                     return
                 }
                 
-                success(RMember.map(dictionaries: results))
+                success(RCategory.map(dictionaries: results))
             })
     }
     
-    static func getAllMembersByGroupId(groupId: String, success: @escaping ([RMember]) -> (), failure: @escaping (Error) -> ()) {
+    static func getAllCategoriesByGroupId(groupId: String, success: @escaping ([RCategory]) -> (), failure: @escaping (Error) -> ()) {
         
         var groupIdDict: [String: String] = [:]
         groupIdDict["__type"] = "Pointer"
@@ -82,16 +82,16 @@ class SyncMember {
         groupIdDict["objectId"] = groupId
         
         let whereDict = ["where": [RMember.JsonKey.groupId: groupIdDict]]
-        let includeKeys = RMember.JsonKey.userId + "," + RMember.JsonKey.createdBy + "," + RMember.JsonKey.groupId
+        let includeKeys = RMember.JsonKey.userId
         
-        let memberEndpoint = EndpointBuilder()
+        let categoryEndpoint = EndpointBuilder()
             .method(.get)
-            .path(.member)
+            .path(.category)
             .parameters(parameters: whereDict as [String : AnyObject])
             .parameters(key: "include", value: includeKeys as AnyObject)
             .build()
         
-        NetworkRequest(endpoint: memberEndpoint)
+        NetworkRequest(endpoint: categoryEndpoint)
             .run(completionHandler: { (response: AnyObject?, error: NSError?) in
                 
                 if error != nil {
@@ -105,64 +105,34 @@ class SyncMember {
                     return
                 }
                 
-                success(RMember.map(dictionaries: results))
+                success(RCategory.map(dictionaries: results))
             })
     }
     
-    static func getMemberById(memberId: String, success: @escaping (RMember) -> (), failure: @escaping (Error) -> ()) {
-        let includeKeys = RMember.JsonKey.userId + "," + RMember.JsonKey.createdBy + "," + RMember.JsonKey.groupId
-        let memberEndpoint = EndpointBuilder()
-            .method(.get)
-            .path(.member)
-            .appendIdToPath(memberId)
-            .parameters(key: "include", value: includeKeys as AnyObject)
-            .build()
-        
-        NetworkRequest(endpoint: memberEndpoint)
-            .run(completionHandler: { (response: AnyObject?, error: NSError?) in
-                
-                if error != nil {
-                    failure(error!)
-                    return
-                }
-                guard let result = response as? NSDictionary else {
-                    let error = JsonError.noKey(key: "response")
-                    failure(error)
-                    return
-                }
-                
-                success(RMember.map(dictionary: result))
-            })
-    }
-    
-    static func create(member: RMember, success: @escaping (RMember) -> (), failure: @escaping (Error) -> ()) {
+    static func create(category: RCategory, success: @escaping (RCategory) -> (), failure: @escaping (Error) -> ()) {
         var parameters: [String : AnyObject] = [:]
-        parameters[RMember.JsonKey.isAccepted] = member.isAccepted as AnyObject
+        parameters[RCategory.JsonKey.name] = category.name as AnyObject
+        parameters[RCategory.JsonKey.color] = category.color as AnyObject
+        parameters[RCategory.JsonKey.icon] = category.icon as AnyObject
         
         var userIdDict: [String: String] = [:]
         userIdDict["__type"] = "Pointer"
         userIdDict["className"] = "_User"
-        userIdDict["objectId"] = member.userId
+        userIdDict["objectId"] = category.userId
         parameters[RMember.JsonKey.userId] = userIdDict as AnyObject
         
         var groupIdDict: [String: String] = [:]
         groupIdDict["__type"] = "Pointer"
         groupIdDict["className"] = "Group"
-        groupIdDict["objectId"] = member.groupId
+        groupIdDict["objectId"] = category.groupId
         parameters[RMember.JsonKey.groupId] = groupIdDict as AnyObject
         
-        var createdByIdDict: [String: String] = [:]
-        createdByIdDict["__type"] = "Pointer"
-        createdByIdDict["className"] = "_User"
-        createdByIdDict["objectId"] = member.createdById
-        parameters[RMember.JsonKey.createdBy] = createdByIdDict as AnyObject
-        
-        let includeKeys = RMember.JsonKey.userId + "," + RMember.JsonKey.createdBy + "," + RMember.JsonKey.groupId
+        let includeKeys = RMember.JsonKey.userId
         parameters["include"] = includeKeys as AnyObject
         
         let groupEndpoint = EndpointBuilder()
             .method(.post)
-            .path(.member)
+            .path(.category)
             .parameters(parameters: parameters)
             .build()
         
@@ -179,21 +149,23 @@ class SyncMember {
                     return
                 }
                 
-                success(RMember.map(dictionary: result))
+                success(RCategory.map(dictionary: result))
             })
     }
     
-    static func update(member: RMember, success: @escaping (RMember) -> (), failure: @escaping (Error) -> ()) {
+    static func update(category: RCategory, success: @escaping (RCategory) -> (), failure: @escaping (Error) -> ()) {
         var parameters: [String : AnyObject] = [:]
-        parameters[RMember.JsonKey.isAccepted] = member.isAccepted as AnyObject
+        parameters[RCategory.JsonKey.name] = category.name as AnyObject
+        parameters[RCategory.JsonKey.color] = category.color as AnyObject
+        parameters[RCategory.JsonKey.icon] = category.icon as AnyObject
         
-        let includeKeys = RMember.JsonKey.userId + "," + RMember.JsonKey.createdBy + "," + RMember.JsonKey.groupId
+        let includeKeys = RMember.JsonKey.userId
         parameters["include"] = includeKeys as AnyObject
         
         let groupEndpoint = EndpointBuilder()
             .method(.put)
-            .path(.member)
-            .appendIdToPath(member.id)
+            .path(.category)
+            .appendIdToPath(category.id)
             .parameters(parameters: parameters)
             .build()
         
@@ -210,18 +182,18 @@ class SyncMember {
                     return
                 }
                 
-                success(RMember.map(dictionary: result))
+                success(RCategory.map(dictionary: result))
             })
     }
     
-    static func delete(memberId: String, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
-        let memberEndpoint = EndpointBuilder()
+    static func delete(categoryId: String, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+        let categoryEndpoint = EndpointBuilder()
             .method(.delete)
-            .path(.member)
-            .appendIdToPath(memberId)
+            .path(.category)
+            .appendIdToPath(categoryId)
             .build()
         
-        NetworkRequest(endpoint: memberEndpoint)
+        NetworkRequest(endpoint: categoryEndpoint)
             .run(completionHandler: { (response: AnyObject?, error: NSError?) in
                 
                 if error != nil {
@@ -229,7 +201,7 @@ class SyncMember {
                     return
                 }
                 print("delete reponse; \(response)")
-                RMember.deleteById(id: memberId)
+                RCategory.deleteById(id: categoryId)
                 
                 success()
             })

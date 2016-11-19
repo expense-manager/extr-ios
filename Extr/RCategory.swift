@@ -141,4 +141,12 @@ class RCategory: Object {
         let predicate = NSPredicate(format:"\(PropertyKey.groupId) == %@", groupId)
         return realm.objects(RCategory.self).filter(predicate).sorted(byProperty: PropertyKey.name, ascending: true)
     }
+    
+    static func deleteById(id: String) {
+        let realm = AppDelegate.getInstance().realm!
+        let category = getCategoryById(id: id)
+        if category != nil {
+            realm.delete(category!)
+        }
+    }
 }
