@@ -34,6 +34,11 @@ class EndpointBuilder {
         return self
     }
     
+    func appendIdToPath(_ id: String) -> EndpointBuilder {
+        self.path += "/\(id)"
+        return self
+    }
+    
     func method(_ method: HTTPMethod) -> EndpointBuilder {
         self.method = method
         return self

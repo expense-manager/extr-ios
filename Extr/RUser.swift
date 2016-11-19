@@ -130,6 +130,28 @@ class RUser: Object {
         return users
     }
     
+    static func map(dictionary: NSDictionary) -> RUser {
+        let realm = AppDelegate.getInstance().realm!
+        let user = RUser()
+        
+        do {
+            try user.map(dictionary: dictionary)
+            
+            realm.beginWrite()
+            realm.add(user, update: true)
+            try realm.commitWrite()
+            
+        } catch JsonError.noKey(let key) {
+            let error = JsonError.noKey(key: key).error
+            print("\(TAG): \(error.localizedDescription)")
+        } catch let error {
+            realm.cancelWrite()
+            print("\(TAG): \(error)")
+        }
+        
+        return user
+    }
+    
     // MARK: - Realm queries
     static func getAllUsers() -> Results<RUser> {
         let realm = AppDelegate.getInstance().realm!

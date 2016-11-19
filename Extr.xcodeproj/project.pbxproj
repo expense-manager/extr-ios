@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2955F01A1DE0E1F300780597 /* SyncGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2955F0191DE0E1F300780597 /* SyncGroup.swift */; };
 		2974D90B1DDD57F6009AD3E3 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */; };
 		2974D90E1DDD5C1A009AD3E3 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974D90C1DDD5C1A009AD3E3 /* GroupCell.swift */; };
 		2974D90F1DDD5C1A009AD3E3 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */; };
@@ -83,6 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2955F0191DE0E1F300780597 /* SyncGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncGroup.swift; sourceTree = "<group>"; };
 		2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		2974D90C1DDD5C1A009AD3E3 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				3A9249041DD7AB1A004BBA99 /* Endpoint.swift */,
 				3A9249061DD7AB3F004BBA99 /* EndpointBuilder.swift */,
+				2955F0191DE0E1F300780597 /* SyncGroup.swift */,
 				3A9249081DD7AB5A004BBA99 /* NetworkRequest.swift */,
 				3A92490A1DD7AB73004BBA99 /* SyncExpense.swift */,
 				3A92490C1DD7ABB3004BBA99 /* AppError.swift */,
@@ -472,6 +475,7 @@
 				3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */,
 				3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */,
 				298D58481DD9049600263258 /* RCategory.swift in Sources */,
+				2955F01A1DE0E1F300780597 /* SyncGroup.swift in Sources */,
 				3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */,
 				2974D90E1DDD5C1A009AD3E3 /* GroupCell.swift in Sources */,
 				3AA850921DDBE5E50035F3FE /* SyncUser.swift in Sources */,

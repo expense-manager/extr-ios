@@ -59,20 +59,10 @@ class RExpense: Object {
         }
         
         self.id = id
+        // Save or update User object
+        RUser.map(dictionary: userIdDict)
         self.userId = userIdDict[JsonKey.objectId] as! String
         self.groupId = groupIdDict[JsonKey.objectId] as! String
-        
-        do {
-            let realm = AppDelegate.getInstance().realm!
-            let user = RUser()
-            try user.map(dictionary: userIdDict)
-            realm.beginWrite()
-            realm.add(user, update: true)
-            try realm.commitWrite()
-        } catch let error {
-            realm?.cancelWrite()
-            print("\(type(of: self).TAG): Cannot parse userIdDict to RUser. \(error.localizedDescription)")
-        }
         
         if let amountString = dictionary[JsonKey.amount] as? String {
             if let amount = Double(amountString) {
@@ -116,7 +106,9 @@ class RExpense: Object {
         }
         
         if let categoryIdDict = dictionary[JsonKey.categoryId] as? NSDictionary {
-            self.categoryId = categoryIdDict[JsonKey.objectId] as! String
+            // Save or update Category object
+            let category = RCategory.map(dictionary: categoryIdDict)
+            self.categoryId = category.id
         } else {
             throw JsonError.noKey(key: JsonKey.categoryId)
         }
@@ -138,7 +130,6 @@ class RExpense: Object {
                 try realm.commitWrite()
                 
                 expenses.append(expense)
-                
             } catch JsonError.noKey(let key) {
                 let error = JsonError.noKey(key: key).error
                 print("\(TAG): \(error.localizedDescription)")
@@ -150,6 +141,29 @@ class RExpense: Object {
         }
         
         return expenses
+    }
+    
+    static func map(dictionary: NSDictionary) -> RExpense {
+        let realm = AppDelegate.getInstance().realm!
+        let expense = RExpense()
+        
+        do {
+            try expense.map(dictionary: dictionary)
+            
+            realm.beginWrite()
+            realm.add(expense, update: true)
+            try realm.commitWrite()
+            
+        } catch JsonError.noKey(let key) {
+            let error = JsonError.noKey(key: key).error
+            print("\(TAG): \(error.localizedDescription)")
+            realm.cancelWrite()
+        } catch let error {
+            realm.cancelWrite()
+            print("\(TAG): \(error)")
+        }
+        
+        return expense
     }
     
     // MARK: - Realm queries

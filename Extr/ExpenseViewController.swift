@@ -43,9 +43,10 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         SyncExpense.getAllExpenses(success: { (expenses: [RExpense]) -> () in
             self.expenses = expenses.sorted{ $0.0.spentAt > $0.1.spentAt }
             print("expenses count: \(self.expenses.count)")
+            print("expenses: \(expenses)")
             
-            let users = RUser.getAllUsers()
-            print("users count: \(users.count)")
+            //let users = RUser.getAllUsers()
+            //print("users count: \(users.count)")
             
         }) { (error: Error) -> () in
             print(error)

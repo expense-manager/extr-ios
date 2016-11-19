@@ -70,6 +70,7 @@ class RCategory: Object {
         self.name = name
         self.color = color
         self.icon = icon
+        RUser.map(dictionary: userIdDict)
         self.userId = userIdDict[JsonKey.objectId] as! String
         self.groupId = groupIdDict[JsonKey.objectId] as! String
     }
@@ -99,6 +100,28 @@ class RCategory: Object {
         }
         
         return categories
+    }
+    
+    static func map(dictionary: NSDictionary) -> RCategory {
+        let realm = AppDelegate.getInstance().realm!
+        let category = RCategory()
+        
+        do {
+            try category.map(dictionary: dictionary)
+            
+            realm.beginWrite()
+            realm.add(category, update: true)
+            try realm.commitWrite()
+            
+        } catch JsonError.noKey(let key) {
+            let error = JsonError.noKey(key: key).error
+            print("\(TAG): \(error.localizedDescription)")
+        } catch let error {
+            realm.cancelWrite()
+            print("\(TAG): \(error)")
+        }
+        
+        return category
     }
     
     // MARK: - Realm queries

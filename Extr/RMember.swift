@@ -63,8 +63,11 @@ class RMember: Object {
         }
         
         self.id = id
-        self.userId = userIdDict[JsonKey.objectId] as! String
+        RUser.map(dictionary: userIdDict)
+        self.userId = groupIdDict[JsonKey.objectId] as! String
+        RGroup.map(dictionary: groupIdDict)
         self.groupId = groupIdDict[JsonKey.objectId] as! String
+        RUser.map(dictionary: createdByIdDict)
         self.createdById = createdByIdDict[JsonKey.objectId] as! String
         self.isAccepted = dictionary[JsonKey.isAccepted] as! Bool
         
@@ -102,6 +105,28 @@ class RMember: Object {
         }
         
         return members
+    }
+    
+    static func map(dictionary: NSDictionary) -> RMember {
+        let realm = AppDelegate.getInstance().realm!
+        let member = RMember()
+        
+        do {
+            try member.map(dictionary: dictionary)
+            
+            realm.beginWrite()
+            realm.add(member, update: true)
+            try realm.commitWrite()
+            
+        } catch JsonError.noKey(let key) {
+            let error = JsonError.noKey(key: key).error
+            print("\(TAG): \(error.localizedDescription)")
+        } catch let error {
+            realm.cancelWrite()
+            print("\(TAG): \(error)")
+        }
+        
+        return member
     }
     
     // MARK: - Realm queries

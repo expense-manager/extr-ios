@@ -13,10 +13,12 @@ class SyncExpense {
     
     static func getAllExpenses(success: @escaping ([RExpense]) -> (), failure: @escaping (Error) -> ()) {
         
+        let includeKeys = RExpense.JsonKey.userId + "," + RExpense.JsonKey.categoryId
+        
         let expenseEndpoint = EndpointBuilder()
             .method(.get)
             .path(.expense)
-            .parameters(key: "include", value: RExpense.JsonKey.userId as AnyObject)
+            .parameters(key: "include", value: includeKeys as AnyObject)
             .build()
         
         NetworkRequest(endpoint: expenseEndpoint)
@@ -45,11 +47,13 @@ class SyncExpense {
         userIdDict["objectId"] = userId
         
         let whereDict = ["where": ["userId": userIdDict]]
+        let includeKeys = RExpense.JsonKey.categoryId
         
         let expenseEndpoint = EndpointBuilder()
             .method(.get)
             .path(.expense)
             .parameters(parameters: whereDict as [String : AnyObject])
+            .parameters(key: "include", value: includeKeys as AnyObject)
             .build()
         
         NetworkRequest(endpoint: expenseEndpoint)

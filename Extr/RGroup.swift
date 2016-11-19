@@ -119,6 +119,28 @@ class RGroup: Object {
         return groups
     }
     
+    static func map(dictionary: NSDictionary) -> RGroup {
+        let realm = AppDelegate.getInstance().realm!
+        let group = RGroup()
+        
+        do {
+            try group.map(dictionary: dictionary)
+            
+            realm.beginWrite()
+            realm.add(group, update: true)
+            try realm.commitWrite()
+            
+        } catch JsonError.noKey(let key) {
+            let error = JsonError.noKey(key: key).error
+            print("\(TAG): \(error.localizedDescription)")
+        } catch let error {
+            realm.cancelWrite()
+            print("\(TAG): \(error)")
+        }
+        
+        return group
+    }
+    
     // MARK: - Realm queries
     static func getAllGroups() -> Results<RGroup> {
         let realm = AppDelegate.getInstance().realm!
@@ -129,5 +151,13 @@ class RGroup: Object {
         let realm = AppDelegate.getInstance().realm!
         let predicate = NSPredicate(format:"\(PropertyKey.id) == %@", id)
         return realm.objects(RGroup.self).filter(predicate).first
+    }
+
+    static func deleteById(id: String) {
+        let realm = AppDelegate.getInstance().realm!
+        let group = getGroupById(id: id)
+        if group != nil {
+            realm.delete(group!)
+        }
     }
 }
