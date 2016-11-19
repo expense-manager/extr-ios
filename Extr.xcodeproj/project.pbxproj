@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2955F01A1DE0E1F300780597 /* SyncGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2955F0191DE0E1F300780597 /* SyncGroup.swift */; };
+		2955F01C1DE106E500780597 /* SyncMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2955F01B1DE106E500780597 /* SyncMember.swift */; };
 		2974D90B1DDD57F6009AD3E3 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */; };
 		2974D90E1DDD5C1A009AD3E3 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974D90C1DDD5C1A009AD3E3 /* GroupCell.swift */; };
 		2974D90F1DDD5C1A009AD3E3 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */; };
@@ -85,6 +86,7 @@
 
 /* Begin PBXFileReference section */
 		2955F0191DE0E1F300780597 /* SyncGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncGroup.swift; sourceTree = "<group>"; };
+		2955F01B1DE106E500780597 /* SyncMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncMember.swift; sourceTree = "<group>"; };
 		2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		2974D90C1DDD5C1A009AD3E3 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				3A9249061DD7AB3F004BBA99 /* EndpointBuilder.swift */,
 				2955F0191DE0E1F300780597 /* SyncGroup.swift */,
 				3A9249081DD7AB5A004BBA99 /* NetworkRequest.swift */,
+				2955F01B1DE106E500780597 /* SyncMember.swift */,
 				3A92490A1DD7AB73004BBA99 /* SyncExpense.swift */,
 				3A92490C1DD7ABB3004BBA99 /* AppError.swift */,
 				3AA850911DDBE5E50035F3FE /* SyncUser.swift */,
@@ -482,6 +485,7 @@
 				3A92490D1DD7ABB3004BBA99 /* AppError.swift in Sources */,
 				3A9249091DD7AB5A004BBA99 /* NetworkRequest.swift in Sources */,
 				29EE3DFF1DDC010100EB695C /* MenuViewController.swift in Sources */,
+				2955F01C1DE106E500780597 /* SyncMember.swift in Sources */,
 				3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */,
 				3A9249071DD7AB3F004BBA99 /* EndpointBuilder.swift in Sources */,
 				2974D9151DDD7E57009AD3E3 /* GroupDetailViewController.swift in Sources */,
