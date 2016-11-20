@@ -40,6 +40,15 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func loadData() {
+        
+        SyncUser.getLoginUser(success: { (user: RUser) -> () in
+            //let users = RUser.getAllUsers()
+            //print("users count: \(users.count)")
+            
+        }) { (error: Error) -> () in
+            print(error)
+        }
+
         SyncExpense.getAllExpenses(success: { (expenses: [RExpense]) -> () in
             self.expenses = expenses.sorted{ $0.0.spentAt > $0.1.spentAt }
             print("expenses count: \(self.expenses.count)")

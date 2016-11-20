@@ -116,7 +116,7 @@
         <!--Login View Controller-->
         <scene sceneID="GZn-Fp-iB4">
             <objects>
-                <viewController id="Rkg-n4-Ahj" customClass="LoginViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Rkg-n4-Ahj" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZQl-pW-Af8"/>
                         <viewControllerLayoutGuide type="bottom" id="zyh-ll-dSD"/>
@@ -692,6 +692,6 @@
         <image name="right_arrow" width="24" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fmM-DW-HDP"/>
+        <segue reference="in5-HN-fzA"/>
     </inferredMetricsTieBreakers>
 </document>

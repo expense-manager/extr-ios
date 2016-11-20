@@ -162,7 +162,7 @@ class SyncGroup {
             })
     }
     
-    static func delete(groupId: String, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+    static func delete(groupId: String, success: @escaping (NSDictionary) -> (), failure: @escaping (Error) -> ()) {
         let groupEndpoint = EndpointBuilder()
             .method(.delete)
             .path(.group)
@@ -177,9 +177,13 @@ class SyncGroup {
                     return
                 }
                 print("delete reponse; \(response)")
+                guard let results = response as? NSDictionary else {
+                    print("\(TAG): response - \(response)")
+                    return
+                }
                 RGroup.deleteById(id: groupId)
                 
-                success()
+                success(results)
             })
     }
 }

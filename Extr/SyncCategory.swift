@@ -186,7 +186,7 @@ class SyncCategory {
             })
     }
     
-    static func delete(categoryId: String, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+    static func delete(categoryId: String, success: @escaping (NSDictionary) -> (), failure: @escaping (Error) -> ()) {
         let categoryEndpoint = EndpointBuilder()
             .method(.delete)
             .path(.category)
@@ -201,9 +201,13 @@ class SyncCategory {
                     return
                 }
                 print("delete reponse; \(response)")
+                guard let results = response as? NSDictionary else {
+                    print("\(TAG): response - \(response)")
+                    return
+                }
                 RCategory.deleteById(id: categoryId)
                 
-                success()
+                success(results)
             })
     }
 }

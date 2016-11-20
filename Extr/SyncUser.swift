@@ -69,4 +69,53 @@ class SyncUser {
             })
 
     }
+    
+    static func logout(success: @escaping (NSDictionary) -> (), failure: @escaping (Error) -> ()) {
+        let logoutEndpoint = EndpointBuilder()
+            .method(.post)
+            .path(.logout)
+            .build()
+        
+        NetworkRequest(endpoint: logoutEndpoint)
+            .run(completionHandler: { (response: AnyObject?, error: NSError?) in
+                
+                if error != nil {
+                    failure(error!)
+                    return
+                }
+                
+                guard let results = response as? NSDictionary else {
+                    print("\(TAG): response - \(response)")
+                    return
+                }
+                
+                success(results)
+            })
+        
+    }
+    
+    static func getLoginUser(success: @escaping (RUser) -> (), failure: @escaping (Error) -> ()) {
+        let logoutEndpoint = EndpointBuilder()
+            .method(.get)
+            .path(.loginUser)
+            .build()
+        
+        NetworkRequest(endpoint: logoutEndpoint)
+            .run(completionHandler: { (response: AnyObject?, error: NSError?) in
+                
+                if error != nil {
+                    failure(error!)
+                    return
+                }
+                print("login user: \(response)")
+                guard let result = response as? NSDictionary else {
+                    let error = JsonError.noKey(key: "response")
+                    failure(error)
+                    return
+                }
+                
+                success(RUser.map(dictionary: result))
+            })
+        
+    }
 }

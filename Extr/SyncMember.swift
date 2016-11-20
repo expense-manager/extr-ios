@@ -214,7 +214,7 @@ class SyncMember {
             })
     }
     
-    static func delete(memberId: String, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+    static func delete(memberId: String, success: @escaping (NSDictionary) -> (), failure: @escaping (Error) -> ()) {
         let memberEndpoint = EndpointBuilder()
             .method(.delete)
             .path(.member)
@@ -229,9 +229,13 @@ class SyncMember {
                     return
                 }
                 print("delete reponse; \(response)")
+                guard let results = response as? NSDictionary else {
+                    print("\(TAG): response - \(response)")
+                    return
+                }
                 RMember.deleteById(id: memberId)
                 
-                success()
+                success(results)
             })
     }
 }
