@@ -116,7 +116,7 @@
         <!--Login View Controller-->
         <scene sceneID="GZn-Fp-iB4">
             <objects>
-                <viewController id="Rkg-n4-Ahj" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="Rkg-n4-Ahj" customClass="LoginViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZQl-pW-Af8"/>
                         <viewControllerLayoutGuide type="bottom" id="zyh-ll-dSD"/>
@@ -191,7 +191,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="4Xt-bh-jWL" id="IMJ-tb-34e"/>
+                        <outlet property="emailTextField" destination="4Xt-bh-jWL" id="23D-eA-khu"/>
                         <outlet property="loginButton" destination="6MF-GT-0gN" id="bvc-r5-5b0"/>
                         <outlet property="passwordTextField" destination="Wnn-mt-xbk" id="ueS-k2-GnB"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="LoginExpenseViewControllerSegue" id="fmM-DW-HDP"/>

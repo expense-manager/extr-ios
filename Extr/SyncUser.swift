@@ -27,7 +27,7 @@ class SyncUser {
                     failure(error!)
                     return
                 }
-                
+                print("login response: \(response)")
                 guard let results = response as? NSDictionary else {
                     print("\(TAG): response - \(response)")
                     return
@@ -98,6 +98,7 @@ class SyncUser {
         let logoutEndpoint = EndpointBuilder()
             .method(.get)
             .path(.loginUser)
+            .useToken(true)
             .build()
         
         NetworkRequest(endpoint: logoutEndpoint)
@@ -109,6 +110,12 @@ class SyncUser {
                 }
                 print("login user: \(response)")
                 guard let result = response as? NSDictionary else {
+                    let error = JsonError.noKey(key: "response")
+                    failure(error)
+                    return
+                }
+                
+                if result["error"] == nil {
                     let error = JsonError.noKey(key: "response")
                     failure(error)
                     return

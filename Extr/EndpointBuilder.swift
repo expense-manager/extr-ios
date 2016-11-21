@@ -28,6 +28,7 @@ class EndpointBuilder {
     var path: String = ""
     var method: HTTPMethod = .get
     var parameters: [String: AnyObject] = [:]
+    var useToken: Bool = false
     
     func path(_ path: Path) -> EndpointBuilder {
         self.path = path.rawValue
@@ -49,12 +50,17 @@ class EndpointBuilder {
         return self
     }
     
+    func useToken(_ useToken: Bool) -> EndpointBuilder {
+        self.useToken = useToken
+        return self
+    }
+    
     func parameters(parameters: [String: AnyObject]) -> EndpointBuilder {
         self.parameters = parameters
         return self
     }
     
     func build() -> Endpoint {
-        return Endpoint(path: self.path, method: self.method, parameters: self.parameters)
+        return Endpoint(path: self.path, method: self.method, parameters: self.parameters, useToken: self.useToken)
     }
 }

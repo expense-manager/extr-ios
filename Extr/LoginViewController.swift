@@ -46,22 +46,12 @@ class LoginViewController: UIViewController {
     }
     
     func saveUserData(dictionary: NSDictionary) {
-        let realm = AppDelegate.getInstance().realm!
-        let user = RUser()
-        
-        do {
-            try user.map(dictionary: dictionary)
-            realm.beginWrite()
-            realm.add(user, update: true)
-            try realm.commitWrite()
-        } catch let error {
-            print("\(type(of: self).TAG): \(error.localizedDescription)")
-            realm.cancelWrite()
-        }
+        let user = RUser.map(dictionary: dictionary)
         
         if let sessionToken = dictionary[RUser.JsonKey.sessionToken] as? String {
             let userDefault = UserDefaults.standard
             userDefault.set(sessionToken, forKey: RUser.JsonKey.sessionToken)
+            userDefault.set(user.id, forKey: RUser.JsonKey.objectId)
             userDefault.synchronize()
         } else {
             print("\(type(of: self).TAG): No session token.")

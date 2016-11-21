@@ -114,12 +114,12 @@ class RExpense: Object {
         }
     }
     
-    static func map(array: [NSDictionary]) -> [RExpense] {
+    static func map(dictionaries: [NSDictionary]) -> [RExpense] {
         let realm = AppDelegate.getInstance().realm!
         var expenses: [RExpense] = []
         
         //Todo: Using a Realm Across Threads
-        for dictionary in array {
+        for dictionary in dictionaries {
             let expense = RExpense()
             
             do {

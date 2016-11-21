@@ -13,7 +13,9 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet var tableView: UITableView!
     
-    var expenseCell: String = "ExpenseCell"
+    let expenseCell: String = "ExpenseCell"
+    var userId: String!
+    var groupId: String!
     var expenses: [RExpense] = [] {
         didSet {
             invalidateViews()
@@ -27,7 +29,13 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.register(UINib(nibName: expenseCell, bundle: nil), forCellReuseIdentifier: expenseCell)
 
-        expenses = Array(RExpense.getAllExpenses())
+        let userDefault = UserDefaults.standard
+        userId = userDefault.string(forKey: RMember.JsonKey.userId)
+        groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
+        if groupId == nil {
+            print("no group saved")
+            return
+        }
         loadData()
     }
     
@@ -40,23 +48,11 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func loadData() {
-        
-        SyncUser.getLoginUser(success: { (user: RUser) -> () in
-            //let users = RUser.getAllUsers()
-            //print("users count: \(users.count)")
-            
-        }) { (error: Error) -> () in
-            print(error)
-        }
+        expenses = Array(RExpense.getExpensesByGroupId(groupId: groupId))
 
-        SyncExpense.getAllExpenses(success: { (expenses: [RExpense]) -> () in
+        SyncExpense.getAllExpensesByGroupId(groupId: groupId, success: { (expenses: [RExpense]) -> () in
             self.expenses = expenses.sorted{ $0.0.spentAt > $0.1.spentAt }
             print("expenses count: \(self.expenses.count)")
-            print("expenses: \(expenses)")
-            
-            //let users = RUser.getAllUsers()
-            //print("users count: \(users.count)")
-            
         }) { (error: Error) -> () in
             print(error)
         }

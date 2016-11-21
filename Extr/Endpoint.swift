@@ -10,14 +10,20 @@ import Foundation
 import Alamofire
 
 class Endpoint {
-    var path: String = ""
-    var method: HTTPMethod = .get
-    var parameters: [String: AnyObject] = [:]
+    var path: String
+    var method: HTTPMethod
+    var parameters: [String: AnyObject]
+    var useToken: Bool
     
-    init(path: String, method: HTTPMethod, parameters: [String: AnyObject]) {
+    convenience init(path: String, method: HTTPMethod, parameters: [String: AnyObject]) {
+        self.init(path: path, method: method, parameters: parameters, useToken: false)
+    }
+    
+    init(path: String, method: HTTPMethod, parameters: [String: AnyObject], useToken: Bool) {
         self.path = path
         self.method = method
         self.parameters = parameters
+        self.useToken = useToken
     }
     
     func description() -> String {

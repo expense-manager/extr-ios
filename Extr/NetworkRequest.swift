@@ -14,7 +14,7 @@ class NetworkRequest {
     
     let baseUrl = "https://e-manager.herokuapp.com/parse/"
     
-    let headers = [
+    var headers = [
         "X-Parse-Application-Id": Secrets.applicationId,
         "X-Parse-Master-Key": Secrets.masterKey,
         "Content-Type": "application/json",
@@ -24,6 +24,10 @@ class NetworkRequest {
     
     init(endpoint: Endpoint) {
         self.endpoint = endpoint
+        if endpoint.useToken {
+            let userDefault = UserDefaults.standard
+            headers["X-Parse-Session-Token"] = userDefault.string(forKey: RUser.JsonKey.sessionToken)
+        }
     }
     
     func run(completionHandler: @escaping (AnyObject?, NSError?) ->()) {

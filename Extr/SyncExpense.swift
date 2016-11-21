@@ -35,7 +35,7 @@ class SyncExpense {
                     return
                 }
                 
-                success(RExpense.map(array: results))
+                success(RExpense.map(dictionaries: results))
             })
     }
     
@@ -46,7 +46,7 @@ class SyncExpense {
         userIdDict["className"] = "_User"
         userIdDict["objectId"] = userId
         
-        let whereDict = ["where": ["userId": userIdDict]]
+        let whereDict = ["where": [RExpense.JsonKey.userId: userIdDict]]
         let includeKeys = RExpense.JsonKey.categoryId
         
         let expenseEndpoint = EndpointBuilder()
@@ -70,7 +70,42 @@ class SyncExpense {
                     return
                 }
                 
-                success(RExpense.map(array: results))
+                success(RExpense.map(dictionaries: results))
+            })
+    }
+    
+    static func getAllExpensesByGroupId(groupId: String, success: @escaping ([RExpense]) -> (), failure: @escaping (Error) -> ()) {
+        
+        var groupIdDict: [String: String] = [:]
+        groupIdDict["__type"] = "Pointer"
+        groupIdDict["className"] = "Group"
+        groupIdDict["objectId"] = groupId
+        
+        let whereDict = ["where": [RExpense.JsonKey.groupId: groupIdDict]]
+        let includeKeys = RExpense.JsonKey.categoryId
+        
+        let categoryEndpoint = EndpointBuilder()
+            .method(.get)
+            .path(.expense)
+            .parameters(parameters: whereDict as [String : AnyObject])
+            .parameters(key: "include", value: includeKeys as AnyObject)
+            .build()
+        
+        NetworkRequest(endpoint: categoryEndpoint)
+            .run(completionHandler: { (response: AnyObject?, error: NSError?) in
+                
+                if error != nil {
+                    failure(error!)
+                    return
+                }
+                
+                guard let results = response?["results"] as? [NSDictionary] else {
+                    let error = JsonError.noKey(key: "results")
+                    failure(error)
+                    return
+                }
+                
+                success(RExpense.map(dictionaries: results))
             })
     }
 }

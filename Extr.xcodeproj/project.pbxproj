@@ -19,6 +19,7 @@
 		298D58461DD8F4CC00263258 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58451DD8F4CC00263258 /* RUser.swift */; };
 		298D58481DD9049600263258 /* RCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58471DD9049600263258 /* RCategory.swift */; };
 		298D584A1DD910A600263258 /* RGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58491DD910A600263258 /* RGroup.swift */; };
+		29C217441DE2A27D00ACDF9B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C217431DE2A27D00ACDF9B /* LoginViewController.swift */; };
 		29EE3DFA1DDBFB6200EB695C /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE3DF81DDBFB6200EB695C /* MenuCell.swift */; };
 		29EE3DFB1DDBFB6200EB695C /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29EE3DF91DDBFB6200EB695C /* MenuCell.xib */; };
 		29EE3DFD1DDBFF8C00EB695C /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE3DFC1DDBFF8C00EB695C /* MenuItem.swift */; };
@@ -99,6 +100,7 @@
 		298D58451DD8F4CC00263258 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		298D58471DD9049600263258 /* RCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCategory.swift; sourceTree = "<group>"; };
 		298D58491DD910A600263258 /* RGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGroup.swift; sourceTree = "<group>"; };
+		29C217431DE2A27D00ACDF9B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		29EE3DF81DDBFB6200EB695C /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		29EE3DF91DDBFB6200EB695C /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		29EE3DFC1DDBFF8C00EB695C /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -130,7 +132,6 @@
 		3A92490C1DD7ABB3004BBA99 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3A9249101DD7AC00004BBA99 /* RExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RExpense.swift; sourceTree = "<group>"; };
 		3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		3AA8508F1DDBE10F0035F3FE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3AA850911DDBE5E50035F3FE /* SyncUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncUser.swift; sourceTree = "<group>"; };
 		3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -315,8 +316,8 @@
 		3AA8508C1DDAC1970035F3FE /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				29C217431DE2A27D00ACDF9B /* LoginViewController.swift */,
 				3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */,
-				3AA8508F1DDBE10F0035F3FE /* LoginViewController.swift */,
 			);
 			name = Welcome;
 			sourceTree = "<group>";
@@ -480,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29C217441DE2A27D00ACDF9B /* LoginViewController.swift in Sources */,
 				29EE3DFD1DDBFF8C00EB695C /* MenuItem.swift in Sources */,
 				298D584A1DD910A600263258 /* RGroup.swift in Sources */,
 				298D58441DD8E40000263258 /* RMember.swift in Sources */,
