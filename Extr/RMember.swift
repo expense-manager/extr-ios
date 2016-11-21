@@ -149,8 +149,7 @@ class RMember: Object {
     
     static func getMembersByUserId(userId: String) -> Results<RMember> {
         let realm = AppDelegate.getInstance().realm!
-        let predicate = NSPredicate(format:"\(PropertyKey.userId) == %@", userId)
-        return realm.objects(RMember.self).filter(predicate)
+        return realm.objects(RMember.self)
     }
     
     static func deleteById(id: String) {

@@ -26,6 +26,7 @@
 		29EE3DFD1DDBFF8C00EB695C /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE3DFC1DDBFF8C00EB695C /* MenuItem.swift */; };
 		29EE3DFF1DDC010100EB695C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE3DFE1DDC010100EB695C /* MenuViewController.swift */; };
 		29EEB3471DDABEFC00503DA2 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EEB3461DDABEFC00503DA2 /* HamburgerViewController.swift */; };
+		29FE43331DE395A200938610 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FE43321DE395A200938610 /* Helpers.swift */; };
 		3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */; };
 		3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */; };
 		3A4B90951DD7C77F00E23742 /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4B90931DD7C77F00E23742 /* ExpenseCell.xib */; };
@@ -108,6 +109,7 @@
 		29EE3DFC1DDBFF8C00EB695C /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		29EE3DFE1DDC010100EB695C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		29EEB3461DDABEFC00503DA2 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
+		29FE43321DE395A200938610 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		3A4B90931DD7C77F00E23742 /* ExpenseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
@@ -167,12 +169,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		29580B3D1DE1637200D58BE1 /* settings */ = {
+		29580B3D1DE1637200D58BE1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				29580B3E1DE1639500D58BE1 /* SettingsViewController.swift */,
 			);
-			name = settings;
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		2974D9131DDD7E48009AD3E3 /* Group */ = {
@@ -183,12 +185,20 @@
 			name = Group;
 			sourceTree = "<group>";
 		};
-		29C217451DE2C33D00ACDF9B /* overview */ = {
+		29C217451DE2C33D00ACDF9B /* Overview */ = {
 			isa = PBXGroup;
 			children = (
 				29C217461DE2C39400ACDF9B /* OverviewViewController.swift */,
 			);
-			name = overview;
+			name = Overview;
+			sourceTree = "<group>";
+		};
+		29FE43311DE3957100938610 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				29FE43321DE395A200938610 /* Helpers.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		3A4B90911DD7C74900E23742 /* Views */ = {
@@ -229,8 +239,9 @@
 		3A9248C41DD7A6AD004BBA99 /* Extr */ = {
 			isa = PBXGroup;
 			children = (
-				29C217451DE2C33D00ACDF9B /* overview */,
-				29580B3D1DE1637200D58BE1 /* settings */,
+				29FE43311DE3957100938610 /* Helpers */,
+				29C217451DE2C33D00ACDF9B /* Overview */,
+				29580B3D1DE1637200D58BE1 /* Settings */,
 				2974D9131DDD7E48009AD3E3 /* Group */,
 				3A9249121DD7ACF2004BBA99 /* Models */,
 				3A4B90911DD7C74900E23742 /* Views */,
@@ -505,6 +516,7 @@
 				3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */,
 				3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */,
 				298D58481DD9049600263258 /* RCategory.swift in Sources */,
+				29FE43331DE395A200938610 /* Helpers.swift in Sources */,
 				2955F01A1DE0E1F300780597 /* SyncGroup.swift in Sources */,
 				3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */,
 				2974D90E1DDD5C1A009AD3E3 /* GroupCell.swift in Sources */,

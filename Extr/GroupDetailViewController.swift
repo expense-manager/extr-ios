@@ -7,13 +7,69 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GroupDetailViewController: UIViewController {
 
+    @IBOutlet var groupInfoView: UIView!
+    @IBOutlet var groupActionsView: UIView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var groupnameLabel: UILabel!
+    @IBOutlet var taglineLabel: UILabel!
+    @IBOutlet var createrProfileImageView: UIImageView!
+    @IBOutlet var groupCreationInfoLabel: UILabel!
+    
+    var groupId: String!
+    var userId: String!
+    var group: RGroup! {
+        didSet {
+            if let userId = group?.userId {
+                let user = RUser.getUserById(id: userId)
+                if let imageURL = user?.photoUrl {
+                    let url = URL(string: imageURL)!
+                    let resource = ImageResource(downloadURL: url, cacheKey: "\(imageURL)")
+                    self.createrProfileImageView.kf.setImage(with: resource, placeholder: UIImage(named:"placeholder"), options: [.transition(.fade(0.2))])
+                }
+                
+//                createdAtTextView.setText("" + createdBy.getFullname() + " created this group on " + Helpers.getMonthDayYear(group.getCreatedAt()));
+                groupCreationInfoLabel.text = (user?.fullname)! + " created this group on " + Helpers.getMonthDayYear(date: group.createdAt)
+            }
+            nameLabel.text = group.name
+            groupnameLabel.text = "@\(group.groupname)"
+            taglineLabel.text = group.about
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //setupNavigationBar()
+        createrProfileImageView.layer.cornerRadius = 25
+        createrProfileImageView.clipsToBounds = true
+        
+        groupInfoView.layer.cornerRadius = 10
+        groupInfoView.clipsToBounds = true
+        
+        groupActionsView.layer.cornerRadius = 10
+        groupActionsView.clipsToBounds = true
+        
+        loadData()
+    }
+    
+    func loadData() {
+        let userDefault = UserDefaults.standard
+        userId = userDefault.string(forKey: RMember.JsonKey.userId)
+        groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
+        if groupId == nil {
+            print("no group saved")
+            return
+        }
+        
+        group = RGroup.getGroupById(id: groupId)
+        SyncGroup.getGroupById(groupId: groupId, success: { (group: RGroup) -> () in
+            self.group = group
+        }) { (error: Error) -> () in
+            print(error)
+        }
     }
     
     func setupNavigationBar() {

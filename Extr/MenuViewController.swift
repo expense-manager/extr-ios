@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -21,10 +22,22 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
-    var hamburgerViewController: HamburgerViewController!
+    var hamburgerViewController: HamburgerViewController! {
+        didSet {
+            if currentIndex != nil {
+                hamburgerViewController?.containerViewController = viewControllers[currentIndex]
+            }
+        }
+    }
     
     var user: RUser! {
         didSet {
+            if let imageURL = user?.photoUrl {
+                let url = URL(string: imageURL)!
+                let resource = ImageResource(downloadURL: url, cacheKey: "\(imageURL)")
+                self.profileImageView.kf.setImage(with: resource, placeholder: UIImage(named:"placeholder"), options: [.transition(.fade(0.2))])
+            }
+            
             nameLabel.text = user.fullname
             emailLabel.text = user.email
         }
@@ -52,7 +65,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileImageView.layer.cornerRadius = 25
+        profileImageView.layer.cornerRadius = 22
         profileImageView.clipsToBounds = true
         
         tableView.dataSource = self
@@ -71,6 +84,18 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         settingsViewController = storyBoard.instantiateViewController(withIdentifier: self.settingsViewControllerString) as! SettingsViewController
         
         viewControllers = [overviewViewController, expenseViewController, reportViewController, groupDetailViewController, notificationViewController, settingsViewController]
+        
+        selectMenuItem(index: 0)
+        
+        loadCurrentUser()
+    }
+    
+    func loadCurrentUser() {
+        let userDefaults = UserDefaults.standard
+        let userId = userDefaults.string(forKey: RMember.JsonKey.userId)
+        if userId != nil {
+            self.user = RUser.getUserById(id: userId!)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,7 +116,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func selectMenuItem(index: Int) {
         currentIndex = index
-        hamburgerViewController.containerViewController = viewControllers[index]
+        hamburgerViewController?.containerViewController = viewControllers[index]
     }
     
     func refreshCurrentMenuView() {
@@ -101,7 +126,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
 //        viewControllers = [overviewViewController, expenseViewController, reportViewController, groupDetailViewController, notificationViewController, settingsViewController]
         switch(currentIndex) {
+        case 0: break;  // overview
         case 1: expenseViewController.loadData()
+        case 2: break;  // report
+        case 3: break;  // group detail
+        case 4: break;  // notification
+        case 5: break;  // settings
+        case 6: break;  // logout
         default: break
         }
     }

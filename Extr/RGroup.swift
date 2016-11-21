@@ -68,13 +68,14 @@ class RGroup: Object {
         if let about = dictionary[JsonKey.about] as? String {
             self.about = about
         }
+        print("dictionary: \(dictionary)")
         
-        if let weeklyBudget = dictionary[JsonKey.weeklyBudget] as? Double {
-            self.weeklyBudget = weeklyBudget
+        if let weeklyBudget = dictionary[JsonKey.weeklyBudget] as? String {
+            self.weeklyBudget = Double(weeklyBudget)!
         }
         
-        if let monthlyBudget = dictionary[JsonKey.monthlyBudget] as? Double {
-            self.monthlyBudget = monthlyBudget
+        if let monthlyBudget = dictionary[JsonKey.monthlyBudget] as? String {
+            self.monthlyBudget = Double(monthlyBudget)!
         }
         
         self.userId = userIdDict[JsonKey.objectId] as! String

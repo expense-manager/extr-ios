@@ -18,6 +18,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var menuViewController: MenuViewController!
     var userId: String!
     var groupId: String!
+    var selectedIndexPath: IndexPath!
     var members: [RMember] = [] {
         didSet {
             invalidateViews()
@@ -35,6 +36,9 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.register(UINib(nibName: self.groupCellString, bundle: nil), forCellReuseIdentifier: self.groupCellString)
         
         loadData()
+        if members.count > 0 {
+            saveGroup(indexPath: IndexPath(row: 0, section: 0))
+        }
     }
     
     func invalidateViews() {
@@ -54,7 +58,17 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         
-        members = Array(RMember.getMembersByUserId(userId: userId))
+        members = Array(RMember.getMembersByUserId(userId: userId)).sorted(by: { (member1: RMember, member2: RMember) -> Bool in
+            let group1 = RGroup.getGroupById(id: member1.groupId)
+            let group2 = RGroup.getGroupById(id: member2.groupId)
+            if group1 == nil {
+                return false
+            }
+            if group2 == nil {
+                return true
+            }
+            return group1!.name < group2!.name
+        })
         
         SyncMember.getAllMembersByUserId(userId: userId, success: { (members: [RMember]) -> () in
             self.members = members.sorted(by: { (member1: RMember, member2: RMember) -> Bool in
@@ -80,6 +94,9 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.groupCellString, for: indexPath) as! GroupCell
+        if selectedIndexPath != nil {
+            cell.isChecked = selectedIndexPath.row == indexPath.row
+        }
         cell.member = members[indexPath.row]
         return cell
     }
@@ -87,15 +104,19 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         hamburgerViewController?.closeGroup()
         self.tableView.deselectRow(at: indexPath, animated: true)
-        saveGroupId(groupId: members[indexPath.row].groupId)
+        saveGroup(indexPath: indexPath)
         // TODO: refresh current view in contrainerView
         menuViewController?.refreshCurrentMenuView()
     }
     
-    func saveGroupId(groupId: String) {
+    func saveGroup(indexPath: IndexPath) {
+        print("indexPath: \(indexPath.row)")
+        self.selectedIndexPath = indexPath
+        let groupId = members[indexPath.row].groupId
         let userDefaults = UserDefaults.standard
         userDefaults.set(groupId, forKey: RMember.JsonKey.groupId)
         userDefaults.synchronize()
+        tableView.reloadData()
     }
 
     
