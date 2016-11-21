@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
         if let sessionToken = dictionary[RUser.JsonKey.sessionToken] as? String {
             let userDefault = UserDefaults.standard
             userDefault.set(sessionToken, forKey: RUser.JsonKey.sessionToken)
-            userDefault.set(user.id, forKey: RUser.JsonKey.objectId)
+            userDefault.set(user.id, forKey: RMember.JsonKey.userId)
             userDefault.synchronize()
         } else {
             print("\(type(of: self).TAG): No session token.")

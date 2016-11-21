@@ -15,12 +15,17 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var tableView: UITableView!
     
     var hamburgerViewController: HamburgerViewController!
-    var members: [RMember]!
+    var menuViewController: MenuViewController!
+    var userId: String!
+    var groupId: String!
+    var members: [RMember] = [] {
+        didSet {
+            invalidateViews()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        addTestData()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,46 +33,49 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.estimatedRowHeight = 62
         
         self.tableView.register(UINib(nibName: self.groupCellString, bundle: nil), forCellReuseIdentifier: self.groupCellString)
+        
+        loadData()
+    }
+    
+    func invalidateViews() {
+        if viewIfLoaded == nil {
+            return
+        }
+        
         tableView.reloadData()
     }
     
-    func addTestData() {
-        let realm = AppDelegate.getInstance().realm!
-        members = [RMember]()
-        do {
-            let member1 = RMember()
-            let group1 = RGroup()
-            group1.id = "ajaidf;oijafijeoa;"
-            group1.name = "testGroupName"
-            member1.groupId = group1.id
-            
-            let member2 = RMember()
-            let group2 = RGroup()
-            group2.id = "ejitojglfkdn;"
-            group2.name = "anotherName"
-            member2.id = "1fdjgei"
-            member2.groupId = group2.id
-            
-            realm.beginWrite()
-            realm.add(group1, update: true)
-            realm.add(member1, update: true)
-            
-            realm.add(group2, update: true)
-            realm.add(member2, update: true)
-            try realm.commitWrite()
-            
-            members.append(member1)
-            members.append(member2)
-        } catch JsonError.noKey(let key) {
-            let error = JsonError.noKey(key: key).error
-            realm.cancelWrite()
-        } catch let error {
-            realm.cancelWrite()
+    func loadData() {
+        let userDefault = UserDefaults.standard
+        userId = userDefault.string(forKey: RMember.JsonKey.userId)
+        groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
+        if userId == nil {
+            print("no userId saved")
+            return
+        }
+        
+        members = Array(RMember.getMembersByUserId(userId: userId))
+        
+        SyncMember.getAllMembersByUserId(userId: userId, success: { (members: [RMember]) -> () in
+            self.members = members.sorted(by: { (member1: RMember, member2: RMember) -> Bool in
+                let group1 = RGroup.getGroupById(id: member1.groupId)
+                let group2 = RGroup.getGroupById(id: member2.groupId)
+                if group1 == nil {
+                    return false
+                }
+                if group2 == nil {
+                    return true
+                }
+                return group1!.name < group2!.name
+            })
+            print("members count: \(self.members.count)")
+        }) { (error: Error) -> () in
+            print(error)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return members == nil ? 0 : members.count
+        return members.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,6 +87,15 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         hamburgerViewController?.closeGroup()
         self.tableView.deselectRow(at: indexPath, animated: true)
+        saveGroupId(groupId: members[indexPath.row].groupId)
+        // TODO: refresh current view in contrainerView
+        menuViewController?.refreshCurrentMenuView()
+    }
+    
+    func saveGroupId(groupId: String) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(groupId, forKey: RMember.JsonKey.groupId)
+        userDefaults.synchronize()
     }
 
     

@@ -11,6 +11,10 @@ import UIKit
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let menuCellString = "MenuCell"
+    let overviewViewControllerString = "OverviewViewController"
+    let expenseViewControllerString = "ExpenseViewController"
+    let groupDetailViewControllerString = "GroupDetailViewController"
+    let settingsViewControllerString = "SettingsViewController"
     
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
@@ -35,6 +39,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         MenuItem(icon: UIImage(named: "setting")!, label: "Settings")
     ]
     
+    var viewControllers: [UIViewController] = []
+    var currentIndex: Int!
+    
+    private var overviewViewController: OverviewViewController!
+    private var expenseViewController: ExpenseViewController!
+    private var reportViewController: OverviewViewController!   // Temporary
+    private var groupDetailViewController: GroupDetailViewController!
+    private var notificationViewController: OverviewViewController!   // Temporary
+    private var settingsViewController: SettingsViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +61,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.estimatedRowHeight = 62
         
         self.tableView.register(UINib(nibName: self.menuCellString, bundle: nil), forCellReuseIdentifier: self.menuCellString)
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        overviewViewController = storyBoard.instantiateViewController(withIdentifier: self.overviewViewControllerString) as! OverviewViewController
+        expenseViewController = storyBoard.instantiateViewController(withIdentifier: self.expenseViewControllerString) as! ExpenseViewController
+        reportViewController = storyBoard.instantiateViewController(withIdentifier: self.overviewViewControllerString) as! OverviewViewController
+        groupDetailViewController = storyBoard.instantiateViewController(withIdentifier: self.groupDetailViewControllerString) as! GroupDetailViewController
+        notificationViewController = storyBoard.instantiateViewController(withIdentifier: self.overviewViewControllerString) as! OverviewViewController
+        settingsViewController = storyBoard.instantiateViewController(withIdentifier: self.settingsViewControllerString) as! SettingsViewController
+        
+        viewControllers = [overviewViewController, expenseViewController, reportViewController, groupDetailViewController, notificationViewController, settingsViewController]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,10 +84,27 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectMenuItem(index: indexPath.row)
         hamburgerViewController?.closeMenu()
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func selectMenuItem(index: Int) {
+        currentIndex = index
+        hamburgerViewController.containerViewController = viewControllers[index]
+    }
+    
+    func refreshCurrentMenuView() {
+        if currentIndex == nil {
+            return
+        }
+        
+//        viewControllers = [overviewViewController, expenseViewController, reportViewController, groupDetailViewController, notificationViewController, settingsViewController]
+        switch(currentIndex) {
+        case 1: expenseViewController.loadData()
+        default: break
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -109,8 +109,6 @@ class RExpense: Object {
             // Save or update Category object
             let category = RCategory.map(dictionary: categoryIdDict)
             self.categoryId = category.id
-        } else {
-            throw JsonError.noKey(key: JsonKey.categoryId)
         }
     }
     
@@ -135,8 +133,8 @@ class RExpense: Object {
                 print("\(TAG): \(error.localizedDescription)")
                 realm.cancelWrite()
             } catch let error {
-                realm.cancelWrite()
                 print("\(TAG): \(error)")
+                realm.cancelWrite()
             }
         }
         

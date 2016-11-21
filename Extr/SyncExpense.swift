@@ -82,7 +82,7 @@ class SyncExpense {
         groupIdDict["objectId"] = groupId
         
         let whereDict = ["where": [RExpense.JsonKey.groupId: groupIdDict]]
-        let includeKeys = RExpense.JsonKey.categoryId
+        let includeKeys = RExpense.JsonKey.userId + "," + RExpense.JsonKey.categoryId
         
         let categoryEndpoint = EndpointBuilder()
             .method(.get)

@@ -72,13 +72,31 @@
                     <connections>
                         <outlet property="loginButton" destination="6cW-zM-UbR" id="6eh-Ew-CX2"/>
                         <outlet property="signUpButton" destination="NZR-bO-8QM" id="qPu-FZ-ApN"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="ExpenseViewControllerSegue" id="in5-HN-fzA"/>
                         <segue destination="Rkg-n4-Ahj" kind="show" identifier="LoginViewControllerSegue" id="S6f-mE-Y2z"/>
+                        <segue destination="BVh-Db-zA0" kind="show" identifier="ExpenseViewControllerSegue" id="Hcd-F1-AVp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0D-hV-SPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-778.39999999999998" y="44.527736131934034"/>
+        </scene>
+        <!--Overview View Controller-->
+        <scene sceneID="mUA-Vw-7Cy">
+            <objects>
+                <viewController storyboardIdentifier="OverviewViewController" id="B9b-yC-fTq" customClass="OverviewViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g0f-Zn-Orr"/>
+                        <viewControllerLayoutGuide type="bottom" id="CiJ-Tk-BQU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XvR-gc-nBO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OeX-37-L1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1012" y="1443"/>
         </scene>
         <!--Expense View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -111,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="63"/>
+            <point key="canvasLocation" x="-306" y="1443"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="GZn-Fp-iB4">
@@ -194,7 +212,7 @@
                         <outlet property="emailTextField" destination="4Xt-bh-jWL" id="23D-eA-khu"/>
                         <outlet property="loginButton" destination="6MF-GT-0gN" id="bvc-r5-5b0"/>
                         <outlet property="passwordTextField" destination="Wnn-mt-xbk" id="ueS-k2-GnB"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="LoginExpenseViewControllerSegue" id="fmM-DW-HDP"/>
+                        <segue destination="BVh-Db-zA0" kind="show" identifier="LoginExpenseViewControllerSegue" id="fCO-q5-hoq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvg-Uu-ruM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -204,7 +222,7 @@
         <!--Hamburger View Controller-->
         <scene sceneID="F00-qm-ni0">
             <objects>
-                <viewController id="BVh-Db-zA0" customClass="HamburgerViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HamburgerViewController" id="BVh-Db-zA0" customClass="HamburgerViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SkM-Wa-feA"/>
                         <viewControllerLayoutGuide type="bottom" id="Pzt-dz-vgp"/>
@@ -653,7 +671,7 @@
         <!--Settings View Controller-->
         <scene sceneID="Q19-Vr-sOV">
             <objects>
-                <viewController id="ik2-AN-Xaj" customClass="SettingsViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="ik2-AN-Xaj" customClass="SettingsViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YQP-Vm-al4"/>
                         <viewControllerLayoutGuide type="bottom" id="zNo-ZA-r2n"/>
@@ -1118,6 +1136,6 @@
         <image name="right_arrow" width="24" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fmM-DW-HDP"/>
+        <segue reference="fCO-q5-hoq"/>
     </inferredMetricsTieBreakers>
 </document>

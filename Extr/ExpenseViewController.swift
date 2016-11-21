@@ -28,14 +28,11 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: expenseCell, bundle: nil), forCellReuseIdentifier: expenseCell)
-
-        let userDefault = UserDefaults.standard
-        userId = userDefault.string(forKey: RMember.JsonKey.userId)
-        groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
-        if groupId == nil {
-            print("no group saved")
-            return
-        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         loadData()
     }
     
@@ -48,6 +45,14 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func loadData() {
+        let userDefault = UserDefaults.standard
+        userId = userDefault.string(forKey: RMember.JsonKey.userId)
+        groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
+        if groupId == nil {
+            print("no group saved")
+            return
+        }
+
         expenses = Array(RExpense.getExpensesByGroupId(groupId: groupId))
 
         SyncExpense.getAllExpensesByGroupId(groupId: groupId, success: { (expenses: [RExpense]) -> () in

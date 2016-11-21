@@ -12,6 +12,7 @@ import RealmSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let hamburgerViewControllerString = "HamburgerViewController"
     var window: UIWindow?
     var realm: Realm!
     
@@ -37,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let _ = userDefault.string(forKey: RUser.JsonKey.sessionToken) {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let welcomeViewController = storyboard.instantiateViewController(withIdentifier: "ExpenseViewController") as! ExpenseViewController
+            let hamburgerViewController = storyboard.instantiateViewController(withIdentifier: self.hamburgerViewControllerString) as! HamburgerViewController
 
-            self.window?.rootViewController = welcomeViewController
+            self.window?.rootViewController = hamburgerViewController
             self.window?.makeKeyAndVisible()
         }
         

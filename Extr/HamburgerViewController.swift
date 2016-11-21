@@ -26,6 +26,12 @@ class HamburgerViewController: UIViewController {
     var openGroupCenterPointX: CGFloat!
     var closeGroupCenterPointX: CGFloat!
     var grayOutView: UIView = UIView()
+    var containerViewController: UIViewController! {
+        didSet {
+            containerView.addSubview(containerViewController.view)
+            print("container subview count: \(containerView.subviews.count)")
+        }
+    }
     
     var menuViewController: MenuViewController! {
         didSet {
