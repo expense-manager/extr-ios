@@ -696,14 +696,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="967"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JD5-aX-YLX">
-                                        <rect key="frame" x="157" y="24" width="60" height="60"/>
+                                        <rect key="frame" x="147" y="24" width="80" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="5ZT-PI-31l"/>
-                                            <constraint firstAttribute="width" constant="60" id="FPH-Q5-k6O"/>
+                                            <constraint firstAttribute="height" constant="80" id="5ZT-PI-31l"/>
+                                            <constraint firstAttribute="width" constant="80" id="FPH-Q5-k6O"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SyT-hs-qBE">
-                                        <rect key="frame" x="8" y="100" width="358" height="143"/>
+                                        <rect key="frame" x="8" y="120" width="358" height="143"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcw-6g-dtn">
                                                 <rect key="frame" x="16" y="16" width="50" height="20"/>
@@ -748,7 +748,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUF-5w-OqZ">
-                                        <rect key="frame" x="8" y="251" width="358" height="89"/>
+                                        <rect key="frame" x="8" y="271" width="358" height="89"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srI-aC-dgv">
                                                 <rect key="frame" x="16" y="16" width="70" height="20"/>
@@ -774,7 +774,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXC-Q3-s0T">
-                                        <rect key="frame" x="8" y="348" width="358" height="143"/>
+                                        <rect key="frame" x="8" y="368" width="358" height="143"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cv-Gp-jYA">
                                                 <rect key="frame" x="16" y="16" width="55" height="20"/>
@@ -857,7 +857,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QY0-rS-Y0Q">
-                                        <rect key="frame" x="8" y="499" width="358" height="143"/>
+                                        <rect key="frame" x="8" y="519" width="358" height="143"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcT-2s-Dft">
                                                 <rect key="frame" x="16" y="16" width="97" height="20"/>
@@ -932,7 +932,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryI-5Z-8lC">
-                                        <rect key="frame" x="8" y="650" width="358" height="251"/>
+                                        <rect key="frame" x="8" y="670" width="358" height="251"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FN-rh-Hhw">
                                                 <rect key="frame" x="16" y="16" width="59" height="20"/>
@@ -1056,7 +1056,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gn-8w-APv">
-                                        <rect key="frame" x="140" y="917" width="94" height="21"/>
+                                        <rect key="frame" x="140" y="937" width="94" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

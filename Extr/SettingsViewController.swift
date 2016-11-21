@@ -41,7 +41,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileImageView.layer.cornerRadius = 30
+        profileImageView.layer.cornerRadius = 40
         profileImageView.clipsToBounds = true
         
         loadData()
