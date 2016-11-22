@@ -82,6 +82,9 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
                 return group1!.name < group2!.name
             })
+            if self.selectedIndexPath == nil {
+                self.saveGroup(indexPath: IndexPath(row: 0, section: 0))
+            }
             print("members count: \(self.members.count)")
         }) { (error: Error) -> () in
             print(error)

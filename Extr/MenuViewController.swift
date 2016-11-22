@@ -85,9 +85,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         viewControllers = [overviewViewController, expenseViewController, reportViewController, groupDetailViewController, notificationViewController, settingsViewController]
         
-        selectMenuItem(index: 0)
-        
         loadCurrentUser()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        selectMenuItem(index: 0)
     }
     
     func loadCurrentUser() {

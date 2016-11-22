@@ -27,7 +27,7 @@ class HamburgerViewController: UIViewController {
     var closeGroupCenterPointX: CGFloat!
     var grayOutView: UIView = UIView()
     var containerViewController: UIViewController! {
-        didSet {
+        didSet(oldViewController) {
             containerView.addSubview(containerViewController.view)
             print("container subview count: \(containerView.subviews.count)")
         }
@@ -48,7 +48,18 @@ class HamburgerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Menu view
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.menuViewController = storyboard.instantiateViewController(withIdentifier: self.menuViewControllerString) as! MenuViewController
+        self.groupViewController = storyboard.instantiateViewController(withIdentifier: self.groupViewControllerString) as! GroupViewController
+        self.menuViewController.hamburgerViewController = self
+        self.groupViewController.hamburgerViewController = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         // Menu group center points
         closeMenuCenterPointX = menuView.center.x
         openMenuCenterPointX = -closeMenuCenterPointX
@@ -57,17 +68,11 @@ class HamburgerViewController: UIViewController {
         
         // Gray out view
         grayOutView.frame = containerView.frame
+        print("height: \(containerView.frame.height)")
         grayOutView.alpha = 0
         grayOutView.backgroundColor = UIColor.black
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(grayOutViewOnTap))
         grayOutView.addGestureRecognizer(tapGesture)
-        
-        // Menu view
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.menuViewController = storyboard.instantiateViewController(withIdentifier: self.menuViewControllerString) as! MenuViewController
-        self.groupViewController = storyboard.instantiateViewController(withIdentifier: self.groupViewControllerString) as! GroupViewController
-        self.menuViewController.hamburgerViewController = self
-        self.groupViewController.hamburgerViewController = self
     }
     
     func grayOutViewOnTap(sender : UITapGestureRecognizer) {
