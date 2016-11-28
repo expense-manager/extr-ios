@@ -28,10 +28,14 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: expenseCell, bundle: nil), forCellReuseIdentifier: expenseCell)
+        
+        setUpCreateButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.setNeedsStatusBarAppearanceUpdate()
         
         loadData()
     }
@@ -84,6 +88,24 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: perform detail segue
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func setUpCreateButton() {
+        let screenSize = UIScreen.main.bounds
+        
+        let buttonSize: CGFloat = 50
+        let button = CreateButton(frame: CGRect(x: screenSize.width / 2 - buttonSize / 2, y: screenSize.height - buttonSize * 3 / 2, width: buttonSize, height: buttonSize))
+        button.crossPadding = 10
+        view.addSubview(button)
+        
+        let createButtonTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.createButtonAction(_:)))
+        createButtonTapGesture.cancelsTouchesInView = false
+        
+        button.addGestureRecognizer(createButtonTapGesture)
+    }
+    
+    func createButtonAction(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "CreateExpenseViewControllerSegue", sender: self)
     }
     
 }

@@ -36,12 +36,14 @@ class HamburgerViewController: UIViewController {
     var menuViewController: MenuViewController! {
         didSet {
             menuViewController.view.frame.size.width = menuView.frame.width
+            menuViewController.view.frame.size.height = menuView.frame.height
             menuView.addSubview(menuViewController.view)
         }
     }
     var groupViewController: GroupViewController! {
         didSet {
             groupViewController.view.frame.size.width = groupView.frame.width
+            groupViewController.view.frame.size.height = groupView.frame.height
             groupView.addSubview(groupViewController.view)
         }
     }
@@ -167,15 +169,5 @@ class HamburgerViewController: UIViewController {
         })
         isMenu = nil
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
