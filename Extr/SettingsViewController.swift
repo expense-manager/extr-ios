@@ -16,7 +16,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet var weeklyBudgetAmountLabel: UILabel!
     @IBOutlet var monthlyBudgetAmountLabel: UILabel!
     
+    @IBOutlet var categoryLabel: UILabel!
     
+    let categoryViewControllerString = "CategoryViewController"
     var groupId: String!
     var userId: String!
     var user: RUser! {
@@ -44,6 +46,10 @@ class SettingsViewController: UIViewController {
         profileImageView.layer.cornerRadius = 40
         profileImageView.clipsToBounds = true
         
+        let categoryTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(onCategoryTapped))
+        categoryLabel.isUserInteractionEnabled = true
+        categoryLabel.addGestureRecognizer(categoryTapRecognizer)
+        
         loadData()
 
         // Do any additional setup after loading the view.
@@ -61,7 +67,13 @@ class SettingsViewController: UIViewController {
         user = RUser.getUserById(id: userId)
         group = RGroup.getGroupById(id: groupId)
     }
-
+    
+    func onCategoryTapped(gestureRecognizer: UIGestureRecognizer) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let categoryViewController = storyBoard.instantiateViewController(withIdentifier: categoryViewControllerString)
+        present(categoryViewController, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

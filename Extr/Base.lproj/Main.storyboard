@@ -711,6 +711,39 @@
             </objects>
             <point key="canvasLocation" x="405.60000000000002" y="1443.3283358320841"/>
         </scene>
+        <!--Category View Controller-->
+        <scene sceneID="U7I-sl-zoH">
+            <objects>
+                <viewController storyboardIdentifier="CategoryViewController" id="G6r-xc-TN4" customClass="CategoryViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kG9-5q-Ddj"/>
+                        <viewControllerLayoutGuide type="bottom" id="rBF-C3-s0I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zej-tJ-ISm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5e5-5y-Ek4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rBF-C3-s0I" firstAttribute="top" secondItem="5e5-5y-Ek4" secondAttribute="bottom" id="UgE-a7-XCD"/>
+                            <constraint firstAttribute="trailing" secondItem="5e5-5y-Ek4" secondAttribute="trailing" id="bUW-Yw-nvy"/>
+                            <constraint firstItem="5e5-5y-Ek4" firstAttribute="leading" secondItem="zej-tJ-ISm" secondAttribute="leading" id="nFj-6P-9Zq"/>
+                            <constraint firstItem="5e5-5y-Ek4" firstAttribute="top" secondItem="zej-tJ-ISm" secondAttribute="top" id="um0-Ce-yFd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="5e5-5y-Ek4" id="XAW-Mb-e1f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k6n-yp-vfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="405" y="2715"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="Q19-Vr-sOV">
             <objects>
@@ -1133,6 +1166,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="967"/>
                     <connections>
+                        <outlet property="categoryLabel" destination="EkV-I5-c6Y" id="j1L-lH-mOo"/>
                         <outlet property="monthlyBudgetAmountLabel" destination="ozd-KS-BcM" id="w1J-li-v6t"/>
                         <outlet property="profileImageView" destination="JD5-aX-YLX" id="ccM-3a-IHV"/>
                         <outlet property="weeklyBudgetAmountLabel" destination="rTq-YO-7gu" id="0lE-UO-d5Y"/>

@@ -17,7 +17,7 @@ class CategoryCell: UITableViewCell {
     var category: RCategory! {
         didSet {
             iconBackgroundImageView.backgroundColor = UIColor.HexToColor(hexString: category.color)
-            iconImageView.image = UIImage(named: category.icon)
+            iconImageView.image = UIImage(named: category.icon)?.withRenderingMode(.alwaysTemplate)
             iconLabel.text = category.name
         }
     }
@@ -25,8 +25,9 @@ class CategoryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        iconImageView.image = iconImageView.image?.withRenderingMode(.alwaysTemplate)
         iconImageView.tintColor = UIColor.white
+
+        iconBackgroundImageView.layer.cornerRadius = 20
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
