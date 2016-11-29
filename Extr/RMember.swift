@@ -64,7 +64,7 @@ class RMember: Object {
         
         self.id = id
         RUser.map(dictionary: userIdDict)
-        self.userId = groupIdDict[JsonKey.objectId] as! String
+        self.userId = userIdDict[JsonKey.objectId] as! String
         RGroup.map(dictionary: groupIdDict)
         self.groupId = groupIdDict[JsonKey.objectId] as! String
         RUser.map(dictionary: createdByIdDict)
@@ -144,7 +144,7 @@ class RMember: Object {
     static func getMembersByGroupId(groupId: String) -> Results<RMember> {
         let realm = AppDelegate.getInstance().realm!
         let predicate = NSPredicate(format:"\(PropertyKey.groupId) == %@", groupId)
-        return realm.objects(RMember.self).filter(predicate).sorted(byProperty: PropertyKey.createdAt, ascending: true)
+        return realm.objects(RMember.self).filter(predicate)
     }
     
     static func getMembersByUserId(userId: String) -> Results<RMember> {

@@ -58,7 +58,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         categories = Array(RCategory.getCategoriesByGroupId(groupId: groupId))
         
         SyncCategory.getAllCategoriesByGroupId(groupId: groupId, success: { (categories: [RCategory]) -> () in
-            self.categories = categories.sorted{ $0.0.name > $0.1.name }
+            self.categories = categories.sorted{ $0.0.name < $0.1.name }
             print("caategories count: \(self.categories.count)")
         }) { (error: Error) -> () in
             print(error)
