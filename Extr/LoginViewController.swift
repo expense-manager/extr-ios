@@ -34,7 +34,9 @@ class LoginViewController: UIViewController {
         
         SyncUser.login(username: emailTextField.text!, password: passwordTextField.text!, success: { (dictionary: NSDictionary) -> () in
             print("\(type(of: self).TAG): \(dictionary)")
-            self.saveUserData(dictionary: dictionary)
+            if dictionary["error"] == nil {
+                self.saveUserData(dictionary: dictionary)
+            }
         }) { (error: Error) -> () in
             print(error)
         }

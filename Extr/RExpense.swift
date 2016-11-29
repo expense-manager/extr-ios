@@ -30,6 +30,7 @@ class RExpense: Object {
         static let spentAt = "spentAt"
         static let userId = "userId"
         static let groupId = "groupId"
+        static let categoryId = "categoryId"
     }
     
     dynamic var id: String = ""
@@ -180,5 +181,25 @@ class RExpense: Object {
         let realm = AppDelegate.getInstance().realm!
         let predicate = NSPredicate(format:"\(PropertyKey.groupId) == %@", groupId)
         return realm.objects(RExpense.self).filter(predicate).sorted(byProperty: PropertyKey.spentAt, ascending: false)
+    }
+    
+    static func getExpensesByFiltersAndGroupId(groupId: String, member: RMember?, category: RCategory?, startDate: Date?, endDate: Date?) -> Results<RExpense> {
+        let realm = AppDelegate.getInstance().realm!
+        var filterString = "\(PropertyKey.groupId) = '\(groupId)'"
+        
+        if let member = member {
+            filterString += " AND \(PropertyKey.userId) = '\(member.userId)'"
+        }
+        if let category = category {
+            filterString += " AND \(PropertyKey.categoryId) = '\(category.id)'"
+        }
+        if let startDate = startDate {
+            filterString += " AND \(PropertyKey.spentAt) >= '\(startDate)'"
+        }
+        if let endDate = endDate {
+            filterString += " AND \(PropertyKey.spentAt) <= '\(endDate)'"
+        }
+        
+        return realm.objects(RExpense.self).filter(filterString).sorted(byProperty: PropertyKey.spentAt, ascending: false)
     }
 }

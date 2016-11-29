@@ -27,6 +27,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             if currentIndex != nil {
                 hamburgerViewController?.containerViewController = viewControllers[currentIndex]
             }
+            // TODO - add hamburgerViewController to necessary menu view controllers
+            expenseViewController.hamburgerViewController = hamburgerViewController
         }
     }
     

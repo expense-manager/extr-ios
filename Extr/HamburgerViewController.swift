@@ -28,6 +28,10 @@ class HamburgerViewController: UIViewController {
     var grayOutView: UIView = UIView()
     var containerViewController: UIViewController! {
         didSet(oldViewController) {
+            if oldViewController != nil && oldViewController == containerViewController {
+                return
+            }
+            containerViewController.viewWillAppear(true)
             containerView.addSubview(containerViewController.view)
             print("container subview count: \(containerView.subviews.count)")
         }

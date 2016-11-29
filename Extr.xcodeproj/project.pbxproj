@@ -24,6 +24,9 @@
 		298D58481DD9049600263258 /* RCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58471DD9049600263258 /* RCategory.swift */; };
 		298D584A1DD910A600263258 /* RGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D58491DD910A600263258 /* RGroup.swift */; };
 		29AE9AF41DEBFB9C002E65E9 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AE9AF31DEBFB9C002E65E9 /* CategoryViewController.swift */; };
+		29AF29891DED4BD400E03DBB /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AF29871DED4BD300E03DBB /* MemberCell.swift */; };
+		29AF298A1DED4BD400E03DBB /* MemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29AF29881DED4BD300E03DBB /* MemberCell.xib */; };
+		29AF298C1DED4DEF00E03DBB /* MemberFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AF298B1DED4DEF00E03DBB /* MemberFilterViewController.swift */; };
 		29C217441DE2A27D00ACDF9B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C217431DE2A27D00ACDF9B /* LoginViewController.swift */; };
 		29C217471DE2C39400ACDF9B /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C217461DE2C39400ACDF9B /* OverviewViewController.swift */; };
 		29EE3DFA1DDBFB6200EB695C /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE3DF81DDBFB6200EB695C /* MenuCell.swift */; };
@@ -114,6 +117,9 @@
 		298D58471DD9049600263258 /* RCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCategory.swift; sourceTree = "<group>"; };
 		298D58491DD910A600263258 /* RGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGroup.swift; sourceTree = "<group>"; };
 		29AE9AF31DEBFB9C002E65E9 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		29AF29871DED4BD300E03DBB /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
+		29AF29881DED4BD300E03DBB /* MemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberCell.xib; sourceTree = "<group>"; };
+		29AF298B1DED4DEF00E03DBB /* MemberFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberFilterViewController.swift; sourceTree = "<group>"; };
 		29C217431DE2A27D00ACDF9B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		29C217461DE2C39400ACDF9B /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		29EE3DF81DDBFB6200EB695C /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
@@ -244,6 +250,8 @@
 				3A64E5721DEABD7400539BC1 /* CreateButton.swift */,
 				2971CB551DE6C4AA0027D9C9 /* CategoryCell.swift */,
 				2971CB561DE6C4AA0027D9C9 /* CategoryCell.xib */,
+				29AF29871DED4BD300E03DBB /* MemberCell.swift */,
+				29AF29881DED4BD300E03DBB /* MemberCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -328,6 +336,7 @@
 			children = (
 				3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */,
 				3A64E5741DEBA5C500539BC1 /* CreateExpenseViewController.swift */,
+				29AF298B1DED4DEF00E03DBB /* MemberFilterViewController.swift */,
 			);
 			name = Expense;
 			sourceTree = "<group>";
@@ -500,6 +509,7 @@
 				29EE3DFB1DDBFB6200EB695C /* MenuCell.xib in Resources */,
 				3A9248CD1DD7A6AD004BBA99 /* Assets.xcassets in Resources */,
 				3A9248CB1DD7A6AD004BBA99 /* Main.storyboard in Resources */,
+				29AF298A1DED4BD400E03DBB /* MemberCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +567,7 @@
 				3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */,
 				298D58481DD9049600263258 /* RCategory.swift in Sources */,
 				29FE43331DE395A200938610 /* Helpers.swift in Sources */,
+				29AF298C1DED4DEF00E03DBB /* MemberFilterViewController.swift in Sources */,
 				2955F01A1DE0E1F300780597 /* SyncGroup.swift in Sources */,
 				2971CB521DE6C1800027D9C9 /* EColor.swift in Sources */,
 				3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */,
@@ -571,6 +582,7 @@
 				29EE3DFF1DDC010100EB695C /* MenuViewController.swift in Sources */,
 				2955F01C1DE106E500780597 /* SyncMember.swift in Sources */,
 				3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */,
+				29AF29891DED4BD400E03DBB /* MemberCell.swift in Sources */,
 				3A9249071DD7AB3F004BBA99 /* EndpointBuilder.swift in Sources */,
 				2974D9151DDD7E57009AD3E3 /* GroupDetailViewController.swift in Sources */,
 				29EE3DFA1DDBFB6200EB695C /* MenuCell.swift in Sources */,
