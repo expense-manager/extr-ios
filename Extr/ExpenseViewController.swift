@@ -15,6 +15,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     
     let expenseCell: String = "ExpenseCell"
     let memberFilterViewControllerString = "MemberFilterViewController"
+    let categoryFilterViewControllerString = "CategoryFilterViewController"
     
     var hamburgerViewController: HamburgerViewController!
     var member: RMember?
@@ -36,6 +37,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.register(UINib(nibName: expenseCell, bundle: nil), forCellReuseIdentifier: expenseCell)
         
+        syncData()
         setUpCreateButton()
     }
     
@@ -45,7 +47,6 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         self.setNeedsStatusBarAppearanceUpdate()
         
         loadData()
-        syncData()
         showFilters()
     }
     
@@ -114,7 +115,11 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         let categoryAction = UIAlertAction(title: "Category", style: .default) { (action) in
             print("category action")
-            
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let categoryFilterViewController = storyBoard.instantiateViewController(withIdentifier: self.categoryFilterViewControllerString) as! CategoryFilterViewController
+            categoryFilterViewController.expenseViewController = self
+            categoryFilterViewController.selectedCategory = self.category
+            self.present(categoryFilterViewController, animated: true, completion: nil)
         }
         let dateAction = UIAlertAction(title: "Date", style: .default) { (action) in
             print("date action")
@@ -134,24 +139,17 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         alertController.addAction(dateAction)
         alertController.addAction(memberAction)
         alertController.addAction(cancelAction)
-        
+        // TODO: - show filter options when click navigation bar
         hamburgerViewController?.present(alertController, animated: true, completion: nil)
     }
     
-    func setFilters(member: RMember?, category: RCategory?, startDate: Date?, endDate: Date?) {
-        if let member = member {
-            self.member = member
-        }
-        if let category = category {
-            self.category = category
-        }
-        if let startDate = startDate {
-            self.startDate = startDate
-        }
-        if let endDate = endDate {
-            self.endDate = endDate
-        }
-        
+    func setMemberFilter(member: RMember?) {
+        self.member = member
+        self.loadData()
+    }
+    
+    func setCategoryFilter(category: RCategory?) {
+        self.category = category
         self.loadData()
     }
     

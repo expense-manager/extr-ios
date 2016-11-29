@@ -32,8 +32,6 @@ class MemberFilterViewController: UIViewController, UITableViewDelegate, UITable
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 62
-        
-        //self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,15 +97,16 @@ class MemberFilterViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.memberCell, for: indexPath) as! MemberCell
-        cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)
+        cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
         cell.member = members[indexPath.row]
         return cell
     }
     
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        expenseViewController?.setFilters(member: members[indexPath.row], category: nil, startDate: nil, endDate: nil)
+        expenseViewController?.setMemberFilter(member: members[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

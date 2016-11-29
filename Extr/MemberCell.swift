@@ -12,6 +12,7 @@ import Kingfisher
 class MemberCell: UITableViewCell {
 
     @IBOutlet var profileImageView: UIImageView!
+    @IBOutlet var nameView: UIView!
     @IBOutlet var nameLabel: UILabel!
     
     var member: RMember! {
@@ -33,6 +34,11 @@ class MemberCell: UITableViewCell {
         // Initialization code
         self.profileImageView.layer.cornerRadius = 20
         self.profileImageView.clipsToBounds = true
+        
+        self.nameView.layer.cornerRadius = 20
+        self.nameView.clipsToBounds = true
+        self.nameView.layer.borderWidth = 2
+        self.nameView.layer.borderColor = UIColor.black.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

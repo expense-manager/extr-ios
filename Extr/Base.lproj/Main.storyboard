@@ -296,7 +296,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mNh-iE-uJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-306.39999999999998" y="2211.5442278860573"/>
-            <point key="canvasLocation" x="-47" y="2192"/>
         </scene>
         <!--Member Filter View Controller-->
         <scene sceneID="f4z-GB-krn">
@@ -310,7 +309,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="axw-ew-Lsn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="axw-ew-Lsn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -330,6 +329,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLZ-T0-O5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-47.200000000000003" y="2908.6956521739135"/>
+        </scene>
+        <!--Category Filter View Controller-->
+        <scene sceneID="xRq-nP-bri">
+            <objects>
+                <viewController storyboardIdentifier="CategoryFilterViewController" id="h43-oC-uCA" customClass="CategoryFilterViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2E9-bc-M2G"/>
+                        <viewControllerLayoutGuide type="bottom" id="KA3-XN-ea3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vVd-v3-o66">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cDb-4l-SdK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dLH-4p-ZhB">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ny0-O5-vYU">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KA3-XN-ea3" firstAttribute="top" secondItem="cDb-4l-SdK" secondAttribute="bottom" id="Ief-Ai-AiG"/>
+                            <constraint firstAttribute="trailing" secondItem="cDb-4l-SdK" secondAttribute="trailing" id="SSv-RW-vQR"/>
+                            <constraint firstItem="cDb-4l-SdK" firstAttribute="top" secondItem="vVd-v3-o66" secondAttribute="top" id="jkR-Nk-UkB"/>
+                            <constraint firstItem="cDb-4l-SdK" firstAttribute="leading" secondItem="vVd-v3-o66" secondAttribute="leading" id="laB-Fl-VYd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="cDb-4l-SdK" id="5Yq-HN-z7E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uvo-PB-MS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="677.60000000000002" y="2908.6956521739135"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="GZn-Fp-iB4">

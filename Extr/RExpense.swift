@@ -122,8 +122,10 @@ class RExpense: Object {
             let expense = RExpense()
             
             do {
+                print("created at: \(dictionary[JsonKey.createdAt])")
                 try expense.map(dictionary: dictionary)
-                
+                //print(expense)
+                //print(dictionary)
                 realm.beginWrite()
                 realm.add(expense, update: true)
                 try realm.commitWrite()
