@@ -48,5 +48,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Extr use your camera to take expense photo.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Extr use your photo library to choose expense photo.</string>
 </dict>
 </plist>
