@@ -66,6 +66,8 @@
 		3A92490B1DD7AB73004BBA99 /* SyncExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92490A1DD7AB73004BBA99 /* SyncExpense.swift */; };
 		3A92490D1DD7ABB3004BBA99 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92490C1DD7ABB3004BBA99 /* AppError.swift */; };
 		3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9249101DD7AC00004BBA99 /* RExpense.swift */; };
+		3A9AC0821DEEB6D900793801 /* Charts.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A9AC0791DEEB59500793801 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A9AC0841DEEB72200793801 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AC0831DEEB72200793801 /* ReportDetailViewController.swift */; };
 		3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */; };
 		3AA850921DDBE5E50035F3FE /* SyncUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA850911DDBE5E50035F3FE /* SyncUser.swift */; };
 		3AA8509A1DDBFA9C0035F3FE /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */; };
@@ -87,6 +89,34 @@
 			remoteGlobalIDString = 3A9248C11DD7A6AD004BBA99;
 			remoteInfo = Extr;
 		};
+		3A9AC0781DEEB59500793801 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A9AC0721DEEB59500793801 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		3A9AC07A1DEEB59500793801 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A9AC0721DEEB59500793801 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		3A9AC07C1DEEB59500793801 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A9AC0721DEEB59500793801 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		3A9AC07E1DEEB63C00793801 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A9AC0721DEEB59500793801 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,6 +132,16 @@
 				3A9248FE1DD7AA89004BBA99 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A9AC0811DEEB6C200793801 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3A9AC0821DEEB6D900793801 /* Charts.framework in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -169,6 +209,8 @@
 		3A92490A1DD7AB73004BBA99 /* SyncExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncExpense.swift; sourceTree = "<group>"; };
 		3A92490C1DD7ABB3004BBA99 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3A9249101DD7AC00004BBA99 /* RExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RExpense.swift; sourceTree = "<group>"; };
+		3A9AC0721DEEB59500793801 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
+		3A9AC0831DEEB72200793801 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
 		3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3AA850911DDBE5E50035F3FE /* SyncUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncUser.swift; sourceTree = "<group>"; };
 		3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -316,6 +358,7 @@
 				3A9248CC1DD7A6AD004BBA99 /* Assets.xcassets */,
 				3A9248CE1DD7A6AD004BBA99 /* LaunchScreen.storyboard */,
 				29EE3DFE1DDC010100EB695C /* MenuViewController.swift */,
+				3A9AC0831DEEB72200793801 /* ReportDetailViewController.swift */,
 				2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */,
 			);
 			path = Extr;
@@ -342,6 +385,7 @@
 		3A9249001DD7AACA004BBA99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A9AC0721DEEB59500793801 /* Charts.xcodeproj */,
 				3A9248F31DD7AA7B004BBA99 /* Alamofire.framework */,
 				3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */,
 				3A9248F41DD7AA7B004BBA99 /* Realm.framework */,
@@ -402,6 +446,16 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		3A9AC0731DEEB59500793801 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A9AC0791DEEB59500793801 /* Charts.framework */,
+				3A9AC07B1DEEB59500793801 /* ChartsRealm.framework */,
+				3A9AC07D1DEEB59500793801 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3AA8508C1DDAC1970035F3FE /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,10 +477,12 @@
 				3A9248C01DD7A6AD004BBA99 /* Resources */,
 				3A9248FF1DD7AA8A004BBA99 /* Embed Frameworks */,
 				3AA850931DDBF8930035F3FE /* ShellScript */,
+				3A9AC0811DEEB6C200793801 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3A9AC07F1DEEB63C00793801 /* PBXTargetDependency */,
 			);
 			name = Extr;
 			productName = Extr;
@@ -509,6 +565,12 @@
 			mainGroup = 3A9248B91DD7A6AD004BBA99;
 			productRefGroup = 3A9248C31DD7A6AD004BBA99 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3A9AC0731DEEB59500793801 /* Products */;
+					ProjectRef = 3A9AC0721DEEB59500793801 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3A9248C11DD7A6AD004BBA99 /* Extr */,
@@ -517,6 +579,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3A9AC0791DEEB59500793801 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 3A9AC0781DEEB59500793801 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A9AC07B1DEEB59500793801 /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = 3A9AC07A1DEEB59500793801 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A9AC07D1DEEB59500793801 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 3A9AC07C1DEEB59500793801 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3A9248C01DD7A6AD004BBA99 /* Resources */ = {
@@ -611,6 +697,7 @@
 				2955F01C1DE106E500780597 /* SyncMember.swift in Sources */,
 				3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */,
 				29AF29891DED4BD400E03DBB /* MemberCell.swift in Sources */,
+				3A9AC0841DEEB72200793801 /* ReportDetailViewController.swift in Sources */,
 				3A9249071DD7AB3F004BBA99 /* EndpointBuilder.swift in Sources */,
 				2974D9151DDD7E57009AD3E3 /* GroupDetailViewController.swift in Sources */,
 				29EE3DFA1DDBFB6200EB695C /* MenuCell.swift in Sources */,
@@ -648,6 +735,11 @@
 			isa = PBXTargetDependency;
 			target = 3A9248C11DD7A6AD004BBA99 /* Extr */;
 			targetProxy = 3A9248E21DD7A6AD004BBA99 /* PBXContainerItemProxy */;
+		};
+		3A9AC07F1DEEB63C00793801 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = 3A9AC07E1DEEB63C00793801 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
