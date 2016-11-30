@@ -8,8 +8,10 @@
 
 import UIKit
 import MobileCoreServices
+import Alamofire
 
 class CreateExpenseViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    let TAG = NSStringFromClass(CreateExpenseViewController.self)
 
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var noteTextField: UITextField!
@@ -43,7 +45,20 @@ class CreateExpenseViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func post() {
+        // TODO: Validate input
+        var imageData: Data?
+        if let unwrappedImage = imageView.image {
+            imageData = UIImageJPEGRepresentation(unwrappedImage, 0.6)
+        }
         
+        // TODO: Replace with user input data
+        SyncExpense.create(amount: amountTextField.text!, expenseDate: Date(), note: noteTextField.text!, imageData: imageData, success: { (dictionary: NSDictionary) -> () in
+            print("\(self.TAG):\(dictionary)")
+            
+            self.dismiss(animated: true, completion: nil)
+        }) { (error: Error) -> () in
+            print(error)
+        }
     }
     
     func cancel() {

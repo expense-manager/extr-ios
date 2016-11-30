@@ -25,10 +25,14 @@ class EndpointBuilder {
         case files = "files"
     }
     
+    let baseUrl = "https://e-manager.herokuapp.com/parse/"
+    
     var path: String = ""
     var method: HTTPMethod = .get
-    var parameters: [String: AnyObject] = [:]
+    var parameters: [String: Any] = [:]
+    var extraParameters: [String: Any] = [:]
     var useToken: Bool = false
+    var data: Data?
     
     func path(_ path: Path) -> EndpointBuilder {
         self.path = path.rawValue
@@ -45,8 +49,8 @@ class EndpointBuilder {
         return self
     }
     
-    func parameters(key: String, value: AnyObject) -> EndpointBuilder {
-        self.parameters[key] = value
+    func parameters(key: String, value: Any) -> EndpointBuilder {
+        self.parameters[key] = value as AnyObject
         return self
     }
     
@@ -55,12 +59,51 @@ class EndpointBuilder {
         return self
     }
     
-    func parameters(parameters: [String: AnyObject]) -> EndpointBuilder {
+    func parameters(parameters: [String: Any]) -> EndpointBuilder {
         self.parameters = parameters
         return self
     }
     
+    func appendFileName(_ name: String) -> EndpointBuilder {
+        self.path += "/\(name)"
+        return self
+    }
+    
+    func appendData(data: Data) -> EndpointBuilder {
+        self.data = data
+        return self
+    }
+    
     func build() -> Endpoint {
-        return Endpoint(path: self.path, method: self.method, parameters: self.parameters, useToken: self.useToken)
+        parameters.merge(with: extraParameters)
+        return Endpoint(path: baseUrl + path, method: method, parameters: parameters, useToken: useToken, data: data)
+    }
+    
+    func appendPointer(id: String, pointerType: PointerType) -> EndpointBuilder {
+        self.extraParameters.merge(with: pointerType.pointerFrom(id: id))
+        return self
+    }
+    
+    static func buildPointer(id: String, pointerType: PointerType) -> [String: String] {
+        var pointer: [String: String] = [:]
+        
+        pointer["__type"] = "Pointer"
+        pointer["className"] = pointerType.rawValue
+        pointer["objectId"] = id
+        
+        return pointer
+    }
+    
+}
+
+extension Dictionary {
+    mutating func merge(with dictionary: Dictionary) {
+        dictionary.forEach { updateValue($1, forKey: $0) }
+    }
+    
+    func merged(with dictionary: Dictionary) -> Dictionary {
+        var dict = self
+        dict.merge(with: dictionary)
+        return dict
     }
 }

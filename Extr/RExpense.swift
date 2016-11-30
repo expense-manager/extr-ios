@@ -92,6 +92,8 @@ class RExpense: Object {
             throw JsonError.noKey(key: JsonKey.createdAt)
         }
         
+        print(dictionary[JsonKey.spentAt])
+        
         if let spentAtDict = dictionary[JsonKey.spentAt] as? NSDictionary {
             if let spentAtString = spentAtDict[JsonKey.iso] as? String {
                 if let spentAt = dateFormatter.date(from: spentAtString) {

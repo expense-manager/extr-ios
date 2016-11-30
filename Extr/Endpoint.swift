@@ -10,23 +10,40 @@ import Foundation
 import Alamofire
 
 class Endpoint {
+    
     var path: String
     var method: HTTPMethod
-    var parameters: [String: AnyObject]
-    var useToken: Bool
+    var parameters: [String: Any]
+    var data: Data?
     
-    convenience init(path: String, method: HTTPMethod, parameters: [String: AnyObject]) {
-        self.init(path: path, method: method, parameters: parameters, useToken: false)
+    var headers = [
+        "X-Parse-Application-Id": Secrets.applicationId,
+        "X-Parse-Master-Key": Secrets.masterKey,
+        ]
+    
+    convenience init(path: String, method: HTTPMethod, parameters: [String: Any]) {
+        self.init(path: path, method: method, parameters: parameters, useToken: false, data: nil)
     }
     
-    init(path: String, method: HTTPMethod, parameters: [String: AnyObject], useToken: Bool) {
+    convenience init(path: String, method: HTTPMethod, parameters: [String: Any], useToken: Bool) {
+        self.init(path: path, method: method, parameters: parameters, useToken: false, data: nil)
+    }
+    
+    init(path: String, method: HTTPMethod, parameters: [String: Any], useToken: Bool, data: Data?) {
         self.path = path
         self.method = method
         self.parameters = parameters
-        self.useToken = useToken
+        self.data = data
+        
+        if useToken {
+            let userDefault = UserDefaults.standard
+            headers["X-Parse-Session-Token"] = userDefault.string(forKey: RUser.JsonKey.sessionToken)
+        }
+        
+        headers["Content-Type"] = self.data == nil ? "application/json" : "image/jpeg"
     }
     
     func description() -> String {
-        return "\n path: \(self.path)\n method: \(self.method.rawValue)\n parameters: \(self.parameters)\n"
+        return "\n headers: \(self.headers)\n path: \(self.path)\n method: \(self.method.rawValue)\n parameters: \(self.parameters)\n"
     }
 }

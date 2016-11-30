@@ -43,6 +43,8 @@
 		3A4B90951DD7C77F00E23742 /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4B90931DD7C77F00E23742 /* ExpenseCell.xib */; };
 		3A64E5731DEABD7400539BC1 /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64E5721DEABD7400539BC1 /* CreateButton.swift */; };
 		3A64E5751DEBA5C500539BC1 /* CreateExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64E5741DEBA5C500539BC1 /* CreateExpenseViewController.swift */; };
+		3A84D6271DEE2FCE00C33BA4 /* SyncPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A84D6261DEE2FCE00C33BA4 /* SyncPhoto.swift */; };
+		3A84D62E1DEE746300C33BA4 /* PointerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A84D62D1DEE746300C33BA4 /* PointerType.swift */; };
 		3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9248C51DD7A6AD004BBA99 /* AppDelegate.swift */; };
 		3A9248CB1DD7A6AD004BBA99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9248C91DD7A6AD004BBA99 /* Main.storyboard */; };
 		3A9248CD1DD7A6AD004BBA99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9248CC1DD7A6AD004BBA99 /* Assets.xcassets */; };
@@ -139,6 +141,8 @@
 		3A4B90931DD7C77F00E23742 /* ExpenseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
 		3A64E5721DEABD7400539BC1 /* CreateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
 		3A64E5741DEBA5C500539BC1 /* CreateExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateExpenseViewController.swift; sourceTree = "<group>"; };
+		3A84D6261DEE2FCE00C33BA4 /* SyncPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncPhoto.swift; sourceTree = "<group>"; };
+		3A84D62D1DEE746300C33BA4 /* PointerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointerType.swift; sourceTree = "<group>"; };
 		3A9248C21DD7A6AD004BBA99 /* Extr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9248C51DD7A6AD004BBA99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A9248CA1DD7A6AD004BBA99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 			children = (
 				2971CB511DE6C1800027D9C9 /* EColor.swift */,
 				2971CB531DE6C1AD0027D9C9 /* EIcon.swift */,
+				3A84D62D1DEE746300C33BA4 /* PointerType.swift */,
 			);
 			name = Enums;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				2955F01D1DE115B800780597 /* SyncCategory.swift */,
 				3A92490C1DD7ABB3004BBA99 /* AppError.swift */,
 				3AA850911DDBE5E50035F3FE /* SyncUser.swift */,
+				3A84D6261DEE2FCE00C33BA4 /* SyncPhoto.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -562,12 +568,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				29C217441DE2A27D00ACDF9B /* LoginViewController.swift in Sources */,
+				3A84D62E1DEE746300C33BA4 /* PointerType.swift in Sources */,
 				29EE3DFD1DDBFF8C00EB695C /* MenuItem.swift in Sources */,
 				29AE9AF41DEBFB9C002E65E9 /* CategoryViewController.swift in Sources */,
 				298D584A1DD910A600263258 /* RGroup.swift in Sources */,
 				298D58441DD8E40000263258 /* RMember.swift in Sources */,
 				3A9249031DD7AAF8004BBA99 /* Secrets.swift in Sources */,
 				3A64E5731DEABD7400539BC1 /* CreateButton.swift in Sources */,
+				3A84D6271DEE2FCE00C33BA4 /* SyncPhoto.swift in Sources */,
 				29EEB3471DDABEFC00503DA2 /* HamburgerViewController.swift in Sources */,
 				3A9249051DD7AB1A004BBA99 /* Endpoint.swift in Sources */,
 				2974D90B1DDD57F6009AD3E3 /* GroupViewController.swift in Sources */,

@@ -74,7 +74,6 @@ class HamburgerViewController: UIViewController {
         
         // Gray out view
         grayOutView.frame = containerView.frame
-        print("height: \(containerView.frame.height)")
         grayOutView.alpha = 0
         grayOutView.backgroundColor = UIColor.black
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(grayOutViewOnTap))
