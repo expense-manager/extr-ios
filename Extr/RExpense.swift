@@ -189,21 +189,21 @@ class RExpense: Object {
     
     static func getExpensesByFiltersAndGroupId(groupId: String, member: RMember?, category: RCategory?, startDate: Date?, endDate: Date?) -> Results<RExpense> {
         let realm = AppDelegate.getInstance().realm!
-        var filterString = "\(PropertyKey.groupId) = '\(groupId)'"
+        var results = realm.objects(RExpense.self).filter("\(PropertyKey.groupId) = %@", groupId)
         
         if let member = member {
-            filterString += " AND \(PropertyKey.userId) = '\(member.userId)'"
+            results = results.filter("\(PropertyKey.userId) = %@", member.userId)
         }
         if let category = category {
-            filterString += " AND \(PropertyKey.categoryId) = '\(category.id)'"
+            results = results.filter("\(PropertyKey.categoryId) = %@", category.id)
         }
         if let startDate = startDate {
-            filterString += " AND \(PropertyKey.spentAt) >= '\(startDate)'"
+            results = results.filter("\(PropertyKey.spentAt) >= %@", startDate)
         }
         if let endDate = endDate {
-            filterString += " AND \(PropertyKey.spentAt) <= '\(endDate)'"
+            results = results.filter("\(PropertyKey.spentAt) <= %@", endDate)
         }
         
-        return realm.objects(RExpense.self).filter(filterString).sorted(byProperty: PropertyKey.spentAt, ascending: false)
+        return results.sorted(byProperty: PropertyKey.spentAt, ascending: false)
     }
 }

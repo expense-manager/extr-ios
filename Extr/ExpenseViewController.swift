@@ -60,6 +60,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func loadData() {
+        print("start date: \(startDate)")
         let userDefault = UserDefaults.standard
         userId = userDefault.string(forKey: RMember.JsonKey.userId)
         groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
