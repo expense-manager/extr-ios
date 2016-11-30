@@ -14,6 +14,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var tableView: UITableView!
     
     let expenseCell: String = "ExpenseCell"
+    let dateFilterViewString = "DateFilterView"
     let memberFilterViewControllerString = "MemberFilterViewController"
     let categoryFilterViewControllerString = "CategoryFilterViewController"
     
@@ -123,7 +124,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         let dateAction = UIAlertAction(title: "Date", style: .default) { (action) in
             print("date action")
-            
+            self.showDate()
         }
         let memberAction = UIAlertAction(title: "Member", style: .default) { (action) in
             print("member action")
@@ -141,6 +142,21 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         alertController.addAction(cancelAction)
         // TODO: - show filter options when click navigation bar
         hamburgerViewController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showDate() {
+        let grayoutView = UIView(frame: UIScreen.main.bounds)
+        grayoutView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+        
+        let dateFilterView = UINib(nibName: dateFilterViewString, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DateFilterView
+        dateFilterView.expenseViewController = self
+        dateFilterView.grayoutView = grayoutView
+        dateFilterView.startDate = startDate
+        dateFilterView.endDate = endDate
+        let screenBounds = UIScreen.main.bounds
+        dateFilterView.center = CGPoint(x: screenBounds.width / 2, y: screenBounds.height / 2)
+        self.view.addSubview(grayoutView)
+        self.view.addSubview(dateFilterView)
     }
     
     func setMemberFilter(member: RMember?) {

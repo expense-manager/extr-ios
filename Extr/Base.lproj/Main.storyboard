@@ -142,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-47" y="1442"/>
+            <point key="canvasLocation" x="-47.200000000000003" y="1441.529235382309"/>
         </scene>
         <!--Create Expense View Controller-->
         <scene sceneID="RbT-A7-kAb">

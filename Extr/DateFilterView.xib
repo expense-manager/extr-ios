@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DateFilterView" customModule="Extr" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="388"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbw-1a-Zi1">
+                    <rect key="frame" x="8" y="13" width="78" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GsS-AN-oRG">
+                    <rect key="frame" x="318" y="8" width="51" height="31"/>
+                    <connections>
+                        <action selector="startDateSwitchChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="Pl4-GF-Bq1"/>
+                    </connections>
+                </switch>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="nJs-Lu-ZHe">
+                    <rect key="frame" x="0.0" y="47" width="375" height="94"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="94" id="bbg-MM-pMn"/>
+                    </constraints>
+                    <date key="date" timeIntervalSinceReferenceDate="502167034.52459401">
+                        <!--2016-11-30 02:50:34 +0000-->
+                    </date>
+                </datePicker>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="goL-ro-mK1">
+                    <rect key="frame" x="318" y="149" width="51" height="31"/>
+                    <connections>
+                        <action selector="endDateSwitchChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="BSq-BS-Kie"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8o-hf-PuX">
+                    <rect key="frame" x="8" y="154" width="70" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="OTO-b8-qcc">
+                    <rect key="frame" x="0.0" y="188" width="375" height="94"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="94" id="prC-rn-aNx"/>
+                    </constraints>
+                    <date key="date" timeIntervalSinceReferenceDate="502167034.52459401">
+                        <!--2016-11-30 02:50:34 +0000-->
+                    </date>
+                </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzV-4R-BBB">
+                    <rect key="frame" x="0.0" y="298" width="375" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="BQl-D0-gTJ"/>
+                    </constraints>
+                    <state key="normal" title="Save"/>
+                    <connections>
+                        <action selector="saveClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="5yi-Nv-lOU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quc-kh-hzv">
+                    <rect key="frame" x="0.0" y="343" width="375" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="pP4-fP-AnM"/>
+                    </constraints>
+                    <state key="normal" title="Cancel"/>
+                    <connections>
+                        <action selector="cancelClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="i4J-1z-tU4"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="OTO-b8-qcc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="02g-kF-1JF"/>
+                <constraint firstItem="goL-ro-mK1" firstAttribute="centerY" secondItem="E8o-hf-PuX" secondAttribute="centerY" id="658-tX-knJ"/>
+                <constraint firstItem="OTO-b8-qcc" firstAttribute="top" secondItem="goL-ro-mK1" secondAttribute="bottom" constant="8" id="98A-8o-ngx"/>
+                <constraint firstItem="Cbw-1a-Zi1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Ba2-Im-OUP"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="quc-kh-hzv" secondAttribute="bottom" id="Cet-wF-1iq"/>
+                <constraint firstItem="xzV-4R-BBB" firstAttribute="top" secondItem="OTO-b8-qcc" secondAttribute="bottom" constant="16" id="HZf-Sc-Rbr"/>
+                <constraint firstAttribute="trailing" secondItem="OTO-b8-qcc" secondAttribute="trailing" id="Itq-Jk-lFs"/>
+                <constraint firstAttribute="trailing" secondItem="nJs-Lu-ZHe" secondAttribute="trailing" id="Jnf-Nn-Sfu"/>
+                <constraint firstAttribute="trailing" secondItem="goL-ro-mK1" secondAttribute="trailing" constant="8" id="Ox9-Hz-eTT"/>
+                <constraint firstItem="GsS-AN-oRG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="PkE-nc-izr"/>
+                <constraint firstItem="GsS-AN-oRG" firstAttribute="centerY" secondItem="Cbw-1a-Zi1" secondAttribute="centerY" id="U7x-IH-0eN"/>
+                <constraint firstItem="quc-kh-hzv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="b1l-ma-az6"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OTO-b8-qcc" secondAttribute="bottom" id="eIM-sZ-3Fm"/>
+                <constraint firstItem="nJs-Lu-ZHe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fAg-cS-Z0D"/>
+                <constraint firstItem="quc-kh-hzv" firstAttribute="top" secondItem="xzV-4R-BBB" secondAttribute="bottom" id="iEy-Pt-Nty"/>
+                <constraint firstItem="xzV-4R-BBB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ja9-DB-2LQ"/>
+                <constraint firstItem="nJs-Lu-ZHe" firstAttribute="top" secondItem="GsS-AN-oRG" secondAttribute="bottom" constant="8" id="lHY-ZC-GU8"/>
+                <constraint firstAttribute="trailing" secondItem="quc-kh-hzv" secondAttribute="trailing" id="mRC-cE-gCs"/>
+                <constraint firstAttribute="trailing" secondItem="GsS-AN-oRG" secondAttribute="trailing" constant="8" id="oKM-HG-gQ5"/>
+                <constraint firstAttribute="trailing" secondItem="xzV-4R-BBB" secondAttribute="trailing" id="qMJ-O9-LoT"/>
+                <constraint firstItem="goL-ro-mK1" firstAttribute="top" secondItem="nJs-Lu-ZHe" secondAttribute="bottom" constant="8" id="x2Z-9m-MGy"/>
+                <constraint firstItem="E8o-hf-PuX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="zAZ-Bo-yNu"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="quc-kh-hzv" id="8Sx-S4-LXb"/>
+                <outlet property="endDatePicker" destination="OTO-b8-qcc" id="VZD-gQ-FlL"/>
+                <outlet property="endDateSwitch" destination="goL-ro-mK1" id="9wF-xe-WUs"/>
+                <outlet property="saveButton" destination="xzV-4R-BBB" id="esm-af-chx"/>
+                <outlet property="startDatePicker" destination="nJs-Lu-ZHe" id="ua5-le-7Vm"/>
+                <outlet property="startDateSwitch" destination="GsS-AN-oRG" id="bbe-ef-gVz"/>
+            </connections>
+            <point key="canvasLocation" x="-63.5" y="465"/>
+        </view>
+    </objects>
+</document>
