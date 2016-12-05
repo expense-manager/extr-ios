@@ -4,13 +4,15 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B6FC70FEFBCED0DE90B637EB59470A752B47152F" : 9223372036854775807,
     "9025163822AAEA7A2D8AC9210D0874A56F62B462" : 9223372036854775807,
     "BAD45F7EC24305FE9D6BE953179671ABEF9C0E05" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "568AE18E-1892-4D32-8C2D-0AD4F640F788",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "9025163822AAEA7A2D8AC9210D0874A56F62B462" : "Extr\/Charts\/",
-    "BAD45F7EC24305FE9D6BE953179671ABEF9C0E05" : "Extr\/"
+    "B6FC70FEFBCED0DE90B637EB59470A752B47152F" : "extr\/",
+    "9025163822AAEA7A2D8AC9210D0874A56F62B462" : "extr-ios\/Charts\/",
+    "BAD45F7EC24305FE9D6BE953179671ABEF9C0E05" : "extr-ios\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Extr",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -20,6 +22,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/danielgindi\/Charts.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9025163822AAEA7A2D8AC9210D0874A56F62B462"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/expense-manager\/extr.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B6FC70FEFBCED0DE90B637EB59470A752B47152F"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "personal:expense-manager\/extr-ios.git",

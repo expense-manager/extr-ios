@@ -18,6 +18,11 @@ class GroupDetailViewController: UIViewController {
     @IBOutlet var taglineLabel: UILabel!
     @IBOutlet var createrProfileImageView: UIImageView!
     @IBOutlet var groupCreationInfoLabel: UILabel!
+   
+    @IBOutlet var memberView: UIView!
+    @IBOutlet var memberCountLabel: UILabel!
+    
+    let memberListViewControllerString = "MemberListViewController"
     
     var groupId: String!
     var userId: String!
@@ -37,6 +42,8 @@ class GroupDetailViewController: UIViewController {
             nameLabel.text = group.name
             groupnameLabel.text = "@\(group.groupname)"
             taglineLabel.text = group.about
+            
+            memberCountLabel.text = String(RMember.getMembersByGroupId(groupId: group.id).count)
         }
     }
     
@@ -52,7 +59,16 @@ class GroupDetailViewController: UIViewController {
         groupActionsView.layer.cornerRadius = 10
         groupActionsView.clipsToBounds = true
         
+        let memberViewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(toMemberList))
+        memberView.addGestureRecognizer(memberViewTapRecognizer)
+        
         loadData()
+    }
+    
+    func toMemberList(sender : UITapGestureRecognizer) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let memberListViewController = storyBoard.instantiateViewController(withIdentifier: memberListViewControllerString) as! MemberListViewController
+        present(memberListViewController, animated: true, completion: nil)
     }
     
     func loadData() {

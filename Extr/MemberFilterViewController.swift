@@ -84,7 +84,7 @@ class MemberFilterViewController: UIViewController, UITableViewDelegate, UITable
                 }
                 return user1!.fullname < user2!.fullname
             })
-            print("caategories count: \(self.members.count)")
+            print("sync members count \(self.members.count)")
         }) { (error: Error) -> () in
             print(error)
         }
