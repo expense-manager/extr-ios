@@ -14,4 +14,10 @@ class Helpers {
         dateFormatter.dateFormat = "MMM dd, yyyy"
         return dateFormatter.string(from: date)
     }
+    
+    static func getExpenseItemDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy 'at' hh:mm a"
+        return dateFormatter.string(from: date)
+    }
 }

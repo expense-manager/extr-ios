@@ -43,6 +43,7 @@
 		29EE3DFD1DDBFF8C00EB695C /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE3DFC1DDBFF8C00EB695C /* MenuItem.swift */; };
 		29EE3DFF1DDC010100EB695C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE3DFE1DDC010100EB695C /* MenuViewController.swift */; };
 		29EEB3471DDABEFC00503DA2 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EEB3461DDABEFC00503DA2 /* HamburgerViewController.swift */; };
+		29F485211DF65A470069D78D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F485201DF65A470069D78D /* AppConstants.swift */; };
 		29FE43331DE395A200938610 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FE43321DE395A200938610 /* Helpers.swift */; };
 		3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */; };
 		3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */; };
@@ -187,6 +188,7 @@
 		29EE3DFC1DDBFF8C00EB695C /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		29EE3DFE1DDC010100EB695C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		29EEB3461DDABEFC00503DA2 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
+		29F485201DF65A470069D78D /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		29FE43321DE395A200938610 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				3A92490E1DD7ABCB004BBA99 /* Services */,
 				3A9248C51DD7A6AD004BBA99 /* AppDelegate.swift */,
 				3A9248C91DD7A6AD004BBA99 /* Main.storyboard */,
+				29F485201DF65A470069D78D /* AppConstants.swift */,
 				29EEB3461DDABEFC00503DA2 /* HamburgerViewController.swift */,
 				3A9248CC1DD7A6AD004BBA99 /* Assets.xcassets */,
 				3A9248CE1DD7A6AD004BBA99 /* LaunchScreen.storyboard */,
@@ -716,6 +719,7 @@
 				3A9249071DD7AB3F004BBA99 /* EndpointBuilder.swift in Sources */,
 				2974D9151DDD7E57009AD3E3 /* GroupDetailViewController.swift in Sources */,
 				29EE3DFA1DDBFB6200EB695C /* MenuCell.swift in Sources */,
+				29F485211DF65A470069D78D /* AppConstants.swift in Sources */,
 				3A92490B1DD7AB73004BBA99 /* SyncExpense.swift in Sources */,
 				29580B3F1DE1639500D58BE1 /* SettingsViewController.swift in Sources */,
 				2971CB571DE6C4AA0027D9C9 /* CategoryCell.swift in Sources */,

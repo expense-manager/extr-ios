@@ -34,6 +34,9 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.backgroundColor = AppConstants.cyan_deep
+        tableView.estimatedRowHeight = 62
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: expenseCell, bundle: nil), forCellReuseIdentifier: expenseCell)

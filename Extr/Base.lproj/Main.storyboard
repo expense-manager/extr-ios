@@ -158,7 +158,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hkn-dl-TmQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.61568627450000002" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -601,7 +601,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.61568627450000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.61568627450000002" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="9aC-qk-yGr" secondAttribute="trailing" constant="8" id="9R4-89-89E"/>
                                     <constraint firstItem="SDd-pV-lyQ" firstAttribute="leading" secondItem="b6b-JJ-Un7" secondAttribute="trailing" constant="8" id="Cie-Gu-jIU"/>
@@ -632,6 +632,7 @@
                     </view>
                     <connections>
                         <outlet property="emailLabel" destination="9aC-qk-yGr" id="Z7i-Pk-LMj"/>
+                        <outlet property="menuHeaderView" destination="vhP-ch-qKI" id="egy-sW-9YP"/>
                         <outlet property="nameLabel" destination="SDd-pV-lyQ" id="Ue0-Hr-NLi"/>
                         <outlet property="profileImageView" destination="b6b-JJ-Un7" id="zzh-8Y-oXa"/>
                         <outlet property="tableView" destination="Xhy-Gq-kIt" id="HCL-5l-T1n"/>

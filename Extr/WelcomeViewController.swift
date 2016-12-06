@@ -15,7 +15,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = AppConstants.cyan_deep
         signUpButton.layer.cornerRadius = 4
         loginButton.layer.cornerRadius = 4
         loginButton.layer.borderColor = UIColor.white.cgColor

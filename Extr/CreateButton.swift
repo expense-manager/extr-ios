@@ -10,7 +10,7 @@ import UIKit
 
 class CreateButton: UIView {
     
-    var buttonColor: CGColor = UIColor.orange.cgColor
+    var buttonColor: CGColor = AppConstants.yellow.cgColor
     var crossWidth: CGFloat = 1
     var crossPadding: CGFloat = 10
     var maskLayer: CAShapeLayer?

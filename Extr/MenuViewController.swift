@@ -17,6 +17,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     let groupDetailViewControllerString = "GroupDetailViewController"
     let settingsViewControllerString = "SettingsViewController"
     
+    @IBOutlet var menuHeaderView: UIView!
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
@@ -66,7 +67,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        menuHeaderView.backgroundColor = AppConstants.cyan
         profileImageView.layer.cornerRadius = 22
         profileImageView.clipsToBounds = true
         
