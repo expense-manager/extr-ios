@@ -68,7 +68,6 @@ class RGroup: Object {
         if let about = dictionary[JsonKey.about] as? String {
             self.about = about
         }
-        print("dictionary: \(dictionary)")
         
         if let weeklyBudget = dictionary[JsonKey.weeklyBudget] as? String {
             self.weeklyBudget = Double(weeklyBudget)!

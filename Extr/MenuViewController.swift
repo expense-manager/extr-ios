@@ -15,6 +15,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     let groupDetailNavigationControllerString = "GroupDetailNavigationController"
     let overviewNavigationControllerString = "OverviewNavigationController"
     let settingsNavigationControllerString = "SettingsNavigationController"
+    let reportNavigationControllerString = "ReportNavigationController"
+    let notificationNavigationControllerString = "NotificationNavigationController"
     
     let menuCellString = "MenuCell"
     let overviewViewControllerString = "OverviewViewController"
@@ -73,11 +75,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     private var expenseNavigationController: UINavigationController!
     private var expenseViewController: ExpenseViewController!
     private var reportNavigationController: UINavigationController!
-    private var reportViewController: OverviewViewController!   // Temporary
+    private var reportViewController: ReportViewController!
     private var groupDetailNavigationController: UINavigationController!
     private var groupDetailViewController: GroupDetailViewController!
     private var notificationNavigationController: UINavigationController!
-    private var notificationViewController: OverviewViewController!   // Temporary
+    private var notificationViewController: NotificationViewController!
     private var settingsNavigationController: UINavigationController!
     private var settingsViewController: SettingsViewController!
     
@@ -100,12 +102,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         overviewViewController = overviewNavigationController?.viewControllers[0] as! OverviewViewController
         expenseNavigationController = storyBoard.instantiateViewController(withIdentifier: self.expenseNavigationControllerString) as! UINavigationController
         expenseViewController = expenseNavigationController?.viewControllers[0] as! ExpenseViewController
-        reportNavigationController = storyBoard.instantiateViewController(withIdentifier: self.overviewNavigationControllerString) as! UINavigationController
-        reportViewController = reportNavigationController?.viewControllers[0] as! OverviewViewController
+        reportNavigationController = storyBoard.instantiateViewController(withIdentifier: self.reportNavigationControllerString) as! UINavigationController
+        reportViewController = reportNavigationController?.viewControllers[0] as! ReportViewController
         groupDetailNavigationController = storyBoard.instantiateViewController(withIdentifier: self.groupDetailNavigationControllerString) as! UINavigationController
         groupDetailViewController = groupDetailNavigationController?.viewControllers[0] as! GroupDetailViewController
-        notificationNavigationController = storyBoard.instantiateViewController(withIdentifier: self.overviewNavigationControllerString) as! UINavigationController
-        notificationViewController = notificationNavigationController?.viewControllers[0] as! OverviewViewController
+        notificationNavigationController = storyBoard.instantiateViewController(withIdentifier: self.notificationNavigationControllerString) as! UINavigationController
+        notificationViewController = notificationNavigationController?.viewControllers[0] as! NotificationViewController
         settingsNavigationController = storyBoard.instantiateViewController(withIdentifier: self.settingsNavigationControllerString) as! UINavigationController
         settingsViewController = settingsNavigationController?.viewControllers[0] as! SettingsViewController
         

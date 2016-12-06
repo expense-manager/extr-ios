@@ -22,8 +22,10 @@ class CreateExpenseViewController: UIViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+        
+        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 56))
+        navBar.tintColor = UIColor.white
+        navBar.barTintColor = AppConstants.cyan
         
         let navItem = UINavigationItem(title: "");
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(CreateExpenseViewController.cancel))
@@ -33,14 +35,14 @@ class CreateExpenseViewController: UIViewController, UIImagePickerControllerDele
         navItem.rightBarButtonItem = doneItem;
         navBar.setItems([navItem], animated: false);
         
-        let titleImageView = UIImageView(image: UIImage(named: "Camera"))
+        let titleImageView = UIImageView(image: UIImage(named: "Camera")?.withRenderingMode(.alwaysTemplate))
         titleImageView.isUserInteractionEnabled = true
+        titleImageView.tintColor = UIColor.white
         let titleRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateExpenseViewController.titleImageViewTapped))
         titleImageView.addGestureRecognizer(titleRecognizer)
         navItem.titleView = titleImageView
         
         self.view.addSubview(navBar)
-        
         self.hideKeyboardWhenTappedAround()
     }
     

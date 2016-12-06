@@ -44,6 +44,8 @@
 		29EE3DFF1DDC010100EB695C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE3DFE1DDC010100EB695C /* MenuViewController.swift */; };
 		29EEB3471DDABEFC00503DA2 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EEB3461DDABEFC00503DA2 /* HamburgerViewController.swift */; };
 		29F485211DF65A470069D78D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F485201DF65A470069D78D /* AppConstants.swift */; };
+		29F485281DF69CCA0069D78D /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F485271DF69CCA0069D78D /* ReportViewController.swift */; };
+		29F4852B1DF6A50D0069D78D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4852A1DF6A50D0069D78D /* NotificationViewController.swift */; };
 		29FE43331DE395A200938610 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FE43321DE395A200938610 /* Helpers.swift */; };
 		3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */; };
 		3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */; };
@@ -189,6 +191,8 @@
 		29EE3DFE1DDC010100EB695C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		29EEB3461DDABEFC00503DA2 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		29F485201DF65A470069D78D /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		29F485271DF69CCA0069D78D /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		29F4852A1DF6A50D0069D78D /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		29FE43321DE395A200938610 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		3A4B908F1DD7C68700E23742 /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
@@ -298,6 +302,22 @@
 			name = Overview;
 			sourceTree = "<group>";
 		};
+		29F485261DF69C910069D78D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				29F485271DF69CCA0069D78D /* ReportViewController.swift */,
+			);
+			name = Report;
+			sourceTree = "<group>";
+		};
+		29F485291DF6A4E20069D78D /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				29F4852A1DF6A50D0069D78D /* NotificationViewController.swift */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
 		29FE43311DE3957100938610 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +375,8 @@
 		3A9248C41DD7A6AD004BBA99 /* Extr */ = {
 			isa = PBXGroup;
 			children = (
+				29F485291DF6A4E20069D78D /* Notification */,
+				29F485261DF69C910069D78D /* Report */,
 				29AE9AF21DEBFB4C002E65E9 /* Category */,
 				29FE43311DE3957100938610 /* Helpers */,
 				29C217451DE2C33D00ACDF9B /* Overview */,
@@ -686,6 +708,7 @@
 				3A9249031DD7AAF8004BBA99 /* Secrets.swift in Sources */,
 				3A64E5731DEABD7400539BC1 /* CreateButton.swift in Sources */,
 				3A84D6271DEE2FCE00C33BA4 /* SyncPhoto.swift in Sources */,
+				29F4852B1DF6A50D0069D78D /* NotificationViewController.swift in Sources */,
 				29EEB3471DDABEFC00503DA2 /* HamburgerViewController.swift in Sources */,
 				3A9249051DD7AB1A004BBA99 /* Endpoint.swift in Sources */,
 				2974D90B1DDD57F6009AD3E3 /* GroupViewController.swift in Sources */,
@@ -696,6 +719,7 @@
 				3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */,
 				298D58481DD9049600263258 /* RCategory.swift in Sources */,
 				29124DEF1DF52F30002F00A9 /* HeaderInfo.swift in Sources */,
+				29F485281DF69CCA0069D78D /* ReportViewController.swift in Sources */,
 				29FE43331DE395A200938610 /* Helpers.swift in Sources */,
 				29AF298C1DED4DEF00E03DBB /* MemberFilterViewController.swift in Sources */,
 				2955F01A1DE0E1F300780597 /* SyncGroup.swift in Sources */,
