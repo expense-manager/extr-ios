@@ -24,6 +24,7 @@ class GroupDetailViewController: UIViewController {
     
     let memberListViewControllerString = "MemberListViewController"
     
+    var hamburgerViewController: HamburgerViewController!
     var groupId: String!
     var userId: String!
     var group: RGroup! {
@@ -49,7 +50,7 @@ class GroupDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = AppConstants.cyan_deep
         createrProfileImageView.layer.cornerRadius = 25
         createrProfileImageView.clipsToBounds = true
         
@@ -61,6 +62,8 @@ class GroupDetailViewController: UIViewController {
         
         let memberViewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(toMemberList))
         memberView.addGestureRecognizer(memberViewTapRecognizer)
+        
+        self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
         
         loadData()
     }
@@ -103,6 +106,11 @@ class GroupDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func hamburgerIconTapped(_ sender: UIBarButtonItem) {
+        hamburgerViewController?.isMenu = true
+        hamburgerViewController?.attachGrayoutView()
+        hamburgerViewController?.openMenu()
+    }
 
     /*
     // MARK: - Navigation

@@ -10,7 +10,12 @@ import UIKit
 import Kingfisher
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
+    let expenseNavigationControllerString = "ExpenseNavigationController"
+    let groupDetailNavigationControllerString = "GroupDetailNavigationController"
+    let overviewNavigationControllerString = "OverviewNavigationController"
+    let settingsNavigationControllerString = "SettingsNavigationController"
+    
     let menuCellString = "MenuCell"
     let overviewViewControllerString = "OverviewViewController"
     let expenseViewControllerString = "ExpenseViewController"
@@ -28,8 +33,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             if currentIndex != nil {
                 hamburgerViewController?.containerViewController = viewControllers[currentIndex]
             }
-            // TODO - add hamburgerViewController to necessary menu view controllers
+            
+            overviewViewController.hamburgerViewController = hamburgerViewController
             expenseViewController.hamburgerViewController = hamburgerViewController
+            reportViewController.hamburgerViewController = hamburgerViewController
+            groupDetailViewController.hamburgerViewController = hamburgerViewController
+            notificationViewController.hamburgerViewController = hamburgerViewController
+            settingsViewController.hamburgerViewController = hamburgerViewController
         }
     }
     
@@ -58,11 +68,17 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     var viewControllers: [UIViewController] = []
     var currentIndex: Int!
     
+    private var overviewNavigationController: UINavigationController!
     private var overviewViewController: OverviewViewController!
+    private var expenseNavigationController: UINavigationController!
     private var expenseViewController: ExpenseViewController!
+    private var reportNavigationController: UINavigationController!
     private var reportViewController: OverviewViewController!   // Temporary
+    private var groupDetailNavigationController: UINavigationController!
     private var groupDetailViewController: GroupDetailViewController!
+    private var notificationNavigationController: UINavigationController!
     private var notificationViewController: OverviewViewController!   // Temporary
+    private var settingsNavigationController: UINavigationController!
     private var settingsViewController: SettingsViewController!
     
     override func viewDidLoad() {
@@ -79,14 +95,21 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.register(UINib(nibName: self.menuCellString, bundle: nil), forCellReuseIdentifier: self.menuCellString)
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        overviewViewController = storyBoard.instantiateViewController(withIdentifier: self.overviewViewControllerString) as! OverviewViewController
-        expenseViewController = storyBoard.instantiateViewController(withIdentifier: self.expenseViewControllerString) as! ExpenseViewController
-        reportViewController = storyBoard.instantiateViewController(withIdentifier: self.overviewViewControllerString) as! OverviewViewController
-        groupDetailViewController = storyBoard.instantiateViewController(withIdentifier: self.groupDetailViewControllerString) as! GroupDetailViewController
-        notificationViewController = storyBoard.instantiateViewController(withIdentifier: self.overviewViewControllerString) as! OverviewViewController
-        settingsViewController = storyBoard.instantiateViewController(withIdentifier: self.settingsViewControllerString) as! SettingsViewController
         
-        viewControllers = [overviewViewController, expenseViewController, reportViewController, groupDetailViewController, notificationViewController, settingsViewController]
+        overviewNavigationController = storyBoard.instantiateViewController(withIdentifier: self.overviewNavigationControllerString) as! UINavigationController
+        overviewViewController = overviewNavigationController?.viewControllers[0] as! OverviewViewController
+        expenseNavigationController = storyBoard.instantiateViewController(withIdentifier: self.expenseNavigationControllerString) as! UINavigationController
+        expenseViewController = expenseNavigationController?.viewControllers[0] as! ExpenseViewController
+        reportNavigationController = storyBoard.instantiateViewController(withIdentifier: self.overviewNavigationControllerString) as! UINavigationController
+        reportViewController = reportNavigationController?.viewControllers[0] as! OverviewViewController
+        groupDetailNavigationController = storyBoard.instantiateViewController(withIdentifier: self.groupDetailNavigationControllerString) as! UINavigationController
+        groupDetailViewController = groupDetailNavigationController?.viewControllers[0] as! GroupDetailViewController
+        notificationNavigationController = storyBoard.instantiateViewController(withIdentifier: self.overviewNavigationControllerString) as! UINavigationController
+        notificationViewController = notificationNavigationController?.viewControllers[0] as! OverviewViewController
+        settingsNavigationController = storyBoard.instantiateViewController(withIdentifier: self.settingsNavigationControllerString) as! UINavigationController
+        settingsViewController = settingsNavigationController?.viewControllers[0] as! SettingsViewController
+        
+        viewControllers = [overviewNavigationController, expenseNavigationController, reportNavigationController, groupDetailNavigationController, notificationNavigationController, settingsNavigationController]
         
         loadCurrentUser()
     }

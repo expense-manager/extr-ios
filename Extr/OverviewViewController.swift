@@ -10,10 +10,13 @@ import UIKit
 
 class OverviewViewController: UIViewController {
 
+    var hamburgerViewController: HamburgerViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("overview view controller viewDidLoad")
-        // Do any additional setup after loading the view.
+        
+        self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +24,11 @@ class OverviewViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func hamburgerIconTapped(_ sender: UIBarButtonItem) {
+        hamburgerViewController?.isMenu = true
+        hamburgerViewController?.attachGrayoutView()
+        hamburgerViewController?.openMenu()
+    }
 
     /*
     // MARK: - Navigation

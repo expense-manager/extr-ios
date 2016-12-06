@@ -114,7 +114,7 @@
             </objects>
             <point key="canvasLocation" x="-778" y="2312"/>
         </scene>
-        <!--Overview View Controller-->
+        <!--Overview-->
         <scene sceneID="mUA-Vw-7Cy">
             <objects>
                 <viewController storyboardIdentifier="OverviewViewController" id="B9b-yC-fTq" customClass="OverviewViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,7 +123,7 @@
                         <viewControllerLayoutGuide type="bottom" id="CiJ-Tk-BQU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XvR-gc-nBO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDk-59-DIk">
@@ -139,12 +139,20 @@
                             <constraint firstItem="LDk-59-DIk" firstAttribute="centerX" secondItem="XvR-gc-nBO" secondAttribute="centerXWithinMargins" id="uRF-AI-ap7"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Overview" id="nZA-Hu-pvE">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="tdP-gf-F8B">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="hamburgerIconTapped:" destination="B9b-yC-fTq" id="dX4-wY-uDr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OeX-37-L1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778" y="1594"/>
+            <point key="canvasLocation" x="160.80000000000001" y="1593.5532233883059"/>
         </scene>
-        <!--Expense View Controller-->
+        <!--Expense-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ExpenseViewController" id="BYZ-38-t0r" customClass="ExpenseViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
@@ -153,11 +161,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hkn-dl-TmQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.0" green="0.61568627450000002" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
@@ -169,6 +177,20 @@
                             <constraint firstAttribute="trailing" secondItem="hkn-dl-TmQ" secondAttribute="trailing" id="s6g-x2-2kc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Expense" id="wga-WF-SXx">
+                        <barButtonItem key="leftBarButtonItem" image="menu" style="plain" id="P6A-Rc-2Yn">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="hamburgerIconTapped:" destination="BYZ-38-t0r" id="bd5-x1-B8X"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="filter" id="y8P-kC-sza">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="filterIconTapped:" destination="BYZ-38-t0r" id="SO5-DD-lge"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hkn-dl-TmQ" id="eWH-t2-4At"/>
                         <segue destination="XVx-dN-8Fh" kind="presentation" identifier="CreateExpenseViewControllerSegue" modalPresentationStyle="fullScreen" id="Ntn-bb-Gzc"/>
@@ -176,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778" y="3072"/>
+            <point key="canvasLocation" x="160.80000000000001" y="3071.5142428785612"/>
         </scene>
         <!--Create Expense View Controller-->
         <scene sceneID="RbT-A7-kAb">
@@ -329,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mNh-iE-uJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="110" y="3072"/>
+            <point key="canvasLocation" x="1048.8" y="3071.5142428785612"/>
         </scene>
         <!--Member Filter View Controller-->
         <scene sceneID="f4z-GB-krn">
@@ -362,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLZ-T0-O5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="974" y="3073"/>
+            <point key="canvasLocation" x="1912.8" y="3072.4137931034484"/>
         </scene>
         <!--Category Filter View Controller-->
         <scene sceneID="xRq-nP-bri">
@@ -411,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvo-PB-MS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1825" y="3072"/>
+            <point key="canvasLocation" x="2764" y="3071.5142428785612"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="GZn-Fp-iB4">
@@ -642,7 +664,7 @@
             </objects>
             <point key="canvasLocation" x="110" y="780"/>
         </scene>
-        <!--Group Detail View Controller-->
+        <!--Group-->
         <scene sceneID="k3I-1d-79u">
             <objects>
                 <viewController storyboardIdentifier="GroupDetailViewController" id="wqa-6C-LTT" customClass="GroupDetailViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
@@ -651,11 +673,11 @@
                         <viewControllerLayoutGuide type="bottom" id="XEq-Hn-v3m"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Oy-Rm-aoO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRc-k2-g50" userLabel="Group Info View">
-                                <rect key="frame" x="8" y="20" width="359" height="196.5"/>
+                                <rect key="frame" x="8" y="16" width="359" height="196.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Codepath Android" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Fk-Be-a1k" userLabel="Name Label">
                                         <rect key="frame" x="16" y="16" width="327" height="20.5"/>
@@ -718,7 +740,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DP7-Oq-dzi" userLabel="Group Action View">
-                                <rect key="frame" x="8" y="233" width="359" height="258"/>
+                                <rect key="frame" x="8" y="229" width="359" height="258"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orE-Jn-uAc">
                                         <rect key="frame" x="16" y="16" width="60.5" height="21"/>
@@ -942,13 +964,21 @@
                         <color key="backgroundColor" red="0.0" green="0.61568627450000002" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IRc-k2-g50" firstAttribute="leading" secondItem="5Oy-Rm-aoO" secondAttribute="leading" constant="8" id="2E1-hn-lmp"/>
-                            <constraint firstItem="IRc-k2-g50" firstAttribute="top" secondItem="eiU-X4-qHS" secondAttribute="bottom" id="K76-Wv-auA"/>
+                            <constraint firstItem="IRc-k2-g50" firstAttribute="top" secondItem="eiU-X4-qHS" secondAttribute="bottom" constant="16" id="K76-Wv-auA"/>
                             <constraint firstItem="DP7-Oq-dzi" firstAttribute="top" secondItem="IRc-k2-g50" secondAttribute="bottom" constant="16" id="KvW-u1-EJf"/>
                             <constraint firstAttribute="trailing" secondItem="DP7-Oq-dzi" secondAttribute="trailing" constant="8" id="YDX-Mu-Hz5"/>
                             <constraint firstItem="DP7-Oq-dzi" firstAttribute="leading" secondItem="5Oy-Rm-aoO" secondAttribute="leading" constant="8" id="eRE-pz-MKM"/>
                             <constraint firstAttribute="trailing" secondItem="IRc-k2-g50" secondAttribute="trailing" constant="8" id="rdX-XY-WQw"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Group" id="ace-H1-nEI">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="EHe-7B-ZTO">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="hamburgerIconTapped:" destination="wqa-6C-LTT" id="pLR-NG-o70"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="createrProfileImageView" destination="lws-mA-dCd" id="h4d-zI-iQz"/>
                         <outlet property="groupActionsView" destination="DP7-Oq-dzi" id="sfc-Ty-f4M"/>
@@ -963,7 +993,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXp-Su-h37" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778.39999999999998" y="3870.3148425787108"/>
+            <point key="canvasLocation" x="160.80000000000001" y="3870.3148425787108"/>
         </scene>
         <!--Member List View Controller-->
         <scene sceneID="haX-Ew-3B9">
@@ -996,7 +1026,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jt-DT-mG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109.59999999999999" y="3870.3148425787108"/>
+            <point key="canvasLocation" x="1048.8" y="3870.3148425787108"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="U7I-sl-zoH">
@@ -1029,9 +1059,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6n-yp-vfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="110" y="4692"/>
+            <point key="canvasLocation" x="1048.8" y="4691.6041979010497"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Setting-->
         <scene sceneID="Q19-Vr-sOV">
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" id="ik2-AN-Xaj" customClass="SettingsViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
@@ -1040,11 +1070,11 @@
                         <viewControllerLayoutGuide type="bottom" id="zNo-ZA-r2n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bHl-F9-EdH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="967"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="903"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtE-Ir-4gZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="967"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="903"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JD5-aX-YLX">
                                         <rect key="frame" x="147" y="24" width="80" height="80"/>
@@ -1450,6 +1480,14 @@
                             <constraint firstItem="wtE-Ir-4gZ" firstAttribute="leading" secondItem="bHl-F9-EdH" secondAttribute="leading" id="o70-D0-koB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Setting" id="yE5-zH-m8c">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="4DH-n2-B1m">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="hamburgerIconTapped:" destination="ik2-AN-Xaj" id="P1r-LH-Ogm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="967"/>
                     <connections>
@@ -1461,7 +1499,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bop-RW-mAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778" y="4827"/>
+            <point key="canvasLocation" x="160.80000000000001" y="4826.5367316341835"/>
         </scene>
         <!--Group View Controller-->
         <scene sceneID="LEm-s9-Gar">
@@ -1496,12 +1534,90 @@
             </objects>
             <point key="canvasLocation" x="974" y="779"/>
         </scene>
+        <!--ExpenseNavigationController-->
+        <scene sceneID="Cw0-Ni-ims">
+            <objects>
+                <navigationController storyboardIdentifier="ExpenseNavigationController" title="ExpenseNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="fYC-Iz-bs2" customClass="ExpenseNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="6dz-xL-l8f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MRC-lz-coT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rn6-VG-EBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-778.39999999999998" y="3071.5142428785612"/>
+        </scene>
+        <!--Group Detail Navigation Controller-->
+        <scene sceneID="Sjr-bP-cer">
+            <objects>
+                <navigationController storyboardIdentifier="GroupDetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Vvy-U1-shw" customClass="GroupDetailNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="JxU-fu-rF3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.16723749339999999" green="0.92941176469999998" blue="0.14291687010000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wqa-6C-LTT" kind="relationship" relationship="rootViewController" id="WhP-Wb-rrY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RKp-f0-xeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-778.39999999999998" y="3870.3148425787108"/>
+        </scene>
+        <!--Settings Navigation Controller-->
+        <scene sceneID="YLe-Kx-P0O">
+            <objects>
+                <navigationController storyboardIdentifier="SettingsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="WYy-31-l0j" customClass="SettingsNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="gyL-sM-DiF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.10735198210000001" blue="0.096124513009999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ik2-AN-Xaj" kind="relationship" relationship="rootViewController" id="aWA-85-YHr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4eH-w4-1Vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-778" y="4692"/>
+        </scene>
+        <!--Overview Navigation Controller-->
+        <scene sceneID="iRz-gF-W58">
+            <objects>
+                <navigationController storyboardIdentifier="OverviewNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="214-qt-Dsl" customClass="OverviewNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="adG-XE-YWX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.10735198210000001" blue="0.096124513009999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="B9b-yC-fTq" kind="relationship" relationship="rootViewController" id="EYx-as-rAq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CrS-rw-94j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-778.39999999999998" y="1593.5532233883059"/>
+        </scene>
     </scenes>
     <resources>
         <image name="edit" width="48" height="48"/>
+        <image name="filter" width="24" height="24"/>
         <image name="group" width="48" height="48"/>
         <image name="invite" width="48" height="48"/>
         <image name="leave" width="48" height="48"/>
+        <image name="menu" width="24" height="24"/>
         <image name="right_arrow" width="24" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>

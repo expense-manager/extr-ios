@@ -101,7 +101,7 @@ class HamburgerViewController: UIViewController {
                 } else {
                     isMenu = false
                 }
-                containerView.addSubview(grayOutView)
+                attachGrayoutView()
             }
             originalCenterPoint = isMenu == true ? menuView.center : containerView.center
         } else if sender.state == .changed {
@@ -137,6 +137,10 @@ class HamburgerViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func attachGrayoutView() {
+        containerView.addSubview(grayOutView)
     }
     
     func openMenu() {

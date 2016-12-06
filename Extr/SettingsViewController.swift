@@ -19,6 +19,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet var categoryLabel: UILabel!
     
     let categoryViewControllerString = "CategoryViewController"
+    
+    var hamburgerViewController: HamburgerViewController!
     var groupId: String!
     var userId: String!
     var user: RUser! {
@@ -50,9 +52,9 @@ class SettingsViewController: UIViewController {
         categoryLabel.isUserInteractionEnabled = true
         categoryLabel.addGestureRecognizer(categoryTapRecognizer)
         
+        self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
+        
         loadData()
-
-        // Do any additional setup after loading the view.
     }
     
     func loadData() {
@@ -77,6 +79,12 @@ class SettingsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func hamburgerIconTapped(_ sender: UIBarButtonItem) {
+        hamburgerViewController?.isMenu = true
+        hamburgerViewController?.attachGrayoutView()
+        hamburgerViewController?.openMenu()
     }
     
 
