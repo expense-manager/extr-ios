@@ -370,7 +370,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="axw-ew-Lsn" firstAttribute="leading" secondItem="j9t-nE-Bqo" secondAttribute="leading" id="6Mv-n1-V17"/>
                             <constraint firstItem="JcV-bZ-hnw" firstAttribute="top" secondItem="axw-ew-Lsn" secondAttribute="bottom" id="Rw8-VZ-Ye0"/>
@@ -419,7 +419,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KA3-XN-ea3" firstAttribute="top" secondItem="cDb-4l-SdK" secondAttribute="bottom" id="Ief-Ai-AiG"/>
                             <constraint firstAttribute="trailing" secondItem="cDb-4l-SdK" secondAttribute="trailing" id="SSv-RW-vQR"/>
@@ -981,11 +981,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="createrProfileImageView" destination="lws-mA-dCd" id="h4d-zI-iQz"/>
+                        <outlet property="editIconImageView" destination="M6h-m3-LcQ" id="ZnN-Hf-igm"/>
                         <outlet property="groupActionsView" destination="DP7-Oq-dzi" id="sfc-Ty-f4M"/>
                         <outlet property="groupCreationInfoLabel" destination="5kd-lG-4Hp" id="EkQ-QW-Te0"/>
                         <outlet property="groupInfoView" destination="IRc-k2-g50" id="0aH-Cf-kEp"/>
                         <outlet property="groupnameLabel" destination="hFF-LJ-R3E" id="DeW-Pp-Jds"/>
+                        <outlet property="inviteIconImageView" destination="nV2-25-urc" id="Wha-yK-sBv"/>
+                        <outlet property="leaveIconImageView" destination="8VQ-N2-Yjw" id="Iwi-Ss-DoY"/>
                         <outlet property="memberCountLabel" destination="bWF-Rt-aKN" id="XSS-XN-djS"/>
+                        <outlet property="memberIconImageView" destination="rOi-qz-0O8" id="SEp-tJ-Jp7"/>
                         <outlet property="memberView" destination="hKs-IJ-nsN" id="Lp1-Jj-y1p"/>
                         <outlet property="nameLabel" destination="3Fk-Be-a1k" id="dx9-s6-RSk"/>
                         <outlet property="taglineLabel" destination="3Yl-ia-zOR" id="myO-KF-lpe"/>
@@ -1558,7 +1562,7 @@
             <objects>
                 <navigationController storyboardIdentifier="GroupDetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Vvy-U1-shw" customClass="GroupDetailNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="JxU-fu-rF3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="JxU-fu-rF3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.16723749339999999" green="0.92941176469999998" blue="0.14291687010000001" alpha="1" colorSpace="calibratedRGB"/>

@@ -30,6 +30,9 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
             invalidateViews()
         }
     }
+    var filterView = UIView()
+    var closeFilterCenterPointY: CGFloat!
+    var openFilterCenterPointY: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,13 +48,22 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         userId = userDefault.string(forKey: RMember.JsonKey.userId)
         groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
 
+        setNavigationBar()
         syncData()
         setUpCreateButton()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
+        // Menu group center points
+        openFilterCenterPointY = tableView.center.x
+        closeFilterCenterPointY = -openFilterCenterPointY
+        
+        // Gray out view
+        filterView.frame = tableView.frame
+        filterView.alpha = 0
+        filterView.backgroundColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,12 +74,16 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         loadData()
     }
     
+    func setNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
+        navigationController?.navigationBar.tintColor = UIColor.white
+    }
+    
     func invalidateViews() {
         if viewIfLoaded == nil {
             return
         }
         
-        self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
         tableView.reloadData()
     }
     
@@ -151,7 +167,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         alertController.addAction(memberAction)
         alertController.addAction(cancelAction)
         // TODO: - show filter options when click navigation bar
-        hamburgerViewController?.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
     func showDate() {
@@ -164,7 +180,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         dateFilterView.startDate = startDate
         dateFilterView.endDate = endDate
         let screenBounds = UIScreen.main.bounds
-        dateFilterView.center = CGPoint(x: screenBounds.width / 2, y: screenBounds.height / 2)
+        dateFilterView.center = CGPoint(x: screenBounds.width / 2, y: screenBounds.height / 2 - (navigationController?.navigationBar.frame.height)!)
         self.view.addSubview(grayoutView)
         self.view.addSubview(dateFilterView)
     }

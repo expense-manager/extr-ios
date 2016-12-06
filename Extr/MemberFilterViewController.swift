@@ -97,7 +97,8 @@ class MemberFilterViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.memberCell, for: indexPath) as! MemberCell
-        cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
+        cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)
+        cell.hasBorder = true
         cell.member = members[indexPath.row]
         return cell
     }
@@ -107,6 +108,7 @@ class MemberFilterViewController: UIViewController, UITableViewDelegate, UITable
         expenseViewController?.setMemberFilter(member: members[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
         self.dismiss(animated: true, completion: nil)
+        //self.view.removeFromSuperview()
     }
     
 }

@@ -26,6 +26,7 @@ class CategoryFilterViewController: UIViewController, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -102,7 +103,7 @@ class CategoryFilterViewController: UIViewController, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: categoryFilterCell, for: indexPath) as! CategoryFilterCell
-        cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
+        cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
         let category = categories[indexPath.row]
         if selectedCategory != nil && category != nil {
             cell.isSelectedCategory = selectedCategory!.id == category!.id
@@ -129,5 +130,6 @@ class CategoryFilterViewController: UIViewController, UICollectionViewDelegate, 
         expenseViewController?.setCategoryFilter(category: category)
         collectionView.deselectItem(at: indexPath, animated: true)
         self.dismiss(animated: true, completion: nil)
+        //self.view.removeFromSuperview()
     }
 }

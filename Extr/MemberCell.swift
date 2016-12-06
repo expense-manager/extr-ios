@@ -15,6 +15,7 @@ class MemberCell: UITableViewCell {
     @IBOutlet var nameView: UIView!
     @IBOutlet var nameLabel: UILabel!
     
+    var hasBorder: Bool = false
     var member: RMember! {
         didSet {
             let userId = member.userId
@@ -26,6 +27,14 @@ class MemberCell: UITableViewCell {
                 self.profileImageView.kf.setImage(with: resource, placeholder: UIImage(named:"placeholder"), options: [.transition(.fade(0.2))])
             }
             self.nameLabel.text = user?.fullname
+            
+            if hasBorder {
+                self.profileImageView.layer.borderWidth = 1
+                self.nameView.layer.borderWidth = 1
+            } else {
+                self.profileImageView.layer.borderWidth = 0
+                self.nameView.layer.borderWidth = 0
+            }
         }
     }
     
@@ -37,7 +46,7 @@ class MemberCell: UITableViewCell {
         
         self.nameView.layer.cornerRadius = 20
         self.nameView.clipsToBounds = true
-        self.nameView.layer.borderWidth = 2
+        self.profileImageView.layer.borderColor = UIColor.black.cgColor
         self.nameView.layer.borderColor = UIColor.black.cgColor
     }
 

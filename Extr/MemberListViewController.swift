@@ -59,7 +59,12 @@ class MemberListViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.register(UINib(nibName: self.memberCellString, bundle: nil), forCellReuseIdentifier: self.memberCellString)
         tableView.register(UINib(nibName: self.memberListSectionHeaderString, bundle: nil), forHeaderFooterViewReuseIdentifier: self.memberListSectionHeaderString)
         
+        setNavigationBar()
         loadData()
+    }
+    
+    func setNavigationBar() {
+        navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     func loadData() {
@@ -121,7 +126,7 @@ class MemberListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

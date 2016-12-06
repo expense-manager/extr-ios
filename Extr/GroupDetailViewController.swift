@@ -11,6 +11,10 @@ import Kingfisher
 
 class GroupDetailViewController: UIViewController {
 
+    @IBOutlet var inviteIconImageView: UIImageView!
+    @IBOutlet var memberIconImageView: UIImageView!
+    @IBOutlet var editIconImageView: UIImageView!
+    @IBOutlet var leaveIconImageView: UIImageView!
     @IBOutlet var groupInfoView: UIView!
     @IBOutlet var groupActionsView: UIView!
     @IBOutlet var nameLabel: UILabel!
@@ -63,15 +67,28 @@ class GroupDetailViewController: UIViewController {
         let memberViewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(toMemberList))
         memberView.addGestureRecognizer(memberViewTapRecognizer)
         
+        invalidateViews()
+        loadData()
+    }
+    
+    func invalidateViews() {
         self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
         
-        loadData()
+        inviteIconImageView.image = UIImage(named: "invite")?.withRenderingMode(.alwaysTemplate)
+        memberIconImageView.image = UIImage(named: "group")?.withRenderingMode(.alwaysTemplate)
+        editIconImageView.image = UIImage(named: "edit")?.withRenderingMode(.alwaysTemplate)
+        leaveIconImageView.image = UIImage(named: "leave")?.withRenderingMode(.alwaysTemplate)
+        
+        inviteIconImageView.tintColor = AppConstants.cyan
+        memberIconImageView.tintColor = UIColor.HexToColor(hexString: EColor.purple.rawValue)
+        editIconImageView.tintColor = UIColor.HexToColor(hexString: EColor.orange.rawValue)
+        leaveIconImageView.tintColor = UIColor.HexToColor(hexString: EColor.red.rawValue)
     }
     
     func toMemberList(sender : UITapGestureRecognizer) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let memberListViewController = storyBoard.instantiateViewController(withIdentifier: memberListViewControllerString) as! MemberListViewController
-        present(memberListViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(memberListViewController, animated: true)
     }
     
     func loadData() {
