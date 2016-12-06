@@ -7,25 +7,64 @@
 //
 
 import UIKit
+import CarbonKit
 
-class ReportViewController: UIViewController {
+class ReportViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
 
     var hamburgerViewController: HamburgerViewController!
+    var navigationItems = NSArray()
+    var carbonTabSwipeNavigation: CarbonTabSwipeNavigation = CarbonTabSwipeNavigation()
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        // Initialize tab bar item
+        self.tabBarItem.tag = 0
+        self.tabBarItem.title = ""
+        self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: UIControlState())
+        self.tabBarItem.selectedImage = UIImage(named: "")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        self.tabBarItem.image = UIImage(named: "")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let items = ["Weekly", "Monthly", "Yearly"]
-//        let carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items, delegate: self)
-//        carbonTabSwipeNavigation.insert(intoRootViewController: self)
+        navigationItems = ["Weekly", "Monthly", "Yearly"]
+        carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: navigationItems as [AnyObject], delegate: self)
+        carbonTabSwipeNavigation.insert(intoRootViewController: self)
+        self.applyStyle()
         
         setNavigationBar()
     }
     
-//    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
-//        return UIViewController()
-//        // TODO - implement report lists
-//    }
+    func applyStyle() {
+        let indicatorColor = UIColor(red: 84 / 255, green: 195 / 255, blue: 183 / 255, alpha: 1)
+        self.navigationController!.navigationBar.tintColor = UIColor.white
+        carbonTabSwipeNavigation.toolbar.isTranslucent = false
+        carbonTabSwipeNavigation.setIndicatorColor(indicatorColor)
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        for i in 0 ..< 3 {
+            carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(screenSize.width/3.0, forSegmentAt: i)
+        }
+        
+        carbonTabSwipeNavigation.setNormalColor(UIColor.black.withAlphaComponent(0.6))
+        carbonTabSwipeNavigation.setSelectedColor(indicatorColor, font: UIFont.boldSystemFont(ofSize: 14))
+    }
+        
+
+    //MARK: - CarbonTabSwipeNavigationDelegate
+        
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let reportDetailViewController = storyBoard.instantiateViewController(withIdentifier: "ReportDetailViewController") as! ReportDetailViewController
+        
+        return reportDetailViewController
+    }
+    
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, didMoveAt index: UInt) {
+        
+    }
     
     func setNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
@@ -37,16 +76,5 @@ class ReportViewController: UIViewController {
         hamburgerViewController?.attachGrayoutView()
         hamburgerViewController?.openMenu()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

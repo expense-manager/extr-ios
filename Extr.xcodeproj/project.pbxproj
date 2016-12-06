@@ -75,6 +75,8 @@
 		3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9249101DD7AC00004BBA99 /* RExpense.swift */; };
 		3A9AC0821DEEB6D900793801 /* Charts.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A9AC0791DEEB59500793801 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A9AC0841DEEB72200793801 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AC0831DEEB72200793801 /* ReportDetailViewController.swift */; };
+		3AA5FB2C1DF7226200B6EBCE /* CarbonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA5FB271DF7222300B6EBCE /* CarbonKit.framework */; };
+		3AA5FB2D1DF7226200B6EBCE /* CarbonKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA5FB271DF7222300B6EBCE /* CarbonKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */; };
 		3AA850921DDBE5E50035F3FE /* SyncUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA850911DDBE5E50035F3FE /* SyncUser.swift */; };
 		3AA8509A1DDBFA9C0035F3FE /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */; };
@@ -124,6 +126,27 @@
 			remoteGlobalIDString = 06165F231D8110E600722320;
 			remoteInfo = Charts;
 		};
+		3AA5FB261DF7222300B6EBCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AA5FB211DF7222300B6EBCE /* CarbonKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3AF0E4181CE3BF3B00587D9B;
+			remoteInfo = CarbonKit;
+		};
+		3AA5FB281DF7222300B6EBCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AA5FB211DF7222300B6EBCE /* CarbonKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3AF0E4221CE3BF3B00587D9B;
+			remoteInfo = CarbonKitTests;
+		};
+		3AA5FB2E1DF7226200B6EBCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AA5FB211DF7222300B6EBCE /* CarbonKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AF0E4171CE3BF3B00587D9B;
+			remoteInfo = CarbonKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -133,6 +156,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3AA5FB2D1DF7226200B6EBCE /* CarbonKit.framework in Embed Frameworks */,
 				3A9248FC1DD7AA89004BBA99 /* Realm.framework in Embed Frameworks */,
 				3A9248FA1DD7AA89004BBA99 /* Alamofire.framework in Embed Frameworks */,
 				3AA8509B1DDBFA9C0035F3FE /* Kingfisher.framework in Embed Frameworks */,
@@ -225,6 +249,7 @@
 		3A9249101DD7AC00004BBA99 /* RExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RExpense.swift; sourceTree = "<group>"; };
 		3A9AC0721DEEB59500793801 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3A9AC0831DEEB72200793801 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
+		3AA5FB211DF7222300B6EBCE /* CarbonKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CarbonKit.xcodeproj; path = CarbonKit/CarbonKit.xcodeproj; sourceTree = "<group>"; };
 		3AA8508D1DDAC1B60035F3FE /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3AA850911DDBE5E50035F3FE /* SyncUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncUser.swift; sourceTree = "<group>"; };
 		3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -235,6 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AA5FB2C1DF7226200B6EBCE /* CarbonKit.framework in Frameworks */,
 				3A9248FB1DD7AA89004BBA99 /* Realm.framework in Frameworks */,
 				3A9248F91DD7AA89004BBA99 /* Alamofire.framework in Frameworks */,
 				3AA8509A1DDBFA9C0035F3FE /* Kingfisher.framework in Frameworks */,
@@ -306,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				29F485271DF69CCA0069D78D /* ReportViewController.swift */,
+				3A9AC0831DEEB72200793801 /* ReportDetailViewController.swift */,
 			);
 			name = Report;
 			sourceTree = "<group>";
@@ -394,7 +421,6 @@
 				3A9248CC1DD7A6AD004BBA99 /* Assets.xcassets */,
 				3A9248CE1DD7A6AD004BBA99 /* LaunchScreen.storyboard */,
 				29EE3DFE1DDC010100EB695C /* MenuViewController.swift */,
-				3A9AC0831DEEB72200793801 /* ReportDetailViewController.swift */,
 				2974D90A1DDD57F6009AD3E3 /* GroupViewController.swift */,
 			);
 			path = Extr;
@@ -421,6 +447,7 @@
 		3A9249001DD7AACA004BBA99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AA5FB211DF7222300B6EBCE /* CarbonKit.xcodeproj */,
 				3A9AC0721DEEB59500793801 /* Charts.xcodeproj */,
 				3A9248F31DD7AA7B004BBA99 /* Alamofire.framework */,
 				3AA850991DDBFA9C0035F3FE /* Kingfisher.framework */,
@@ -493,6 +520,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3AA5FB221DF7222300B6EBCE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AA5FB271DF7222300B6EBCE /* CarbonKit.framework */,
+				3AA5FB291DF7222300B6EBCE /* CarbonKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3AA8508C1DDAC1970035F3FE /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +556,7 @@
 			);
 			dependencies = (
 				3A9AC07F1DEEB63C00793801 /* PBXTargetDependency */,
+				3AA5FB2F1DF7226200B6EBCE /* PBXTargetDependency */,
 			);
 			name = Extr;
 			productName = Extr;
@@ -574,7 +611,7 @@
 				TargetAttributes = {
 					3A9248C11DD7A6AD004BBA99 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = DERD3WAMLB;
+						DevelopmentTeam = Z6DQ796RKP;
 						ProvisioningStyle = Automatic;
 					};
 					3A9248D51DD7A6AD004BBA99 = {
@@ -603,6 +640,10 @@
 			productRefGroup = 3A9248C31DD7A6AD004BBA99 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 3AA5FB221DF7222300B6EBCE /* Products */;
+					ProjectRef = 3AA5FB211DF7222300B6EBCE /* CarbonKit.xcodeproj */;
+				},
 				{
 					ProductGroup = 3A9AC0731DEEB59500793801 /* Products */;
 					ProjectRef = 3A9AC0721DEEB59500793801 /* Charts.xcodeproj */;
@@ -637,6 +678,20 @@
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
 			remoteRef = 3A9AC07C1DEEB59500793801 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3AA5FB271DF7222300B6EBCE /* CarbonKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CarbonKit.framework;
+			remoteRef = 3AA5FB261DF7222300B6EBCE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3AA5FB291DF7222300B6EBCE /* CarbonKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CarbonKitTests.xctest;
+			remoteRef = 3AA5FB281DF7222300B6EBCE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -785,6 +840,11 @@
 			name = Charts;
 			targetProxy = 3A9AC07E1DEEB63C00793801 /* PBXContainerItemProxy */;
 		};
+		3AA5FB2F1DF7226200B6EBCE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CarbonKit;
+			targetProxy = 3AA5FB2E1DF7226200B6EBCE /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -905,7 +965,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = DERD3WAMLB;
+				DEVELOPMENT_TEAM = Z6DQ796RKP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -924,7 +984,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = DERD3WAMLB;
+				DEVELOPMENT_TEAM = Z6DQ796RKP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
