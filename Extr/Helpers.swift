@@ -22,9 +22,59 @@ class Helpers {
         return result
     }
     
+    static func getDateStringInfo(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy HH:mm:ss EEE"
+        return "date: \(dateFormatter.string(from: date))"
+    }
+    
+    static func getDateStringInfo(dates: [Date]) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy HH:mm:ss EEE"
+        return "dates: \(dateFormatter.string(from: dates[0])) - \(dateFormatter.string(from: dates[1]))"
+    }
+    
+    static func getMonthStartEndDateOfYear(dateInRange: Date, month: Int) -> [Date] {
+        var components = Calendar.current.dateComponents([.year, .month, .day, .weekday], from: dateInRange)
+        components.month = month
+        let targetDate = Calendar.current.date(from: components)
+        return Helpers.getMonthStartEndDate(date: targetDate!)
+    }
+    
+    static func getDayStartEndDateOfMonth(dateInRange: Date, day: Int) -> [Date] {
+        var components = Calendar.current.dateComponents([.year, .month, .day, .weekday], from: dateInRange)
+        components.day = day
+        let targetDate = Calendar.current.date(from: components)
+        return Helpers.getDayStartEndDate(date: targetDate!)
+    }
+    
+    static func getDayStartEndDateOfWeek(dateInRange: Date, day: Int) -> [Date] {
+        var components = Calendar.current.dateComponents([.year, .month, .day, .weekday], from: dateInRange)
+        components.day! -= components.weekday! - 1 - day
+        let targetDate = Calendar.current.date(from: components)
+        print("date in range" + Helpers.getDateStringInfo(date: dateInRange))
+        print("day: \(day)")
+        print("target " + Helpers.getDateStringInfo(date: targetDate!))
+        return Helpers.getDayStartEndDate(date: targetDate!)
+    }
+    
+    static func getDayStartEndDate(date: Date) -> [Date] {
+        
+        var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        let startDate = Calendar.current.date(from: components)
+        components.hour = 23
+        components.minute = 59
+        components.second = 59
+        let endDate = Calendar.current.date(from: components)
+        return [startDate!, endDate!]
+    }
+    
     static func getDayOfWeekString(day: Int) -> String {
         var components = Calendar.current.dateComponents([.year, .month, .day, .weekday], from: Date())
-        components.day! -= components.weekday! - 1 + day
+        components.day! -= components.weekday! - 1 - day
         let date = Calendar.current.date(from: components)
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE"
@@ -236,7 +286,7 @@ class Helpers {
         
         while startComponents.year! > endComponents.year! || (startComponents.year! == endComponents.year! && startComponents.weekOfYear! >= endComponents.weekOfYear!) {
             let startEnd = Helpers.getWeekStartEndDate(date: Calendar.current.date(from: startComponents)!)
-            print("getAllWeeks: week \(startEnd[0]) - \(startEnd[1])")
+            print("getAllWeeks: " + Helpers.getDateStringInfo(dates: startEnd))
             rawDates.append(startEnd)
             startComponents.day! -= 7
             startComponents.weekOfYear! -= 1

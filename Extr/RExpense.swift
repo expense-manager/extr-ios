@@ -96,7 +96,10 @@ class RExpense: Object {
         
         if let spentAtDict = dictionary[JsonKey.spentAt] as? NSDictionary {
             if let spentAtString = spentAtDict[JsonKey.iso] as? String {
+                print("description: \(self.description)")
+                print("spendAtString: \(spentAtString)")
                 if let spentAt = dateFormatter.date(from: spentAtString) {
+                    print("formatted spentAtString: \(Helpers.getDateStringInfo(date: spentAt))")
                     self.spentAt = spentAt
                 } else {
                     print("\(type(of: self).TAG): Error in parsing spentAt. spentAt: \(spentAtString)")
@@ -201,12 +204,15 @@ class RExpense: Object {
             results = results.filter("\(PropertyKey.userId) = %@", member.userId)
         }
         if let category = category {
+            print("filter -> category: \(category.name))")
             results = results.filter("\(PropertyKey.categoryId) = %@", category.id)
         }
         if let startDate = startDate {
+            print("filter -> startDate: \(Helpers.getDateStringInfo(date: startDate))")
             results = results.filter("\(PropertyKey.spentAt) >= %@", startDate)
         }
         if let endDate = endDate {
+            print("filter -> endDate: \(Helpers.getDateStringInfo(date: endDate))")
             results = results.filter("\(PropertyKey.spentAt) <= %@", endDate)
         }
         

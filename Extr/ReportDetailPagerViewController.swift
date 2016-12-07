@@ -9,16 +9,19 @@
 import UIKit
 import Charts
 
-class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
+class ReportDetailPagerViewController: UIViewController, ChartViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var barChartView: BarChartView!
     @IBOutlet var pieChartView: PieChartView!
     @IBOutlet var tableView: UITableView!
     
-    let ANIMATION_TIME_MILLISECOND: Int = 1200
+    let ANIMATION_TIME_SECOND: Double = 1.2
     let DAYS_OF_WEEK: Int = 7
     let MONTHS_OF_YEAR: Int = 12;
     let PIE_CHART_VALUE_THRESHOLD: Int = 5
+    let categoryReportPagerCellString = "CategoryReportPagerCell"
+    let timeReportPagerCellString = "TimeReportPagerCell"
+    let reportExpenseViewControllerString = "ReportExpenseViewController"
     
     var chartType: Int = 0
     var requestCode: Int = 0
@@ -40,25 +43,31 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUpBarChartView()
-        setUpPieChartView()
-        
-        let userDefaults = UserDefaults.standard
-        userId = userDefaults.string(forKey: RMember.JsonKey.userId)
-        groupId = userDefaults.string(forKey: RMember.JsonKey.groupId)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 62
+        tableView.register(UINib(nibName: categoryReportPagerCellString, bundle: nil), forCellReuseIdentifier: categoryReportPagerCellString)
+        tableView.register(UINib(nibName: timeReportPagerCellString, bundle: nil), forCellReuseIdentifier: timeReportPagerCellString)
         
         loadData()
         if chartType == ReportDetailViewController.PIE_CHART {
             setUpPieChartView()
+            setUpPieChartView()
             updatePieChartView()
         } else {
+            pieChartView.isHidden = true
+            setUpBarChartView()
             setUpBarChartView()
             updateBarChartView()
         }
     }
     
     func loadData() {
+        let userDefaults = UserDefaults.standard
+        userId = userDefaults.string(forKey: RMember.JsonKey.userId)
+        groupId = userDefaults.string(forKey: RMember.JsonKey.groupId)
+        
         if groupId == nil {
             print("No groupId saved")
             return
@@ -86,6 +95,8 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
             }
             
             amountsTime = [Double](repeating: 0, count: timeSlotsLength)
+            print("timeSlotsLength  : \(timeSlotsLength)")
+            print("amountsTime.count: \(amountsTime.count)")
             // Fetch data
             fetchTimeAndAmounts()
         }
@@ -98,7 +109,6 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
     func fetchCategoriesAndAmounts() {
         for expense in expenses {
             if let position = categoryPositionDictionary[expense.categoryId] {
-                print("position: \(position)")
                 amounts[position] += expense.amount
             } else {
                 let category = RCategory.getCategoryById(id: expense.categoryId)
@@ -154,7 +164,7 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
      */
     func setUpBarChartView() {
         // Animate chart
-        barChartView.animate(yAxisDuration: TimeInterval(ANIMATION_TIME_MILLISECOND), easingOption: .easeInCubic)
+        barChartView.animate(yAxisDuration: TimeInterval(ANIMATION_TIME_SECOND), easingOption: .easeInCubic)
         // Show description on bottom right corner
         barChartView.chartDescription?.text = nil
         // Set min value for x axis
@@ -177,11 +187,13 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
         barChartView.rightAxis.enabled = false
         // Hide left y axis
         barChartView.leftAxis.enabled = false
+        // Hide legend
+        barChartView.legend.enabled = false
     }
     
     func updateBarChartView() {
         barChartView.xAxis.valueFormatter = MyAixsValueFormatter(requestCode: requestCode, timeSlotsLength: timeSlotsLength)
-        barChartView.animate(xAxisDuration: 1000, easingOption: .easeInCubic)
+        barChartView.animate(yAxisDuration: TimeInterval(ANIMATION_TIME_SECOND), easingOption: .easeInCubic)
         
         var colors: [NSUIColor] = []
         for c in ChartColorTemplates.colorful() {
@@ -199,18 +211,19 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
         
         var entries: [BarChartDataEntry] = []
         
-        for i in 0..<timeSlotsLength - 1 {
-            entries.append(BarChartDataEntry(x: Double(i), y: amountsTime[i]))
+        for i in 1..<timeSlotsLength - 1 {
+            entries.append(BarChartDataEntry(x: Double(i), y: amountsTime[i], data: "" as AnyObject?))
         }
         
-        let dataSet = BarChartDataSet(values: entries, label: nil)
+        let dataSet = BarChartDataSet(values: entries, label: "")
         dataSet.colors = colors
-        dataSet.formSize = 10
+//        dataSet.formSize = 20
         
         let dataSets: [IBarChartDataSet] = [dataSet]
         let data = BarChartData(dataSets: dataSets)
         // Default x axis width is 1, bar width is 0.9, spacing is 0.1
-        data.barWidth = 0
+        data.barWidth = 0.8
+//        data.setValueTextSize(10f);
         data.setValueFormatter(BarValueFormatter())
         
         barChartView.data = data
@@ -248,20 +261,11 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
             barChartView.moveViewToX(Double(max(latestPosition - 6, 0)))
         default: break
         }
+    
     }
     /*
      
      // Do any additional setup after loading the view.
-     let ys1 = Array(1..<10).map { x in return sin(Double(x) / 2.0 / 3.141 * 1.5) * 100.0 }
-     
-     let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: y, label: String(x)) }
-     
-     let data = PieChartData()
-     let ds1 = PieChartDataSet(values: yse1, label: "Hello")
-     
-     ds1.colors = ChartColorTemplates.vordiplom()
-     
-     data.addDataSet(ds1)
      
      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
      paragraphStyle.lineBreakMode = .byTruncatingTail
@@ -272,27 +276,24 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
      centerText.addAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue-LightItalic", size: 13.0)!, NSForegroundColorAttributeName: UIColor(red: 51 / 255.0, green: 181 / 255.0, blue: 229 / 255.0, alpha: 1.0)], range: NSMakeRange(centerText.length - 19, 19))
      
      self.pieChartView.centerAttributedText = centerText
-     
-     self.pieChartView.data = data
-     
-     self.pieChartView.chartDescription?.text = "Piechart Demo"
-     
      }
      */
     func setUpPieChartView() {
         // Animate chart
-        pieChartView.animate(yAxisDuration: TimeInterval(ANIMATION_TIME_MILLISECOND), easingOption: .easeInCirc)
+        pieChartView.animate(yAxisDuration: TimeInterval(ANIMATION_TIME_SECOND), easingOption: .easeInCirc)
         // Show description on bottom right corner
         pieChartView.chartDescription?.text = nil
         // Disable label on pie chart
         pieChartView.drawEntryLabelsEnabled = false
         // Set legends
         let legend = pieChartView.legend
-//        legend.position = .rightOfChart
+        legend.verticalAlignment = .top
         legend.horizontalAlignment = .right
-        legend.xEntrySpace = 7
-        legend.yEntrySpace = 0
-        legend.yOffset = 0
+        legend.orientation = .vertical
+        legend.xEntrySpace = 2
+        legend.xOffset = 2
+        legend.yEntrySpace = 2
+        legend.yOffset = 10
     }
     
     func updatePieChartView() {
@@ -308,7 +309,6 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
         
         // Calculate total expense
         var totalAmount: Double = 0
-        print("categories count: \(categories.count)")
         for i in 0..<categories.count {
             totalAmount += amounts[i]
         }
@@ -325,7 +325,7 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
         let dataSet = PieChartDataSet(values: entries, label: "")
         dataSet.sliceSpace = 3
         // Set data text size
-        dataSet.formSize = 12
+        dataSet.formSize = 10
         // Add colors list
         dataSet.colors = colors
         // Create data
@@ -336,6 +336,76 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
         data.setValueFormatter(PieValueFormatter())
         
         pieChartView.data = data
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if chartType == ReportDetailViewController.PIE_CHART {
+            return categories.count
+        } else {
+            return amountsTime.count - 2
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if chartType == ReportDetailViewController.PIE_CHART {
+            let cell = tableView.dequeueReusableCell(withIdentifier: categoryReportPagerCellString, for: indexPath) as! CategoryReportPagerCell
+            cell.amount = amounts[indexPath.row]
+            cell.category = categories[indexPath.row]
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: timeReportPagerCellString, for: indexPath) as! TimeReportPagerCell
+            let pos = amountsTime.count - 2 - indexPath.row - 1
+            var timeString:String! = nil
+            
+            switch(requestCode) {
+            case ReportViewController.WEEKLY:
+                timeString = Helpers.getDayOfWeekString(day: pos);
+            case ReportViewController.MONTHLY:
+                timeString = Helpers.getDayOfMonthString(day: pos + 1);
+            case ReportViewController.YEARLY:
+                timeString = Helpers.getMonthOfYearString(month: pos + 1);
+            default: break
+            }
+            
+            cell.amount = amountsTime[pos + 1]
+            cell.timeString = timeString
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // TODO - Jump to expense list
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let reportExpenseViewController = storyBoard.instantiateViewController(withIdentifier: reportExpenseViewControllerString) as! ReportExpenseViewController
+        
+        if chartType == ReportDetailViewController.PIE_CHART {
+            print("selected category: \(categories[indexPath.row]?.name)")
+            reportExpenseViewController.category = categories[indexPath.row]
+            reportExpenseViewController.startDate = dates[0]
+            reportExpenseViewController.endDate = dates[1]
+        } else {
+            var startEnd: [Date] = []
+            
+            let pos = amountsTime.count - 2 - indexPath.row - 1
+            
+            switch requestCode {
+            case ReportViewController.WEEKLY: startEnd = Helpers.getDayStartEndDateOfWeek(dateInRange: dates[0], day: pos)
+            case ReportViewController.MONTHLY: startEnd = Helpers.getDayStartEndDateOfMonth(dateInRange: dates[0], day: pos + 1)
+            case ReportViewController.YEARLY: startEnd = Helpers.getMonthStartEndDateOfYear(dateInRange: dates[0], month: pos + 1)
+            default: break
+            }
+            
+            if startEnd.count == 0 {
+                return
+            }
+            
+            reportExpenseViewController.startDate = startEnd[0]
+            reportExpenseViewController.endDate = startEnd[1]
+        }
+        
+        print("dates: \(Helpers.getDateStringInfo(dates: dates))")
+        navigationController?.pushViewController(reportExpenseViewController, animated: true)
     }
     
     class PieValueFormatter: DefaultValueFormatter {
@@ -352,7 +422,7 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
     class BarValueFormatter: DefaultValueFormatter {
         override func stringForValue(_ value: Double, entry: ChartDataEntry,
                                      dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
-            return value != 0.0 ? Helpers.getFormattedAmount(amount: value) : ""
+            return value != 0.0 ? "$" + Helpers.getFormattedAmount(amount: value) : ""
         }
     }
     
@@ -360,8 +430,12 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
         var requestCode: Int = 0
         var timeSlotsLength: Int = 0
         
+        override init() {
+            super.init(decimals: 0)
+        }
+        
         init(requestCode: Int, timeSlotsLength: Int) {
-            super.init()
+            super.init(decimals: 0)
             self.requestCode = requestCode
             self.timeSlotsLength = timeSlotsLength
         }
@@ -370,15 +444,15 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate {
             if value == 0 || value.truncatingRemainder(dividingBy: 1) != 0 || value > Double(timeSlotsLength - 2) {
                 return ""
             }
-            let pos = Int(value)
-            
+            let pos = Int(value - 1)
+
             switch(requestCode) {
             case ReportViewController.WEEKLY:
-                return Helpers.getDayOfWeekString(day: pos);
+                return Helpers.getDayOfWeekString(day: pos)
             case ReportViewController.MONTHLY:
-                return Helpers.getDayOfMonthString(day: pos);
+                return Helpers.getDayOfMonthString(day: pos + 1)
             case ReportViewController.YEARLY:
-                return Helpers.getMonthOfYearString(month: pos);
+                return Helpers.getMonthOfYearString(month: pos + 1)
             default: break
             }
             return ""

@@ -14,6 +14,7 @@ class CategoryFilterViewController: UIViewController, UICollectionViewDelegate, 
     
     let categoryFilterCell = "CategoryFilterCell"
     var expenseViewController: ExpenseViewController!
+    var reportExpenseViewController: ReportExpenseViewController!
     var selectedCategory: RCategory?
     var userId: String!
     var groupId: String!
@@ -128,6 +129,7 @@ class CategoryFilterViewController: UIViewController, UICollectionViewDelegate, 
             category = nil
         }
         expenseViewController?.setCategoryFilter(category: category)
+        reportExpenseViewController?.setCategoryFilter(category: category)
         collectionView.deselectItem(at: indexPath, animated: true)
         self.dismiss(animated: true, completion: nil)
         //self.view.removeFromSuperview()

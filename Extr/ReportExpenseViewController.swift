@@ -1,0 +1,199 @@
+//
+//  ReportExpenseViewController.swift
+//  Extr
+//
+//  Created by Zekun Wang on 12/7/16.
+//  Copyright © 2016 Expense Manager. All rights reserved.
+//
+
+import UIKit
+import Alamofire
+
+class ReportExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet var tableView: UITableView!
+    
+    let expenseCell: String = "ExpenseCell"
+    let dateFilterViewString = "DateFilterView"
+    let memberFilterViewControllerString = "MemberFilterViewController"
+    let categoryFilterViewControllerString = "CategoryFilterViewController"
+    
+    var hamburgerViewController: HamburgerViewController!
+    var member: RMember?
+    var category: RCategory?
+    var startDate: Date?
+    var endDate: Date?
+    var userId: String!
+    var groupId: String!
+    var expenses: [RExpense] = [] {
+        didSet {
+            invalidateViews()
+        }
+    }
+    var filterView = UIView()
+    var closeFilterCenterPointY: CGFloat!
+    var openFilterCenterPointY: CGFloat!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.backgroundColor = AppConstants.cyan_deep
+        tableView.estimatedRowHeight = 62
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: expenseCell, bundle: nil), forCellReuseIdentifier: expenseCell)
+        
+        let userDefault = UserDefaults.standard
+        userId = userDefault.string(forKey: RMember.JsonKey.userId)
+        groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
+        
+        setNavigationBar()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // Menu group center points
+        openFilterCenterPointY = tableView.center.x
+        closeFilterCenterPointY = -openFilterCenterPointY
+        
+        // Gray out view
+        filterView.frame = tableView.frame
+        filterView.alpha = 0
+        filterView.backgroundColor = UIColor.white
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.setNeedsStatusBarAppearanceUpdate()
+        
+        loadData()
+        //syncData()
+    }
+    
+    func setNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
+        navigationController?.navigationBar.tintColor = UIColor.white
+    }
+    
+    func invalidateViews() {
+        if viewIfLoaded == nil {
+            return
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func loadData() {
+        print("start date: \(startDate!)")
+        print("end date: \(endDate!)")
+        if groupId == nil {
+            print("no group saved")
+            return
+        }
+        
+        print("startDate: \(Helpers.getDateStringInfo(date: startDate!))")
+        print("endDate: \(Helpers.getDateStringInfo(date: endDate!))")
+        expenses = Array(RExpense.getExpensesByFiltersAndGroupId(groupId: groupId, member: member, category: category, startDate: startDate, endDate: endDate))
+    }
+    
+    func syncData() {
+        SyncExpense.getAllExpensesByGroupId(groupId: groupId, success: { (expenses: [RExpense]) -> () in
+            self.expenses = Array(RExpense.getExpensesByFiltersAndGroupId(groupId: self.groupId, member: self.member, category: self.category, startDate: self.startDate, endDate: self.endDate))
+            print("expenses count: \(self.expenses.count)")
+        }) { (error: Error) -> () in
+            print(error)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //TODO: set up data for detail page.
+    }
+    
+    // MARK: - UITableViewDataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return expenses.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: expenseCell, for: indexPath) as! ExpenseCell
+        
+        cell.expense = expenses[indexPath.row]
+        
+        return cell
+    }
+    
+    // MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: perform detail segue
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func showFilters() {
+        let alertController = UIAlertController(title: "Filters", message: "", preferredStyle: .actionSheet)
+        let allAction = UIAlertAction(title: "All", style: .default) { (action) in
+            print("all action")
+            self.member = nil
+            self.category = nil
+            self.startDate = nil
+            self.endDate = nil
+            
+            self.loadData()
+        }
+        let categoryAction = UIAlertAction(title: "Category", style: .default) { (action) in
+            print("category action")
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let categoryFilterViewController = storyBoard.instantiateViewController(withIdentifier: self.categoryFilterViewControllerString) as! CategoryFilterViewController
+            categoryFilterViewController.reportExpenseViewController = self
+            categoryFilterViewController.selectedCategory = self.category
+            self.present(categoryFilterViewController, animated: true, completion: nil)
+        }
+        let dateAction = UIAlertAction(title: "Date", style: .default) { (action) in
+            print("date action")
+            self.showDate()
+        }
+        let memberAction = UIAlertAction(title: "Member", style: .default) { (action) in
+            print("member action")
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let memberFilterViewController = storyBoard.instantiateViewController(withIdentifier: self.memberFilterViewControllerString) as! MemberFilterViewController
+            memberFilterViewController.reportExpenseViewController = self
+            self.present(memberFilterViewController, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(allAction)
+        alertController.addAction(categoryAction)
+        alertController.addAction(dateAction)
+        alertController.addAction(memberAction)
+        alertController.addAction(cancelAction)
+        // TODO: - show filter options when click navigation bar
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showDate() {
+        let grayoutView = UIView(frame: UIScreen.main.bounds)
+        grayoutView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+        
+        let dateFilterView = UINib(nibName: dateFilterViewString, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DateFilterView
+        dateFilterView.reportExpenseViewController = self
+        dateFilterView.grayoutView = grayoutView
+        dateFilterView.startDate = startDate
+        dateFilterView.endDate = endDate
+        let screenBounds = UIScreen.main.bounds
+        dateFilterView.center = CGPoint(x: screenBounds.width / 2, y: screenBounds.height / 2 - (navigationController?.navigationBar.frame.height)!)
+        self.view.addSubview(grayoutView)
+        self.view.addSubview(dateFilterView)
+    }
+    
+    func setMemberFilter(member: RMember?) {
+        self.member = member
+        self.loadData()
+    }
+    
+    func setCategoryFilter(category: RCategory?) {
+        self.category = category
+        self.loadData()
+    }
+}

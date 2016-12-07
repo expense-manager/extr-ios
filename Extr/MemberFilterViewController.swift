@@ -13,7 +13,8 @@ class MemberFilterViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var tableView: UITableView!
     
     let memberCell = "MemberCell"
-    var expenseViewController: ExpenseViewController!
+    var expenseViewController: ExpenseViewController?
+    var reportExpenseViewController: ReportExpenseViewController?
     var userId: String!
     var groupId: String!
     var members: [RMember] = [] {
@@ -106,6 +107,7 @@ class MemberFilterViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         expenseViewController?.setMemberFilter(member: members[indexPath.row])
+        reportExpenseViewController?.setMemberFilter(member: members[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
         self.dismiss(animated: true, completion: nil)
         //self.view.removeFromSuperview()

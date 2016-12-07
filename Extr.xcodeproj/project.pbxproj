@@ -37,6 +37,11 @@
 		29AF29891DED4BD400E03DBB /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AF29871DED4BD300E03DBB /* MemberCell.swift */; };
 		29AF298A1DED4BD400E03DBB /* MemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29AF29881DED4BD300E03DBB /* MemberCell.xib */; };
 		29AF298C1DED4DEF00E03DBB /* MemberFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AF298B1DED4DEF00E03DBB /* MemberFilterViewController.swift */; };
+		29BE80AC1DF86C2A0012EB00 /* CategoryReportPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE80AA1DF86C2A0012EB00 /* CategoryReportPagerCell.swift */; };
+		29BE80AD1DF86C2A0012EB00 /* CategoryReportPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BE80AB1DF86C2A0012EB00 /* CategoryReportPagerCell.xib */; };
+		29BE80B31DF873D10012EB00 /* TimeReportPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE80B11DF873D10012EB00 /* TimeReportPagerCell.swift */; };
+		29BE80B41DF873D10012EB00 /* TimeReportPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BE80B21DF873D10012EB00 /* TimeReportPagerCell.xib */; };
+		29BE80B61DF896820012EB00 /* ReportExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE80B51DF896820012EB00 /* ReportExpenseViewController.swift */; };
 		29C217441DE2A27D00ACDF9B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C217431DE2A27D00ACDF9B /* LoginViewController.swift */; };
 		29C217471DE2C39400ACDF9B /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C217461DE2C39400ACDF9B /* OverviewViewController.swift */; };
 		29C873C71DEE0870000F67C5 /* CategoryFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C873C61DEE0870000F67C5 /* CategoryFilterViewController.swift */; };
@@ -214,6 +219,11 @@
 		29AF29871DED4BD300E03DBB /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		29AF29881DED4BD300E03DBB /* MemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberCell.xib; sourceTree = "<group>"; };
 		29AF298B1DED4DEF00E03DBB /* MemberFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberFilterViewController.swift; sourceTree = "<group>"; };
+		29BE80AA1DF86C2A0012EB00 /* CategoryReportPagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryReportPagerCell.swift; sourceTree = "<group>"; };
+		29BE80AB1DF86C2A0012EB00 /* CategoryReportPagerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryReportPagerCell.xib; sourceTree = "<group>"; };
+		29BE80B11DF873D10012EB00 /* TimeReportPagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeReportPagerCell.swift; sourceTree = "<group>"; };
+		29BE80B21DF873D10012EB00 /* TimeReportPagerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeReportPagerCell.xib; sourceTree = "<group>"; };
+		29BE80B51DF896820012EB00 /* ReportExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportExpenseViewController.swift; sourceTree = "<group>"; };
 		29C217431DE2A27D00ACDF9B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		29C217461DE2C39400ACDF9B /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		29C873C61DEE0870000F67C5 /* CategoryFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFilterViewController.swift; sourceTree = "<group>"; };
@@ -347,6 +357,7 @@
 				29092AC91DF7546F00B3985B /* ReportPagerListViewController.swift */,
 				3A9AC0831DEEB72200793801 /* ReportDetailViewController.swift */,
 				29585D991DF7BB8D00D3F4DC /* ReportDetailPagerViewController.swift */,
+				29BE80B51DF896820012EB00 /* ReportExpenseViewController.swift */,
 			);
 			name = Report;
 			sourceTree = "<group>";
@@ -377,6 +388,10 @@
 				29092ACF1DF7551C00B3985B /* ReportPagerCell.xib */,
 				29585D8E1DF7982400D3F4DC /* CategoryReportRankCell.swift */,
 				29585D8F1DF7982400D3F4DC /* CategoryReportRankCell.xib */,
+				29BE80AA1DF86C2A0012EB00 /* CategoryReportPagerCell.swift */,
+				29BE80AB1DF86C2A0012EB00 /* CategoryReportPagerCell.xib */,
+				29BE80B11DF873D10012EB00 /* TimeReportPagerCell.swift */,
+				29BE80B21DF873D10012EB00 /* TimeReportPagerCell.xib */,
 				2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */,
 				29EE3DF81DDBFB6200EB695C /* MenuCell.swift */,
 				29EE3DF91DDBFB6200EB695C /* MenuCell.xib */,
@@ -721,6 +736,7 @@
 			files = (
 				3A4B90951DD7C77F00E23742 /* ExpenseCell.xib in Resources */,
 				2971CB581DE6C4AA0027D9C9 /* CategoryCell.xib in Resources */,
+				29BE80B41DF873D10012EB00 /* TimeReportPagerCell.xib in Resources */,
 				2974D90F1DDD5C1A009AD3E3 /* GroupCell.xib in Resources */,
 				3A9248D01DD7A6AD004BBA99 /* LaunchScreen.storyboard in Resources */,
 				29EE3DFB1DDBFB6200EB695C /* MenuCell.xib in Resources */,
@@ -732,6 +748,7 @@
 				29C873D71DEE74D2000F67C5 /* DateFilterView.xib in Resources */,
 				29AF298A1DED4BD400E03DBB /* MemberCell.xib in Resources */,
 				29092AD11DF7551C00B3985B /* ReportPagerCell.xib in Resources */,
+				29BE80AD1DF86C2A0012EB00 /* CategoryReportPagerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,9 +801,12 @@
 				3A64E5731DEABD7400539BC1 /* CreateButton.swift in Sources */,
 				3A84D6271DEE2FCE00C33BA4 /* SyncPhoto.swift in Sources */,
 				29F4852B1DF6A50D0069D78D /* NotificationViewController.swift in Sources */,
+				29BE80AC1DF86C2A0012EB00 /* CategoryReportPagerCell.swift in Sources */,
 				29EEB3471DDABEFC00503DA2 /* HamburgerViewController.swift in Sources */,
 				3A9249051DD7AB1A004BBA99 /* Endpoint.swift in Sources */,
+				29BE80B31DF873D10012EB00 /* TimeReportPagerCell.swift in Sources */,
 				2974D90B1DDD57F6009AD3E3 /* GroupViewController.swift in Sources */,
+				29BE80B61DF896820012EB00 /* ReportExpenseViewController.swift in Sources */,
 				29C873C71DEE0870000F67C5 /* CategoryFilterViewController.swift in Sources */,
 				298D58461DD8F4CC00263258 /* RUser.swift in Sources */,
 				3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */,

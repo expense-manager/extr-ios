@@ -17,7 +17,8 @@ class DateFilterView: UIView {
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
     
-    var expenseViewController: ExpenseViewController!
+    var expenseViewController: ExpenseViewController?
+    var reportExpenseViewController: ReportExpenseViewController?
     var grayoutView: UIView!
     var startDate: Date! {
         didSet {
@@ -61,12 +62,16 @@ class DateFilterView: UIView {
     }
     
     func saveDates() {
-        if expenseViewController == nil {
+        if expenseViewController == nil && reportExpenseViewController == nil {
             return
         }
-        expenseViewController.startDate = startDateSwitch.isOn ? startDatePicker.date : nil
-        expenseViewController.endDate = endDateSwitch.isOn ? endDatePicker.date : nil
-        expenseViewController.loadData()
+        expenseViewController?.startDate = startDateSwitch.isOn ? startDatePicker.date : nil
+        expenseViewController?.endDate = endDateSwitch.isOn ? endDatePicker.date : nil
+        expenseViewController?.loadData()
+        
+        reportExpenseViewController?.startDate = startDateSwitch.isOn ? startDatePicker.date : nil
+        reportExpenseViewController?.endDate = endDateSwitch.isOn ? endDatePicker.date : nil
+        reportExpenseViewController?.loadData()
     }
     
     override func awakeFromNib() {
