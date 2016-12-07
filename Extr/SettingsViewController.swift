@@ -36,8 +36,8 @@ class SettingsViewController: UIViewController {
     var group: RGroup! {
         didSet {
             if group != nil {
-                weeklyBudgetAmountLabel.text = "$\(group.weeklyBudget)"
-                monthlyBudgetAmountLabel.text = "$\(group.monthlyBudget)"
+                weeklyBudgetAmountLabel.text = "$\(Helpers.getFormattedAmount(amount: group.weeklyBudget))"
+                monthlyBudgetAmountLabel.text = "$\(Helpers.getFormattedAmount(amount: group.monthlyBudget))"
             }
         }
     }

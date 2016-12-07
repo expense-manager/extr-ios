@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CategoryReportRankCell" customModule="Extr" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="145" height="132"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="145" height="132"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TdO-6o-HPu" userLabel="Background Image View">
+                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="Kd6-GG-Evp"/>
+                            <constraint firstAttribute="height" constant="35" id="keG-dZ-CbH"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cgt-VZ-mYc" userLabel="Icon Image View">
+                        <rect key="frame" x="7.5" y="7.5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="G8w-tZ-P3r"/>
+                            <constraint firstAttribute="height" constant="20" id="Q7u-18-reW"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="TdO-6o-HPu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1tG-3h-5AF"/>
+                <constraint firstItem="TdO-6o-HPu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KSX-cX-IyT"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TdO-6o-HPu" secondAttribute="bottom" id="cCR-JE-Zuh"/>
+                <constraint firstItem="Cgt-VZ-mYc" firstAttribute="centerY" secondItem="TdO-6o-HPu" secondAttribute="centerY" id="g2R-tE-fmu"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TdO-6o-HPu" secondAttribute="trailing" constant="8" id="oJ7-6A-Mzv"/>
+                <constraint firstItem="Cgt-VZ-mYc" firstAttribute="centerX" secondItem="TdO-6o-HPu" secondAttribute="centerX" id="w8k-3y-Nyh"/>
+            </constraints>
+            <size key="customSize" width="145" height="132"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="TdO-6o-HPu" id="2p2-Wl-7n7"/>
+                <outlet property="iconImageView" destination="Cgt-VZ-mYc" id="mz6-W2-Y86"/>
+            </connections>
+            <point key="canvasLocation" x="102.5" y="95"/>
+        </collectionViewCell>
+    </objects>
+</document>

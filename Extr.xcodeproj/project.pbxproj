@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29092ACA1DF7546F00B3985B /* ReportPagerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29092AC91DF7546F00B3985B /* ReportPagerListViewController.swift */; };
+		29092AD01DF7551C00B3985B /* ReportPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29092ACE1DF7551C00B3985B /* ReportPagerCell.swift */; };
+		29092AD11DF7551C00B3985B /* ReportPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29092ACF1DF7551C00B3985B /* ReportPagerCell.xib */; };
 		29124DE61DF51DC4002F00A9 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29124DE51DF51DC4002F00A9 /* MemberListViewController.swift */; };
 		29124DEC1DF51F9F002F00A9 /* MemberListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29124DEA1DF51F9F002F00A9 /* MemberListSectionHeader.swift */; };
 		29124DED1DF51F9F002F00A9 /* MemberListSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29124DEB1DF51F9F002F00A9 /* MemberListSectionHeader.xib */; };
@@ -15,6 +18,8 @@
 		2955F01C1DE106E500780597 /* SyncMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2955F01B1DE106E500780597 /* SyncMember.swift */; };
 		2955F01E1DE115B800780597 /* SyncCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2955F01D1DE115B800780597 /* SyncCategory.swift */; };
 		29580B3F1DE1639500D58BE1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29580B3E1DE1639500D58BE1 /* SettingsViewController.swift */; };
+		29585D901DF7982400D3F4DC /* CategoryReportRankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29585D8E1DF7982400D3F4DC /* CategoryReportRankCell.swift */; };
+		29585D911DF7982400D3F4DC /* CategoryReportRankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29585D8F1DF7982400D3F4DC /* CategoryReportRankCell.xib */; };
 		2971CB521DE6C1800027D9C9 /* EColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2971CB511DE6C1800027D9C9 /* EColor.swift */; };
 		2971CB541DE6C1AD0027D9C9 /* EIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2971CB531DE6C1AD0027D9C9 /* EIcon.swift */; };
 		2971CB571DE6C4AA0027D9C9 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2971CB551DE6C4AA0027D9C9 /* CategoryCell.swift */; };
@@ -178,6 +183,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		29092AC91DF7546F00B3985B /* ReportPagerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportPagerListViewController.swift; sourceTree = "<group>"; };
+		29092ACE1DF7551C00B3985B /* ReportPagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportPagerCell.swift; sourceTree = "<group>"; };
+		29092ACF1DF7551C00B3985B /* ReportPagerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportPagerCell.xib; sourceTree = "<group>"; };
 		29124DE51DF51DC4002F00A9 /* MemberListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
 		29124DEA1DF51F9F002F00A9 /* MemberListSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberListSectionHeader.swift; sourceTree = "<group>"; };
 		29124DEB1DF51F9F002F00A9 /* MemberListSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberListSectionHeader.xib; sourceTree = "<group>"; };
@@ -186,6 +194,8 @@
 		2955F01B1DE106E500780597 /* SyncMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncMember.swift; sourceTree = "<group>"; };
 		2955F01D1DE115B800780597 /* SyncCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncCategory.swift; sourceTree = "<group>"; };
 		29580B3E1DE1639500D58BE1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		29585D8E1DF7982400D3F4DC /* CategoryReportRankCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryReportRankCell.swift; sourceTree = "<group>"; };
+		29585D8F1DF7982400D3F4DC /* CategoryReportRankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryReportRankCell.xib; sourceTree = "<group>"; };
 		2971CB511DE6C1800027D9C9 /* EColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EColor.swift; sourceTree = "<group>"; };
 		2971CB531DE6C1AD0027D9C9 /* EIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIcon.swift; sourceTree = "<group>"; };
 		2971CB551DE6C4AA0027D9C9 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -332,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				29F485271DF69CCA0069D78D /* ReportViewController.swift */,
+				29092AC91DF7546F00B3985B /* ReportPagerListViewController.swift */,
 				3A9AC0831DEEB72200793801 /* ReportDetailViewController.swift */,
 			);
 			name = Report;
@@ -359,6 +370,10 @@
 				3A4B90921DD7C77F00E23742 /* ExpenseCell.swift */,
 				3A4B90931DD7C77F00E23742 /* ExpenseCell.xib */,
 				2974D90C1DDD5C1A009AD3E3 /* GroupCell.swift */,
+				29092ACE1DF7551C00B3985B /* ReportPagerCell.swift */,
+				29092ACF1DF7551C00B3985B /* ReportPagerCell.xib */,
+				29585D8E1DF7982400D3F4DC /* CategoryReportRankCell.swift */,
+				29585D8F1DF7982400D3F4DC /* CategoryReportRankCell.xib */,
 				2974D90D1DDD5C1A009AD3E3 /* GroupCell.xib */,
 				29EE3DF81DDBFB6200EB695C /* MenuCell.swift */,
 				29EE3DF91DDBFB6200EB695C /* MenuCell.xib */,
@@ -710,8 +725,10 @@
 				29124DED1DF51F9F002F00A9 /* MemberListSectionHeader.xib in Resources */,
 				3A9248CB1DD7A6AD004BBA99 /* Main.storyboard in Resources */,
 				29C873CB1DEE14BE000F67C5 /* CategoryFilterCell.xib in Resources */,
+				29585D911DF7982400D3F4DC /* CategoryReportRankCell.xib in Resources */,
 				29C873D71DEE74D2000F67C5 /* DateFilterView.xib in Resources */,
 				29AF298A1DED4BD400E03DBB /* MemberCell.xib in Resources */,
+				29092AD11DF7551C00B3985B /* ReportPagerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +797,7 @@
 				2955F01A1DE0E1F300780597 /* SyncGroup.swift in Sources */,
 				2971CB521DE6C1800027D9C9 /* EColor.swift in Sources */,
 				3A9248C61DD7A6AD004BBA99 /* AppDelegate.swift in Sources */,
+				29092AD01DF7551C00B3985B /* ReportPagerCell.swift in Sources */,
 				2974D90E1DDD5C1A009AD3E3 /* GroupCell.swift in Sources */,
 				3AA850921DDBE5E50035F3FE /* SyncUser.swift in Sources */,
 				29C873CA1DEE14BE000F67C5 /* CategoryFilterCell.swift in Sources */,
@@ -795,6 +813,7 @@
 				3A9249111DD7AC00004BBA99 /* RExpense.swift in Sources */,
 				29AF29891DED4BD400E03DBB /* MemberCell.swift in Sources */,
 				3A9AC0841DEEB72200793801 /* ReportDetailViewController.swift in Sources */,
+				29092ACA1DF7546F00B3985B /* ReportPagerListViewController.swift in Sources */,
 				3A9249071DD7AB3F004BBA99 /* EndpointBuilder.swift in Sources */,
 				2974D9151DDD7E57009AD3E3 /* GroupDetailViewController.swift in Sources */,
 				29EE3DFA1DDBFB6200EB695C /* MenuCell.swift in Sources */,
@@ -803,6 +822,7 @@
 				29580B3F1DE1639500D58BE1 /* SettingsViewController.swift in Sources */,
 				2971CB571DE6C4AA0027D9C9 /* CategoryCell.swift in Sources */,
 				29124DE61DF51DC4002F00A9 /* MemberListViewController.swift in Sources */,
+				29585D901DF7982400D3F4DC /* CategoryReportRankCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

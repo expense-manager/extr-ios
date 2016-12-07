@@ -10,7 +10,13 @@ import UIKit
 import CarbonKit
 
 class ReportViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
-
+    
+    static let WEEKLY: Int = 0
+    static let MONTHLY: Int = 1
+    static let YEARLY: Int = 2
+    
+    let reportPagerListViewControllerString = "ReportPagerListViewController"
+    
     var hamburgerViewController: HamburgerViewController!
     var navigationItems = NSArray()
     var carbonTabSwipeNavigation: CarbonTabSwipeNavigation = CarbonTabSwipeNavigation()
@@ -19,11 +25,11 @@ class ReportViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
         super.init(coder: aDecoder)
         
         // Initialize tab bar item
-        self.tabBarItem.tag = 0
-        self.tabBarItem.title = ""
-        self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: UIControlState())
-        self.tabBarItem.selectedImage = UIImage(named: "")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-        self.tabBarItem.image = UIImage(named: "")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+//        self.tabBarItem.tag = 0
+//        self.tabBarItem.title = ""
+//        self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: UIControlState())
+//        self.tabBarItem.selectedImage = UIImage(named: "")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+//        self.tabBarItem.image = UIImage(named: "")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
     }
 
     override func viewDidLoad() {
@@ -38,7 +44,7 @@ class ReportViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
     }
     
     func applyStyle() {
-        let indicatorColor = UIColor(red: 84 / 255, green: 195 / 255, blue: 183 / 255, alpha: 1)
+        let indicatorColor = UIColor.white//.withAlphaComponent(0.8)
         self.navigationController!.navigationBar.tintColor = UIColor.white
         carbonTabSwipeNavigation.toolbar.isTranslucent = false
         carbonTabSwipeNavigation.setIndicatorColor(indicatorColor)
@@ -48,8 +54,11 @@ class ReportViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
             carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(screenSize.width/3.0, forSegmentAt: i)
         }
         
-        carbonTabSwipeNavigation.setNormalColor(UIColor.black.withAlphaComponent(0.6))
-        carbonTabSwipeNavigation.setSelectedColor(indicatorColor, font: UIFont.boldSystemFont(ofSize: 14))
+        carbonTabSwipeNavigation.carbonSegmentedControl!.backgroundColor = AppConstants.cyan
+        carbonTabSwipeNavigation.setNormalColor(UIColor.white.withAlphaComponent(0.6))
+        carbonTabSwipeNavigation.setSelectedColor(UIColor.white, font: UIFont.boldSystemFont(ofSize: 14))
+        
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.selectedSegmentIndex = 1
     }
         
 
@@ -57,9 +66,15 @@ class ReportViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
         
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let reportDetailViewController = storyBoard.instantiateViewController(withIdentifier: "ReportDetailViewController") as! ReportDetailViewController
+        let reportPagerListViewController = storyBoard.instantiateViewController(withIdentifier: reportPagerListViewControllerString) as! ReportPagerListViewController
+        switch index {
+        case 0: reportPagerListViewController.requestCode = ReportViewController.WEEKLY
+        case 1: reportPagerListViewController.requestCode = ReportViewController.MONTHLY
+        case 2: reportPagerListViewController.requestCode = ReportViewController.YEARLY
+        default:reportPagerListViewController.requestCode = ReportViewController.WEEKLY
+        }
         
-        return reportDetailViewController
+        return reportPagerListViewController
     }
     
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, didMoveAt index: UInt) {

@@ -33,7 +33,7 @@ class ExpenseCell: UITableViewCell {
             
             spentAtLabel.text = Helpers.getExpenseItemDate(date: expense.spentAt)
             nameLabel.text = user?.fullname
-            amountLabel.text = "$\(expense.amount)"
+            amountLabel.text = "$\(Helpers.getFormattedAmount(amount: expense.amount))"
             
             let category = RCategory.getCategoryById(id: expense.categoryId)
             if let category = category {

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="KGk-i7-Jjw" customClass="ReportPagerCell" customModule="Extr" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsg-Bx-hKe" userLabel="Time Label">
+                        <rect key="frame" x="16" y="8" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7V-GX-KkL" userLabel="Amount Label">
+                        <rect key="frame" x="262" y="8" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZhB-Kc-XOk">
+                        <rect key="frame" x="16" y="29" width="288" height="51"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ie9-de-kaQ">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="51"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="z3b-DX-zv9">
+                                        <rect key="frame" x="0.0" y="8" width="288" height="43"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="43" id="nWb-6r-VZE"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vL7-Ia-h3O">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="z3b-DX-zv9" firstAttribute="leading" secondItem="ie9-de-kaQ" secondAttribute="leading" id="FY9-8X-fZd"/>
+                                    <constraint firstItem="z3b-DX-zv9" firstAttribute="top" secondItem="ie9-de-kaQ" secondAttribute="top" constant="8" id="NgM-0A-KyN"/>
+                                    <constraint firstAttribute="trailing" secondItem="z3b-DX-zv9" secondAttribute="trailing" id="SrH-1T-FhO"/>
+                                    <constraint firstAttribute="bottom" secondItem="z3b-DX-zv9" secondAttribute="bottom" id="rpT-bh-9qt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="P7V-GX-KkL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Dmc-QT-7FS"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ZhB-Kc-XOk" secondAttribute="bottom" constant="8" id="S1G-Uv-zsB"/>
+                    <constraint firstAttribute="trailing" secondItem="P7V-GX-KkL" secondAttribute="trailing" constant="16" id="Tik-hL-bqi"/>
+                    <constraint firstItem="ZhB-Kc-XOk" firstAttribute="top" secondItem="P7V-GX-KkL" secondAttribute="bottom" id="Xoz-hA-d54"/>
+                    <constraint firstItem="Rsg-Bx-hKe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="fu2-yK-G4F"/>
+                    <constraint firstAttribute="trailing" secondItem="ZhB-Kc-XOk" secondAttribute="trailing" constant="16" id="i74-Gj-2n9"/>
+                    <constraint firstItem="ZhB-Kc-XOk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="nJS-zr-78v"/>
+                    <constraint firstItem="Rsg-Bx-hKe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qc6-qM-ziG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="amountLabel" destination="P7V-GX-KkL" id="4E0-jg-UT7"/>
+                <outlet property="collectionView" destination="z3b-DX-zv9" id="POO-G8-coN"/>
+                <outlet property="containerView" destination="ie9-de-kaQ" id="GcV-aP-XgF"/>
+                <outlet property="timeLabel" destination="Rsg-Bx-hKe" id="dWg-Z8-j6g"/>
+            </connections>
+            <point key="canvasLocation" x="33" y="112.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8JH-gt-ig5">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8JH-gt-ig5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -80,6 +80,57 @@
             </objects>
             <point key="canvasLocation" x="-778.39999999999998" y="44.527736131934034"/>
         </scene>
+        <!--Report Pager List View Controller-->
+        <scene sceneID="v49-te-FTT">
+            <objects>
+                <viewController storyboardIdentifier="ReportPagerListViewController" id="sZz-CC-OuQ" customClass="ReportPagerListViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b5M-Gv-pHj"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Sm-lP-swp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8sQ-A3-bR8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ipi-f3-WkJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="tld-nY-xLh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXH-nQ-dWM">
+                                            <rect key="frame" x="166" y="12" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="JXH-nQ-dWM" firstAttribute="centerX" secondItem="tld-nY-xLh" secondAttribute="centerX" id="3M3-XU-B6p"/>
+                                        <constraint firstItem="JXH-nQ-dWM" firstAttribute="centerY" secondItem="tld-nY-xLh" secondAttribute="centerY" id="R1o-Di-59I"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ipi-f3-WkJ" firstAttribute="top" secondItem="8sQ-A3-bR8" secondAttribute="top" id="I5s-LV-b2D"/>
+                            <constraint firstItem="7Sm-lP-swp" firstAttribute="top" secondItem="ipi-f3-WkJ" secondAttribute="bottom" id="VgT-db-iqi"/>
+                            <constraint firstItem="ipi-f3-WkJ" firstAttribute="leading" secondItem="8sQ-A3-bR8" secondAttribute="leading" id="WA9-ey-2QU"/>
+                            <constraint firstAttribute="trailing" secondItem="ipi-f3-WkJ" secondAttribute="trailing" id="XQv-zE-ayx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="averageLabel" destination="JXH-nQ-dWM" id="ubv-Ts-RGY"/>
+                        <outlet property="tableView" destination="ipi-f3-WkJ" id="EyJ-UV-kYN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkk-0f-Rnq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048.8" y="2345.577211394303"/>
+        </scene>
         <!--Report Detail View Controller-->
         <scene sceneID="D59-w0-j8X">
             <objects>
@@ -112,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wQ-t8-Lzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="2346"/>
+            <point key="canvasLocation" x="1913" y="2346"/>
         </scene>
         <!--Overview-->
         <scene sceneID="mUA-Vw-7Cy">
