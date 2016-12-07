@@ -17,6 +17,7 @@ class ReportPagerCell: UITableViewCell, UICollectionViewDataSource, UICollection
     
     let categoryReportRankCellString = "CategoryReportRankCell"
     
+    var reportPagerListViewController: ReportPagerListViewController!
     var requestCode: Int = -1
     var dates: [Date] = [] {
         didSet {
@@ -73,6 +74,13 @@ class ReportPagerCell: UITableViewCell, UICollectionViewDataSource, UICollection
         flowLayout.itemSize = CGSize(width: 43, height: 35)
         collectionView.collectionViewLayout = flowLayout
         collectionView.isScrollEnabled = false
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(itemClicked))
+        collectionView.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func itemClicked(sender: UITapGestureRecognizer) {
+        reportPagerListViewController?.toReportDetail(dates: dates)
     }
     
     // MARK: - UICollectionViewDataSource

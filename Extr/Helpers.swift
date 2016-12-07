@@ -22,6 +22,49 @@ class Helpers {
         return result
     }
     
+    static func getDayOfWeekString(day: Int) -> String {
+        var components = Calendar.current.dateComponents([.year, .month, .day, .weekday], from: Date())
+        components.day! -= components.weekday! - 1 + day
+        let date = Calendar.current.date(from: components)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE"
+        return formatter.string(from: date!)
+    }
+    
+    static func getDayOfMonthString(day: Int) -> String {
+        switch (day % 10) {
+        case 1:
+            return "\(day)st";
+        case 2:
+            return "\(day)nd";
+        case 3:
+            return "\(day)rd";
+        default:
+            return "\(day)th";
+        }
+    }
+    
+    static func getMonthOfYearString(month: Int) -> String {
+        var components = Calendar.current.dateComponents([.year, .month, .day, .weekday], from: Date())
+        components.month = month
+        let date = Calendar.current.date(from: components)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM"
+        return formatter.string(from: date!)
+    }
+    
+    static func getDayOfWeek(date: Date) -> Int {
+        return Calendar.current.component(.weekday, from: date)
+    }
+    
+    static func getDayOfMonth(date: Date) -> Int {
+        return Calendar.current.component(.day, from: date)
+    }
+    
+    static func getMonthOfYear(date: Date) -> Int {
+        return Calendar.current.component(.month, from: date)
+    }
+    
     static func getMonthDayYear(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"

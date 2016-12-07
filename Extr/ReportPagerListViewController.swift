@@ -14,6 +14,7 @@ class ReportPagerListViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet var averageLabel: UILabel!
     
     let reportPagerCellString = "ReportPagerCell"
+    let reportDetailViewControllerString = "ReportDetailViewController"
     
     var requestCode: Int = 0
     var rawDatesList: [[Date]] = []
@@ -101,6 +102,7 @@ class ReportPagerListViewController: UIViewController, UITableViewDataSource, UI
         cell.requestCode = requestCode
         cell.dates = datesList[indexPath.row]
         cell.categoryDictionary = categoryDictionaryList[indexPath.row]
+        cell.reportPagerListViewController = self
         
         return cell
     }
@@ -109,6 +111,16 @@ class ReportPagerListViewController: UIViewController, UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: perform detail segue
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        toReportDetail(dates: datesList[indexPath.row])
+    }
+    
+    func toReportDetail(dates: [Date]) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let reportDetailViewController = storyBoard.instantiateViewController(withIdentifier: reportDetailViewControllerString) as! ReportDetailViewController
+        reportDetailViewController.requestCode = requestCode
+        reportDetailViewController.dates = dates
+        navigationController?.pushViewController(reportDetailViewController, animated: true)
     }
     
     
