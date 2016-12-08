@@ -103,6 +103,12 @@ class Helpers {
         return formatter.string(from: date!)
     }
     
+    static func getMonthOfYearString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM"
+        return formatter.string(from: date)
+    }
+    
     static func getDayOfWeek(date: Date) -> Int {
         return Calendar.current.component(.weekday, from: date)
     }

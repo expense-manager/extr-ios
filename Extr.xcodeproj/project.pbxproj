@@ -42,6 +42,7 @@
 		29BE80B31DF873D10012EB00 /* TimeReportPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE80B11DF873D10012EB00 /* TimeReportPagerCell.swift */; };
 		29BE80B41DF873D10012EB00 /* TimeReportPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BE80B21DF873D10012EB00 /* TimeReportPagerCell.xib */; };
 		29BE80B61DF896820012EB00 /* ReportExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE80B51DF896820012EB00 /* ReportExpenseViewController.swift */; };
+		29BE80BC1DF8C2C60012EB00 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE80BB1DF8C2C60012EB00 /* LevelView.swift */; };
 		29C217441DE2A27D00ACDF9B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C217431DE2A27D00ACDF9B /* LoginViewController.swift */; };
 		29C217471DE2C39400ACDF9B /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C217461DE2C39400ACDF9B /* OverviewViewController.swift */; };
 		29C873C71DEE0870000F67C5 /* CategoryFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C873C61DEE0870000F67C5 /* CategoryFilterViewController.swift */; };
@@ -224,6 +225,7 @@
 		29BE80B11DF873D10012EB00 /* TimeReportPagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeReportPagerCell.swift; sourceTree = "<group>"; };
 		29BE80B21DF873D10012EB00 /* TimeReportPagerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeReportPagerCell.xib; sourceTree = "<group>"; };
 		29BE80B51DF896820012EB00 /* ReportExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportExpenseViewController.swift; sourceTree = "<group>"; };
+		29BE80BB1DF8C2C60012EB00 /* LevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		29C217431DE2A27D00ACDF9B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		29C217461DE2C39400ACDF9B /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		29C873C61DEE0870000F67C5 /* CategoryFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFilterViewController.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				29EE3DF81DDBFB6200EB695C /* MenuCell.swift */,
 				29EE3DF91DDBFB6200EB695C /* MenuCell.xib */,
 				3A64E5721DEABD7400539BC1 /* CreateButton.swift */,
+				29BE80BB1DF8C2C60012EB00 /* LevelView.swift */,
 				2971CB551DE6C4AA0027D9C9 /* CategoryCell.swift */,
 				29C873D41DEE74B6000F67C5 /* DateFilterView.swift */,
 				29C873D61DEE74D2000F67C5 /* DateFilterView.xib */,
@@ -809,6 +812,7 @@
 				29BE80B61DF896820012EB00 /* ReportExpenseViewController.swift in Sources */,
 				29C873C71DEE0870000F67C5 /* CategoryFilterViewController.swift in Sources */,
 				298D58461DD8F4CC00263258 /* RUser.swift in Sources */,
+				29BE80BC1DF8C2C60012EB00 /* LevelView.swift in Sources */,
 				3A4B90941DD7C77F00E23742 /* ExpenseCell.swift in Sources */,
 				3AA8508E1DDAC1B60035F3FE /* WelcomeViewController.swift in Sources */,
 				3A4B90901DD7C68700E23742 /* ExpenseViewController.swift in Sources */,

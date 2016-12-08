@@ -8,26 +8,114 @@
 
 import UIKit
 
-class OverviewViewController: UIViewController {
+class OverviewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet var containerView: UIView!
+    @IBOutlet var monthLabel: UILabel!
+    @IBOutlet var monthlyLabel: UILabel!
+    @IBOutlet var monthlySpendableLabel: UILabel!
+    @IBOutlet var weeklySpendableLabel: UILabel!
+    @IBOutlet var tableView: UITableView!
+    
+    let expenseCellString = "ExpenseCell"
+    let levelViewString = "LevelView"
     var hamburgerViewController: HamburgerViewController!
+    var levelView: LevelView!
+    
+    var userId: String!
+    var groupId: String!
+    var group: RGroup!
+    var amount: Double = 0
+    var expenses: [RExpense] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("overview view controller viewDidLoad")
         
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.estimatedRowHeight = 62
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.register(UINib(nibName: expenseCellString, bundle: nil), forCellReuseIdentifier: expenseCellString)
+        
         self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
+        self.view.backgroundColor = AppConstants.cyan_deep
+        
+        addLevelView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadData()
+    }
+    
+    func addLevelView() {
+        let viewSize: CGFloat = 250
+        levelView = LevelView(frame: CGRect(x: containerView.bounds.width / 2 - viewSize / 2, y: containerView.bounds.height / 2 - viewSize / 2, width: viewSize, height: viewSize))
+        levelView.layer.borderWidth = 10
+        levelView.layer.borderColor = UIColor.white.cgColor
+        containerView.addSubview(levelView)
+    }
+    
+    func loadData() {
+        let userDefaults = UserDefaults.standard
+        userId = userDefaults.string(forKey: RMember.JsonKey.userId)
+        groupId = userDefaults.string(forKey: RMember.JsonKey.groupId)
+        
+        if groupId == nil {
+            print("No groupId saved")
+            return
+        }
+        
+        monthLabel.text = Helpers.getMonthOfYearString(date: Date())
+        group = RGroup.getGroupById(id: groupId)
+        if let group = group {
+            amount = group.monthlyBudget
+            monthlyLabel.text = "$" + Helpers.getFormattedAmount(amount: amount)
+            monthlySpendableLabel.text = "$" + Helpers.getFormattedAmount(amount: amount)
+            weeklySpendableLabel.text = "$" + Helpers.getFormattedAmount(amount: group.weeklyBudget)
+        }
+        
+        let dates = Helpers.getMonthStartEndDate(date: Date())
+        expenses = Array(RExpense.getExpensesByGroupId(groupId: groupId))
+        for expense in RExpense.getExpensesByFiltersAndGroupId(groupId: groupId, member: nil, category: nil, startDate: dates[0], endDate: dates[1]) {
+            amount -= expense.amount
+        }
+        toLevelPosition(endPosition: amount / group.monthlyBudget)
+        tableView.reloadData()
+    }
+    
+    func toLevelPosition(endPosition: Double) {
+        if endPosition > 1 || endPosition < 0 {
+            return
+        }
+        
+        levelView.endPosition = endPosition
+        levelView.play()
+        
+        let time = levelView.fullTimeInSecond * endPosition
     }
     
     @IBAction func hamburgerIconTapped(_ sender: UIBarButtonItem) {
         hamburgerViewController?.isMenu = true
         hamburgerViewController?.attachGrayoutView()
         hamburgerViewController?.openMenu()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return min(expenses.count, 3)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: expenseCellString, for: indexPath) as! ExpenseCell
+        cell.expense = expenses[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // TODO - go to detail page
     }
 
     /*
