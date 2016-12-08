@@ -52,7 +52,8 @@ class SettingsViewController: UIViewController {
         categoryLabel.isUserInteractionEnabled = true
         categoryLabel.addGestureRecognizer(categoryTapRecognizer)
         
-        self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
+        navigationController?.navigationBar.barTintColor = AppConstants.cyan
+        navigationController?.navigationBar.tintColor = UIColor.white
         
         loadData()
     }
@@ -63,6 +64,7 @@ class SettingsViewController: UIViewController {
         groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
         if userId == nil {
             print("no user saved")
+            group = nil
             return
         }
         
@@ -73,7 +75,7 @@ class SettingsViewController: UIViewController {
     func onCategoryTapped(gestureRecognizer: UIGestureRecognizer) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let categoryViewController = storyBoard.instantiateViewController(withIdentifier: categoryViewControllerString)
-        present(categoryViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(categoryViewController, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

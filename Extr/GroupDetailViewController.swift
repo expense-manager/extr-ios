@@ -97,6 +97,7 @@ class GroupDetailViewController: UIViewController {
         groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
         if groupId == nil {
             print("no group saved")
+            group = nil
             return
         }
         

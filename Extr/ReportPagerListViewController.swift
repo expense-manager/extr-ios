@@ -34,28 +34,32 @@ class ReportPagerListViewController: UIViewController, UITableViewDataSource, UI
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: reportPagerCellString, bundle: nil), forCellReuseIdentifier: reportPagerCellString)
-        
-        let userDefaults = UserDefaults.standard
-        userId = userDefaults.string(forKey: RMember.JsonKey.userId)
-        groupId = userDefaults.string(forKey: RMember.JsonKey.groupId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if groupId == nil {
-            print("No group saved")
-            return
-        }
-        
         loadData()
     }
     
-    func loadData() {
+    func resetData() {
         rawDatesList = []
         datesList = []
         expensesList = []
+        categoryDictionaryList = []
         total = 0
+        tableView.reloadData()
+    }
+    
+    func loadData() {
+        let userDefaults = UserDefaults.standard
+        userId = userDefaults.string(forKey: RMember.JsonKey.userId)
+        groupId = userDefaults.string(forKey: RMember.JsonKey.groupId)
+        if groupId == nil {
+            print("No group saved")
+            resetData()
+            return
+        }
         
         switch requestCode {
         case ReportViewController.WEEKLY: rawDatesList = Helpers.getAllWeeks(groupId: groupId)

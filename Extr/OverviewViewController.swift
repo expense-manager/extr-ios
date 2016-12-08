@@ -52,10 +52,17 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
     
     func addLevelView() {
         let viewSize: CGFloat = 250
-        levelView = LevelView(frame: CGRect(x: containerView.bounds.width / 2 - viewSize / 2, y: containerView.bounds.height / 2 - viewSize / 2, width: viewSize, height: viewSize))
+        levelView = LevelView(frame: CGRect(x: UIScreen.main.bounds.width / 2 - viewSize / 2, y: containerView.bounds.height / 2 - viewSize / 2, width: viewSize, height: viewSize))
         levelView.layer.borderWidth = 10
         levelView.layer.borderColor = UIColor.white.cgColor
         containerView.addSubview(levelView)
+    }
+    
+    func resetData() {
+        group = nil
+        amount = 0
+        expenses = []
+        tableView.reloadData()
     }
     
     func loadData() {
@@ -65,6 +72,7 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
         
         if groupId == nil {
             print("No groupId saved")
+            resetData()
             return
         }
         
@@ -82,8 +90,22 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
         for expense in RExpense.getExpensesByFiltersAndGroupId(groupId: groupId, member: nil, category: nil, startDate: dates[0], endDate: dates[1]) {
             amount -= expense.amount
         }
-        toLevelPosition(endPosition: amount / group.monthlyBudget)
+    
+        let endPosition = group.monthlyBudget != 0 ? amount / group.monthlyBudget : 1
+        toLevelPosition(endPosition: endPosition)
         tableView.reloadData()
+        monthlyLabel.text = "$" + Helpers.getFormattedAmount(amount: amount)
+        
+        syncData()
+    }
+    
+    func syncData() {
+        SyncExpense.getAllExpensesByGroupId(groupId: groupId, success: { (expenses: [RExpense]) -> () in
+            self.expenses = expenses.sorted{ $0.0.spentAt > $0.1.spentAt }
+            print("expenses count: \(self.expenses.count)")
+        }) { (error: Error) -> () in
+            print(error)
+        }
     }
     
     func toLevelPosition(endPosition: Double) {
@@ -104,6 +126,7 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.isHidden = expenses.count == 0
         return min(expenses.count, 3)
     }
     

@@ -43,14 +43,12 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: expenseCell, bundle: nil), forCellReuseIdentifier: expenseCell)
-        
-        let userDefault = UserDefaults.standard
-        userId = userDefault.string(forKey: RMember.JsonKey.userId)
-        groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
 
         setNavigationBar()
-        syncData()
         setUpCreateButton()
+        
+        loadData()
+        syncData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -88,13 +86,28 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func loadData() {
+        let userDefault = UserDefaults.standard
+        userId = userDefault.string(forKey: RMember.JsonKey.userId)
+        groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
+        
         print("start date: \(startDate)")
         if groupId == nil {
             print("no group saved")
+            resetData()
             return
         }
 
         expenses = Array(RExpense.getExpensesByFiltersAndGroupId(groupId: groupId, member: member, category: category, startDate: startDate, endDate: endDate))
+    }
+    
+    func resetData() {
+        category = nil
+        member = nil
+        startDate = nil
+        endDate = nil
+        
+        expenses = []
+        tableView.reloadData()
     }
     
     func syncData() {
@@ -199,7 +212,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         let screenSize = UIScreen.main.bounds
         
         let buttonSize: CGFloat = 50
-        let button = CreateButton(frame: CGRect(x: screenSize.width / 2 - buttonSize / 2, y: tableView.frame.maxY - buttonSize * 3 / 2, width: buttonSize, height: buttonSize))
+        let button = CreateButton(frame: CGRect(x: screenSize.width / 2 - buttonSize / 2, y: screenSize.height - buttonSize * 3 / 2 - 44, width: buttonSize, height: buttonSize))
         button.crossPadding = 10
         view.addSubview(button)
         

@@ -61,6 +61,7 @@ class HamburgerViewController: UIViewController {
         self.groupViewController = storyboard.instantiateViewController(withIdentifier: self.groupViewControllerString) as! GroupViewController
         self.menuViewController.hamburgerViewController = self
         self.groupViewController.hamburgerViewController = self
+        self.groupViewController.menuViewController = self.menuViewController
     }
     
     override func viewDidLayoutSubviews() {

@@ -20,6 +20,7 @@ class ReportViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
     var hamburgerViewController: HamburgerViewController!
     var navigationItems = NSArray()
     var carbonTabSwipeNavigation: CarbonTabSwipeNavigation = CarbonTabSwipeNavigation()
+    var viewControllers: [ReportPagerListViewController] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -31,6 +32,12 @@ class ReportViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
 //        self.tabBarItem.selectedImage = UIImage(named: "")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
 //        self.tabBarItem.image = UIImage(named: "")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
     }
+    
+    func loadData() {
+        for controller in viewControllers {
+            controller.loadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +48,12 @@ class ReportViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
         self.applyStyle()
         
         setNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadData()
     }
     
     func applyStyle() {
@@ -72,6 +85,10 @@ class ReportViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
         case 1: reportPagerListViewController.requestCode = ReportViewController.MONTHLY
         case 2: reportPagerListViewController.requestCode = ReportViewController.YEARLY
         default:reportPagerListViewController.requestCode = ReportViewController.WEEKLY
+        }
+        
+        if Int(index) >= viewControllers.count {
+            viewControllers.append(reportPagerListViewController)
         }
         
         return reportPagerListViewController

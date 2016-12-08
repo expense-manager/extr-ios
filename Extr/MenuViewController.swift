@@ -147,23 +147,25 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func selectMenuItem(index: Int) {
+        print("selecting \(index)")
         currentIndex = index
         hamburgerViewController?.containerViewController = viewControllers[index]
     }
     
     func refreshCurrentMenuView() {
+        print("selected \(index)")
         if currentIndex == nil {
             return
         }
         
 //        viewControllers = [overviewViewController, expenseViewController, reportViewController, groupDetailViewController, notificationViewController, settingsViewController]
         switch(currentIndex) {
-        case 0: break;  // overview
+        case 0: overviewViewController.loadData()
         case 1: expenseViewController.loadData()
-        case 2: break;  // report
-        case 3: break;  // group detail
+        case 2: reportViewController.loadData()
+        case 3: groupDetailViewController.loadData()
         case 4: break;  // notification
-        case 5: break;  // settings
+        case 5: settingsViewController.loadData()
         case 6: break;  // logout
         default: break
         }

@@ -47,6 +47,8 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func loadData() {
+        resetData()
+        
         let userDefault = UserDefaults.standard
         userId = userDefault.string(forKey: RMember.JsonKey.userId)
         groupId = userDefault.string(forKey: RMember.JsonKey.groupId)
@@ -63,6 +65,11 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         }) { (error: Error) -> () in
             print(error)
         }
+    }
+    
+    func resetData() {
+        categories = []
+        tableView.reloadData()
     }
     
     // MARK: - UITableViewDataSource

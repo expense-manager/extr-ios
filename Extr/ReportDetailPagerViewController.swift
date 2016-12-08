@@ -61,6 +61,8 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate, UITa
             setUpBarChartView()
             updateBarChartView()
         }
+        
+        pieChartView.delegate = self
     }
     
     func loadData() {
@@ -285,13 +287,15 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate, UITa
         pieChartView.chartDescription?.text = nil
         // Disable label on pie chart
         pieChartView.drawEntryLabelsEnabled = false
+        // Offset of pie chart
+        pieChartView.setExtraOffsets(left: 0, top: 5, right: 0, bottom: 0)
         // Set legends
         let legend = pieChartView.legend
         legend.verticalAlignment = .top
         legend.horizontalAlignment = .right
         legend.orientation = .vertical
         legend.xEntrySpace = 2
-        legend.xOffset = 2
+        legend.xOffset = UIScreen.main.bounds.width / 2 - 180
         legend.yEntrySpace = 2
         legend.yOffset = 10
     }
@@ -324,6 +328,8 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate, UITa
         // Create dataset
         let dataSet = PieChartDataSet(values: entries, label: "")
         dataSet.sliceSpace = 3
+        // Size difference from regular to selected status
+        dataSet.selectionShift = 5
         // Set data text size
         dataSet.formSize = 10
         // Add colors list
@@ -336,6 +342,11 @@ class ReportDetailPagerViewController: UIViewController, ChartViewDelegate, UITa
         data.setValueFormatter(PieValueFormatter())
         
         pieChartView.data = data
+    }
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        let en = entry as! PieChartDataEntry
+        pieChartView.centerText = en.label! + "\n" + String(en.value) + "%"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
