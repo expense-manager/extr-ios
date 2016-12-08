@@ -10,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="CategoryCell" customModule="Extr" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="199" id="KGk-i7-Jjw" customClass="CategoryCell" customModule="Extr" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kTB-Jh-DMi">
@@ -37,15 +37,25 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXH-Mn-u8r">
+                        <rect key="frame" x="0.0" y="72" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="DxW-dG-aDy"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="kTB-Jh-DMi" firstAttribute="centerY" secondItem="DDy-rI-N6s" secondAttribute="centerY" id="14I-h8-fzz"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kTB-Jh-DMi" secondAttribute="bottom" constant="16" id="DES-Gu-NZ7"/>
+                    <constraint firstItem="xXH-Mn-u8r" firstAttribute="top" secondItem="kTB-Jh-DMi" secondAttribute="bottom" constant="16" id="3xo-7q-y91"/>
+                    <constraint firstAttribute="trailing" secondItem="xXH-Mn-u8r" secondAttribute="trailing" id="6b1-EN-AzP"/>
                     <constraint firstItem="kTB-Jh-DMi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="KAE-61-zn3"/>
                     <constraint firstItem="kTB-Jh-DMi" firstAttribute="centerX" secondItem="DDy-rI-N6s" secondAttribute="centerX" id="MSX-Xf-0hK"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xXH-Mn-u8r" secondAttribute="bottom" id="WSh-5D-GYr"/>
                     <constraint firstItem="kTB-Jh-DMi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ad6-Lu-Oqt"/>
                     <constraint firstAttribute="trailing" secondItem="xSb-3l-67u" secondAttribute="trailing" constant="16" id="ao9-bA-yU7"/>
                     <constraint firstItem="xSb-3l-67u" firstAttribute="leading" secondItem="kTB-Jh-DMi" secondAttribute="trailing" constant="16" id="aw4-MR-Lau"/>
+                    <constraint firstItem="xXH-Mn-u8r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bvd-tz-txs"/>
                     <constraint firstItem="xSb-3l-67u" firstAttribute="centerY" secondItem="DDy-rI-N6s" secondAttribute="centerY" id="nis-oe-YbP"/>
                 </constraints>
             </tableViewCellContentView>
@@ -54,7 +64,7 @@
                 <outlet property="iconImageView" destination="DDy-rI-N6s" id="Mrd-PK-ShF"/>
                 <outlet property="iconLabel" destination="xSb-3l-67u" id="D5P-Tz-J0P"/>
             </connections>
-            <point key="canvasLocation" x="34" y="69.5"/>
+            <point key="canvasLocation" x="34" y="131.5"/>
         </tableViewCell>
     </objects>
 </document>

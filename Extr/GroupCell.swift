@@ -16,13 +16,14 @@ class GroupCell: UITableViewCell {
     
     var member: RMember! {
         didSet {
-            let group = RGroup.getGroupById(id: member.groupId)
-            let name = group?.name
-            if name == nil {
-                return
+            if let group = RGroup.getGroupById(id: member.groupId) {
+                let name = group.name
+                nameLabel.text = name
+                iconLabel.text = String(name[name.startIndex]).capitalized
+                let color = UIColor.HexToColor(hexString: group.color)
+                iconLabel.backgroundColor = color
+                checkImageView.tintColor = color
             }
-            nameLabel.text = name
-            iconLabel.text = String(name![name!.startIndex]).capitalized
         }
     }
     
@@ -35,12 +36,10 @@ class GroupCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        iconLabel.layer.cornerRadius = 25
+        iconLabel.layer.cornerRadius = 22
         iconLabel.clipsToBounds = true
         
         checkImageView.image = checkImageView.image?.withRenderingMode(.alwaysTemplate)
-        // TODO: update color
-        checkImageView.tintColor = UIColor.blue
         checkImageView.isHidden = true
     }
 

@@ -10,15 +10,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TimeReportPagerCell" customModule="Extr" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="91" id="KGk-i7-Jjw" customClass="TimeReportPagerCell" customModule="Extr" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVB-qH-IGW" userLabel="Time Label">
-                        <rect key="frame" x="8" y="8" width="42" height="21"/>
+                        <rect key="frame" x="8" y="8" width="42" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -29,19 +29,30 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ih5-uw-dVA">
+                        <rect key="frame" x="0.0" y="36.5" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="6hD-eQ-Xzy"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ih5-uw-dVA" firstAttribute="top" secondItem="UVB-qH-IGW" secondAttribute="bottom" constant="8" id="6Dm-ko-3EH"/>
                     <constraint firstItem="Y2a-ZU-FEI" firstAttribute="centerY" secondItem="UVB-qH-IGW" secondAttribute="centerY" id="Nlh-hB-IA5"/>
                     <constraint firstAttribute="trailing" secondItem="Y2a-ZU-FEI" secondAttribute="trailing" constant="8" id="Pdo-gR-J93"/>
+                    <constraint firstAttribute="trailing" secondItem="ih5-uw-dVA" secondAttribute="trailing" id="erT-x4-Zc6"/>
+                    <constraint firstItem="ih5-uw-dVA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="k5M-S4-trO"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ih5-uw-dVA" secondAttribute="bottom" id="nBg-Z5-zrW"/>
                     <constraint firstItem="UVB-qH-IGW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="r7q-qZ-vbN"/>
                     <constraint firstItem="UVB-qH-IGW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ruh-u7-009"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UVB-qH-IGW" secondAttribute="bottom" constant="8" id="yen-Eu-h1w"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="amountLabel" destination="Y2a-ZU-FEI" id="tuL-IB-gBM"/>
                 <outlet property="timeLabel" destination="UVB-qH-IGW" id="Ymz-Qk-HhK"/>
             </connections>
+            <point key="canvasLocation" x="35" y="77.5"/>
         </tableViewCell>
     </objects>
 </document>

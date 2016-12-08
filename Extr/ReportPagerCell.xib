@@ -59,12 +59,22 @@
                             </view>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30f-lB-s8V">
+                        <rect key="frame" x="0.0" y="88" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="CoU-f3-mVb"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="P7V-GX-KkL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Dmc-QT-7FS"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ZhB-Kc-XOk" secondAttribute="bottom" constant="8" id="S1G-Uv-zsB"/>
+                    <constraint firstItem="30f-lB-s8V" firstAttribute="top" secondItem="ZhB-Kc-XOk" secondAttribute="bottom" constant="8" id="Ouv-c4-zVJ"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="30f-lB-s8V" secondAttribute="bottom" id="RCQ-Sd-kdg"/>
+                    <constraint firstItem="30f-lB-s8V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="TTI-be-Kbc"/>
                     <constraint firstAttribute="trailing" secondItem="P7V-GX-KkL" secondAttribute="trailing" constant="16" id="Tik-hL-bqi"/>
                     <constraint firstItem="ZhB-Kc-XOk" firstAttribute="top" secondItem="P7V-GX-KkL" secondAttribute="bottom" id="Xoz-hA-d54"/>
+                    <constraint firstAttribute="trailing" secondItem="30f-lB-s8V" secondAttribute="trailing" id="d21-qF-vvm"/>
                     <constraint firstItem="Rsg-Bx-hKe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="fu2-yK-G4F"/>
                     <constraint firstAttribute="trailing" secondItem="ZhB-Kc-XOk" secondAttribute="trailing" constant="16" id="i74-Gj-2n9"/>
                     <constraint firstItem="ZhB-Kc-XOk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="nJS-zr-78v"/>

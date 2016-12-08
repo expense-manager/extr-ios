@@ -26,7 +26,11 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
     var groupId: String!
     var group: RGroup!
     var amount: Double = 0
-    var expenses: [RExpense] = []
+    var expenses: [RExpense] = [] {
+        didSet {
+            invalidateViews()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +45,41 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.navigationBar.barTintColor = AppConstants.cyan
         self.view.backgroundColor = AppConstants.cyan_deep
         
+        setUpCreateButton()
         addLevelView()
+        
+        let userDefaults = UserDefaults.standard
+        userId = userDefaults.string(forKey: RMember.JsonKey.userId)
+        groupId = userDefaults.string(forKey: RMember.JsonKey.groupId)
+        syncData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         loadData()
+    }
+    
+    func invalidateViews() {
+        tableView.reloadData()
+    }
+    
+    func setUpCreateButton() {
+        let screenSize = UIScreen.main.bounds
+        
+        let buttonSize: CGFloat = 60
+        let button = CreateButton(frame: CGRect(x: screenSize.width / 2 - buttonSize / 2, y: screenSize.height - buttonSize * 3 / 2 - 44, width: buttonSize, height: buttonSize))
+        button.crossPadding = 10
+        view.addSubview(button)
+        
+        let createButtonTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.createButtonAction(_:)))
+        createButtonTapGesture.cancelsTouchesInView = false
+        
+        button.addGestureRecognizer(createButtonTapGesture)
+    }
+    
+    func createButtonAction(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "CreateExpenseViewControllerSegue", sender: self)
     }
     
     func addLevelView() {
@@ -62,7 +94,6 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
         group = nil
         amount = 0
         expenses = []
-        tableView.reloadData()
     }
     
     func loadData() {
@@ -93,15 +124,12 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
     
         let endPosition = group.monthlyBudget != 0 ? amount / group.monthlyBudget : 1
         toLevelPosition(endPosition: endPosition)
-        tableView.reloadData()
         monthlyLabel.text = "$" + Helpers.getFormattedAmount(amount: amount)
-        
-        syncData()
     }
     
     func syncData() {
         SyncExpense.getAllExpensesByGroupId(groupId: groupId, success: { (expenses: [RExpense]) -> () in
-            self.expenses = expenses.sorted{ $0.0.spentAt > $0.1.spentAt }
+            self.loadData()
             print("expenses count: \(self.expenses.count)")
         }) { (error: Error) -> () in
             print(error)

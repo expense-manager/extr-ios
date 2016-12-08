@@ -84,6 +84,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
             })
             if self.selectedIndexPath == nil {
                 self.saveGroup(indexPath: IndexPath(row: 0, section: 0))
+                self.menuViewController?.refreshCurrentMenuView()
             }
             print("members count: \(self.members.count)")
         }) { (error: Error) -> () in

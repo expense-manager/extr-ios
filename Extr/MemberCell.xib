@@ -42,14 +42,24 @@
                             <constraint firstItem="49f-tp-cpH" firstAttribute="centerY" secondItem="0hE-Ra-hQE" secondAttribute="centerY" id="vWE-bO-MFO"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TzH-cK-0kJ">
+                        <rect key="frame" x="0.0" y="77" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="OoL-wN-kN9"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0hE-Ra-hQE" firstAttribute="leading" secondItem="3Bm-LV-4cY" secondAttribute="trailing" constant="16" id="4t1-1z-Typ"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0hE-Ra-hQE" secondAttribute="trailing" constant="16" id="5Z8-zJ-3rv"/>
+                    <constraint firstItem="TzH-cK-0kJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9wD-LK-DYx"/>
+                    <constraint firstItem="TzH-cK-0kJ" firstAttribute="top" secondItem="3Bm-LV-4cY" secondAttribute="bottom" constant="16" id="BM8-c7-BZE"/>
                     <constraint firstItem="3Bm-LV-4cY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Gh0-7t-Uqa"/>
+                    <constraint firstAttribute="trailing" secondItem="TzH-cK-0kJ" secondAttribute="trailing" id="RRW-PO-OCF"/>
                     <constraint firstItem="3Bm-LV-4cY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="U26-GS-m2Q"/>
                     <constraint firstItem="0hE-Ra-hQE" firstAttribute="centerY" secondItem="3Bm-LV-4cY" secondAttribute="centerY" id="WyS-BU-Ic4"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3Bm-LV-4cY" secondAttribute="bottom" constant="16" id="x82-Gx-Eh1"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TzH-cK-0kJ" secondAttribute="bottom" id="pgY-jK-SHC"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

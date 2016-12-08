@@ -87,9 +87,8 @@ class RGroup: Object {
             print("\(type(of: self).TAG): Error in parsing createdAt. createdAt: \(createdAtString)")
         }
         
-        // TODO - get random color at creation
-        //    // Get a random unused color
-        //    this.color = Helpers.getRandomColor(null);
+        // Get a random unused color
+        self.color = Helpers.getRandomColor()
     }
     
     static func map(dictionaries: [NSDictionary]) -> [RGroup] {

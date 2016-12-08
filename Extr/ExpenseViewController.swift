@@ -211,7 +211,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
     func setUpCreateButton() {
         let screenSize = UIScreen.main.bounds
         
-        let buttonSize: CGFloat = 50
+        let buttonSize: CGFloat = 60
         let button = CreateButton(frame: CGRect(x: screenSize.width / 2 - buttonSize / 2, y: screenSize.height - buttonSize * 3 / 2 - 44, width: buttonSize, height: buttonSize))
         button.crossPadding = 10
         view.addSubview(button)

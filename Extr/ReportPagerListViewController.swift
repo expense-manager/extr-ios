@@ -18,7 +18,11 @@ class ReportPagerListViewController: UIViewController, UITableViewDataSource, UI
     
     var requestCode: Int = 0
     var rawDatesList: [[Date]] = []
-    var datesList: [[Date]] = []
+    var datesList: [[Date]] = [] {
+        didSet {
+            invalidateViews()
+        }
+    }
     var expensesList: [[RExpense]] = []
     var categoryDictionaryList: [[String : Double]] = []
     var total: Double = 0
@@ -48,7 +52,6 @@ class ReportPagerListViewController: UIViewController, UITableViewDataSource, UI
         expensesList = []
         categoryDictionaryList = []
         total = 0
-        tableView.reloadData()
     }
     
     func loadData() {

@@ -9,6 +9,12 @@
 import Foundation
 
 class Helpers {
+    static func getRandomColor() -> String {
+        let colors = EColor.allValues
+        let randomNum:UInt32 = arc4random_uniform(UInt32(colors.count)) // range is 0 to count - 1
+        return colors[Int(randomNum)].rawValue
+    }
+    
     static func getFormattedAmount(amount: Double) -> String {
         let newAmount = String(format: "%.2f", amount)
         print("new Amount: \(newAmount)")
