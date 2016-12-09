@@ -17,6 +17,7 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var weeklySpendableLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
+    let createExpenseViewControllerString = "CreateExpenseViewController"
     let expenseCellString = "ExpenseCell"
     let levelViewString = "LevelView"
     var hamburgerViewController: HamburgerViewController!
@@ -51,7 +52,9 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
         let userDefaults = UserDefaults.standard
         userId = userDefaults.string(forKey: RMember.JsonKey.userId)
         groupId = userDefaults.string(forKey: RMember.JsonKey.groupId)
-        syncData()
+        if groupId != nil {
+            syncData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +82,10 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func createButtonAction(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "CreateExpenseViewControllerSegue", sender: self)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let createExpenseViewController = storyBoard.instantiateViewController(withIdentifier: createExpenseViewControllerString) as! CreateExpenseViewController
+        
+        present(createExpenseViewController, animated: true, completion: nil)
     }
     
     func addLevelView() {

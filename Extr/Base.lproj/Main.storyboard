@@ -489,7 +489,7 @@
         <!--Create Expense View Controller-->
         <scene sceneID="RbT-A7-kAb">
             <objects>
-                <viewController id="XVx-dN-8Fh" customClass="CreateExpenseViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateExpenseViewController" id="XVx-dN-8Fh" customClass="CreateExpenseViewController" customModule="Extr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ept-zn-lj4"/>
                         <viewControllerLayoutGuide type="bottom" id="3Hv-Iv-bdR"/>
